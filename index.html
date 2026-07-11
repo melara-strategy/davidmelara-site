@@ -1,103 +1,207 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-motion="on">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>David Melara — Estratega Comercial Senior en Salud | Farmacéutica y Dental CAD/CAM | Centroamérica</title>
-<meta name="description" content="David Melara es un estratega comercial senior en salud —farmacéutica y odontología CAD/CAM— con más de 30 años de trayectoria en Centroamérica, especializado en mercados donde la decisión de compra es técnica, compleja y basada en confianza.">
+<title>David Melara — Marketing estratégico y ejecución comercial</title>
+<meta name="description" content="Cierro la distancia entre lo que las organizaciones prometen y lo que sus clientes experimentan. Marketing estratégico y ejecución comercial en mercados especializados: industria farmacéutica y sistemas dentales CAD/CAM en Centroamérica.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "David Melara",
+  "url": "https://davidmelara.com",
+  "jobTitle": "Marketing estratégico y ejecución comercial",
+  "description": "Cierro la distancia entre lo que las organizaciones prometen y lo que sus clientes experimentan.",
+  "knowsAbout": ["Marketing estratégico", "Venta consultiva", "Experiencia del cliente", "CRM", "Industria farmacéutica", "Sistemas dentales CAD/CAM"],
+  "areaServed": "Centroamérica"
+}
+</script>
 </head>
 <body>
 
-<!-- ============================================ -->
-<!-- HERO                                          -->
-<!-- Fuente: POSITIONING_KNOWLEDGE_BASE §1, §4     -->
-<!-- ============================================ -->
-<header class="hero" id="hero">
+<a class="skip" href="#contenido">Ir al contenido</a>
 
-  <div class="hero-contenido">
-    <p class="hero-nombre">David Melara</p>
+<!-- Estela: memoria del sistema. El trazo se construye en script.js sobre los anclajes [data-estela]. -->
+<svg id="estela" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="estela-grad" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="1"></linearGradient>
+    <radialGradient id="estela-bloom" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#F2DCB3" stop-opacity=".5"/>
+      <stop offset="55%" stop-color="#E7C68F" stop-opacity=".16"/>
+      <stop offset="100%" stop-color="#E7C68F" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <!-- memoria: lo recorrido queda asentado; el presente vive en el lienzo -->
+  <g id="estela-residuo">
+    <path class="e-resplandor" fill="none"></path>
+    <path class="e-halo" fill="none"></path>
+    <path class="e-nucleo" fill="none"></path>
+  </g>
+  <g id="estela-nodos"></g>
+  <circle id="estela-origen-halo" r="17" fill="url(#estela-bloom)"></circle>
+  <circle id="estela-fin-halo" r="20" fill="url(#estela-bloom)"></circle>
+</svg>
 
-    <h1 class="hero-tesis">
-      El cliente cambia.<br>
-      La forma de crear valor también.
-    </h1>
+<!-- energía: sistema físico de partículas que recorre la trayectoria -->
+<canvas id="energia" aria-hidden="true"></canvas>
 
-    <p class="hero-posicionamiento">
-      Estratega comercial senior en salud.
-      Farmacéutica y dental CAD/CAM. Centroamérica.
-    </p>
+<!-- Los cuatro momentos: la visita como ciclo de la promesa (lenguaje público de Capacidades) -->
+<nav id="momentos" aria-label="Recorrido">
+  <span class="momento" data-m="nace">nace</span>
+  <span class="momento" data-m="acuerda">se acuerda</span>
+  <span class="momento" data-m="cumple">se cumple</span>
+  <span class="momento" data-m="recuerda">se recuerda</span>
+</nav>
 
-    <div class="hero-cta">
-      <a href="#contacto" class="cta cta-primaria">Contacto</a>
-      <a href="assets/cv-david-melara-2026.pdf" class="cta cta-secundaria">Ver CV</a>
+<main id="contenido">
+
+  <!-- ============ HERO · manifiesto · la promesa se hace ============ -->
+  <section class="sec hero" id="hero" data-moment="nace">
+    <div class="marco">
+      <header class="hero-cabecera">
+        <p class="eyebrow">David Melara</p>
+        <p class="hero-sub">Marketing estratégico y ejecución comercial</p>
+      </header>
+
+      <div class="hero-cuerpo">
+        <div class="hero-texto">
+          <h1>El cliente cambia.<br>La forma de crear valor también.</h1>
+          <p class="posicionamiento">Cierro la distancia entre lo que las organizaciones prometen y lo que sus clientes experimentan.</p>
+          <div class="cta-fila">
+            <a class="cta" href="#conversemos">Conversemos</a>
+            <!-- TODO: enlazar al CV dinámico en GitHub Pages -->
+            <a class="cta cta-secundaria" href="#">Ver CV</a>
+          </div>
+        </div>
+
+        <figure class="retrato retrato-hero">
+          <img src="assets/retrato-hero.jpg" alt="Retrato de David Melara" loading="eager">
+          <span class="anclaje" data-estela="origen" aria-hidden="true"></span>
+        </figure>
+      </div>
     </div>
+  </section>
+
+  <div class="costura" aria-hidden="true"><span class="anclaje" data-estela="izq"></span></div>
+
+  <!-- ============ SOBRE MÍ · humano, de oficio ============ -->
+  <section class="sec sobre" id="sobre-mi" data-moment="nace">
+    <div class="marco marco-lectura">
+      <p class="eyebrow eyebrow-seccion">Sobre mí</p>
+      <p class="apertura">Vender es solo la mitad del trabajo. La otra mitad —la difícil— es lograr que lo vendido llegue completo a quien lo compró.</p>
+      <p>Ese oficio lo aprendí en el terreno, no en un aula: años de visitar clientes, de escuchar quejas que nadie más quería escuchar y de llevarlas de vuelta a la empresa convertidas en mejoras concretas. El posgrado me dio el mapa; el terreno me enseñó a leerlo. De ahí viene la convicción que ordena mi trabajo: <em>el valor no se pierde donde se produce; se pierde en el camino hacia quien lo recibe.</em></p>
+      <p>Y a cuidar ese camino no se aprende en cualquier mercado. Se aprende donde equivocarse cuesta la relación.</p>
+    </div>
+  </section>
+
+  <div class="costura" aria-hidden="true"><span class="anclaje" data-estela="der"></span></div>
+
+  <!-- ============ TERRITORIO · observacional · el acuerdo se forma ============ -->
+  <section class="sec territorio" id="territorio" data-moment="acuerda">
+    <div class="marco marco-lectura">
+      <p class="eyebrow eyebrow-seccion">Territorio profesional</p>
+      <p class="apertura">Hay mercados donde el cliente no puede probar la solución antes de adquirirla. Un médico prescribe sobre evidencia y reputación. Un odontólogo confía su paciente a un laboratorio que todavía no ha visto trabajar.</p>
+      <p>En esos mercados, la decisión de compra es, en el fondo, una decisión de confianza. Y nadie compra dos veces por accidente: la primera venta la gana el argumento; la permanencia la gana la experiencia. Mi criterio se formó ahí —la industria farmacéutica y los sistemas dentales CAD/CAM en Centroamérica—, donde comunicar valor técnico con precisión y cumplir lo acordado no son virtudes comerciales, sino la condición de entrada.</p>
+      <p class="transicion">Esa condición revela algo que pocas organizaciones ven a tiempo.</p>
+    </div>
+  </section>
+
+  <div class="costura" aria-hidden="true"><span class="anclaje" data-estela="izq"></span></div>
+
+  <!-- ============ EL PROBLEMA · quirúrgico, analítico ============ -->
+  <section class="sec problema" id="problema" data-moment="acuerda">
+    <div class="marco marco-estrecho">
+      <p class="eyebrow eyebrow-seccion">El problema</p>
+      <p class="apertura">Una promesa comercial rara vez se rompe en el momento en que se hace. Se rompe después, en silencio, en cada punto donde una responsabilidad termina y otra empieza.</p>
+      <p>El mecanismo es anterior a cualquier sector, porque nace del modo en que toda organización crea valor: dividiéndolo. Nadie puede producirlo entero; el trabajo se reparte y cada parte se especializa. Esa división es lo que hace posible el valor —y es, a la vez, lo que lo degrada—: el valor se produce en las partes y se pierde en las uniones. Por eso cada parte puede ser impecable y el conjunto fallar. Dentro de la organización nadie recorre el proceso entero; el único que lo vive completo es el cliente.</p>
+      <p>Hay una segunda pérdida, más silenciosa. Todo compromiso vive primero en la memoria de las personas; si el sistema no lo recuerda por ellas, envejece con quien lo asumió y muere en el primer relevo. Y la incertidumbre que la organización no absorbe no desaparece: se exporta, intacta, a quien pagó precisamente por no tenerla.</p>
+      <p>Nada de esto es un problema de personas, y no se corrige con más esfuerzo: es una propiedad de todo sistema que divide el trabajo. La pregunta correcta no es quién falló, sino con qué se sostiene el valor mientras atraviesa las uniones. Mi trabajo consiste en responderla —encontrar la distancia entre lo que la organización promete y lo que el cliente recibe, y cerrarla—.</p>
+    </div>
+  </section>
+
+  <div class="costura" aria-hidden="true"><span class="anclaje" data-estela="lane"></span></div>
+
+  <!-- ============ CAPACIDADES · práctico, operativo · la promesa se cumple ============ -->
+  <section class="sec capacidades" id="capacidades" data-moment="cumple">
+    <div class="marco">
+      <p class="eyebrow eyebrow-seccion">Capacidades</p>
+      <p class="apertura apertura-capacidades">Toda promesa pasa por cuatro momentos: nace, se acuerda, se cumple y se recuerda. Mi trabajo es que no se caiga en ninguno de los cuatro.</p>
+
+      <ol class="capacidad-lista">
+        <li class="capacidad">
+          <span class="anclaje anclaje-cap" data-estela="lane" aria-hidden="true"></span>
+          <span class="cap-indice">01</span>
+          <div class="cap-cuerpo">
+            <h2>Marketing estratégico</h2>
+            <p>Que la promesa nazca correcta. Antes de prometerle algo al mercado hay que leerlo: a quién se le crea valor, con qué argumento y frente a qué alternativas.</p>
+          </div>
+        </li>
+        <li class="capacidad">
+          <span class="anclaje anclaje-cap" data-estela="lane" aria-hidden="true"></span>
+          <span class="cap-indice">02</span>
+          <div class="cap-cuerpo">
+            <h2>Venta consultiva</h2>
+            <p>Que se acuerde con precisión. En decisiones complejas no gana quien presiona: gana quien entiende el problema del cliente y compromete solo lo que su organización puede cumplir.</p>
+          </div>
+        </li>
+        <li class="capacidad">
+          <span class="anclaje anclaje-cap" data-estela="lane" aria-hidden="true"></span>
+          <span class="cap-indice">03</span>
+          <div class="cap-cuerpo">
+            <h2>Experiencia del cliente</h2>
+            <p>Que se cumpla en la experiencia. La primera compra la gana el argumento; todas las siguientes las gana lo que el cliente vive después de decidir.</p>
+          </div>
+        </li>
+        <li class="capacidad">
+          <span class="anclaje anclaje-cap" data-estela="lane" aria-hidden="true"></span>
+          <span class="cap-indice">04</span>
+          <div class="cap-cuerpo">
+            <h2>CRM, IA y automatización</h2>
+            <p>Que no se olvide. La tecnología no define la estrategia: le da memoria al sistema. Ningún compromiso que dependa del recuerdo de una persona, ninguna relación que se pierda en un relevo, ninguna respuesta que quede debida.</p>
+          </div>
+        </li>
+      </ol>
+
+      <p class="cierre-capacidades">Cuatro momentos. Un solo oficio.</p>
+    </div>
+  </section>
+
+  <div class="costura" aria-hidden="true"><span class="anclaje" data-estela="der"></span></div>
+
+  <!-- ============ CONVERSEMOS · cercano · la entrega ============ -->
+  <section class="sec contacto" id="conversemos" data-moment="recuerda">
+    <div class="marco marco-contacto">
+      <figure class="retrato retrato-contacto">
+        <img src="assets/retrato-contacto.jpg" alt="David Melara" loading="lazy">
+        <span class="anclaje" data-estela="fin" aria-hidden="true"></span>
+      </figure>
+      <div class="contacto-texto">
+        <p class="eyebrow eyebrow-seccion">Conversemos</p>
+        <p class="apertura">No hace falta llegar con un proyecto definido. Basta un síntoma.</p>
+        <p>Si algo de este recorrido le sonó a su empresa —un mercado que no responde, una promesa que cambia en el camino, un cliente que se enfría sin que nadie sepa por qué—, escríbame y lo conversamos.</p>
+        <p class="respondo">Respondo personalmente.</p>
+        <p class="contacto-vias">
+          <!-- TODO: sustituir por el correo profesional y el perfil de LinkedIn definitivos -->
+          <a href="mailto:">Correo profesional</a><span class="sep">·</span><a href="#">LinkedIn</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="pie">
+  <div class="marco">
+    <p class="eyebrow">David Melara · Marketing estratégico y ejecución comercial · Centroamérica</p>
   </div>
-
-  <figure class="hero-foto">
-    <img src="assets/hero-bn.jpg"
-         alt="David Melara, estratega comercial senior en salud, retrato profesional en blanco y negro">
-  </figure>
-
-</header>
-
-<!-- ============================================ -->
-<!-- TERRITORIO PROFESIONAL                        -->
-<!-- Texto congelado: TERRITORIO_TARGET_V12        -->
-<!-- ============================================ -->
-<section class="territorio" id="territorio-profesional">
-
-  <div class="eyebrow">TERRITORIO PROFESIONAL</div>
-
-  <h2 class="territorio-titulo">Mercados donde la confianza<br>define la relación comercial.</h2>
-
-  <div class="banda">
-    <canvas id="trail"></canvas>
-
-    <div class="pilar p1">
-      <div class="num">01</div>
-      <h3>MERCADO</h3>
-      <p class="lead">Mercados especializados.</p>
-      <span>Entornos donde el conocimiento técnico es condición de entrada, no ventaja diferencial.</span>
-    </div>
-
-    <div class="pilar p2">
-      <div class="num">02</div>
-      <h3>CLIENTE</h3>
-      <p class="lead">Decisiones complejas.</p>
-      <span>Procesos con múltiples actores, ciclos largos y criterios más allá del precio.</span>
-    </div>
-
-    <div class="pilar p3">
-      <div class="num">03</div>
-      <h3>COMUNICACIÓN</h3>
-      <p class="lead">Comunicación de valor.</p>
-      <span>Traducir beneficio técnico en un lenguaje que mueve decisiones dentro de la institución.</span>
-    </div>
-
-    <div class="pilar p4">
-      <div class="num">04</div>
-      <h3>RELACIONES</h3>
-      <p class="lead">Relaciones de largo plazo.</p>
-      <span>Construcción de credibilidad sostenida. No es una activación de corto plazo.</span>
-    </div>
-
-  </div>
-
-  <div class="footer-seccion">Mercados donde confiar en quien vende es parte del producto.</div>
-
-</section>
-
-<!-- ============================================ -->
-<!-- CONTACTO                                      -->
-<!-- Fuente: POSITIONING_KNOWLEDGE_BASE §6         -->
-<!-- ============================================ -->
-<footer class="contacto" id="contacto">
-  <p class="contacto-titulo">Conversaciones profesionales</p>
-  <a class="contacto-mail" href="mailto:davidmelara111@gmail.com">davidmelara111@gmail.com</a>
 </footer>
 
-<script src="script.js"></script>
-
+<noscript><style>#estela,#momentos{display:none}body::before{content:"";position:fixed;left:clamp(16px,6vw,88px);top:0;bottom:0;width:1px;background:rgba(185,155,107,.4)}</style></noscript>
+<script src="script.js" defer></script>
 </body>
 </html>
