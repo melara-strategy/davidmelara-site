@@ -1,0 +1,107 @@
+/* ==========================================================================
+   CV David Melara — extensión editorial de davidmelara.com
+   Mismo sistema: tinta profunda, hueso, hilo dorado, Newsreader + Plex Mono.
+   ========================================================================== */
+
+@font-face{font-family:'Newsreader';src:url('fonts/Newsreader.ttf');font-weight:200 800;font-style:normal}
+@font-face{font-family:'Newsreader';src:url('fonts/Newsreader-Italic.ttf');font-weight:200 800;font-style:italic}
+@font-face{font-family:'IBM Plex Mono';src:url('fonts/IBMPlexMono-Regular.ttf');font-weight:400}
+@font-face{font-family:'IBM Plex Mono';src:url('fonts/IBMPlexMono-Medium.ttf');font-weight:500}
+
+:root{
+  /* traducción a papel: marfil cálido, carbón, dorado con más cuerpo */
+  --papel:#F3F1EB; --carbon:#22261F; --niebla:#6E7268;
+  --hilo:#96753F; --hilo-tenue:rgba(150,117,63,.62);
+  --linea:rgba(34,38,31,.16); --texto:#2F332D;
+  --carril:15mm;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+@page{size:A4;margin:0}
+html,body{background:#E8E5DD}
+body{font-family:'Newsreader',serif;color:var(--carbon);
+  -webkit-print-color-adjust:exact;print-color-adjust:exact}
+
+.pagina{position:relative;width:210mm;height:297mm;background:var(--papel);
+  overflow:hidden;padding:16mm 16mm 12mm calc(var(--carril) + 10mm);
+  page-break-after:always;display:flex;flex-direction:column}
+.pagina:last-child{page-break-after:auto}
+
+/* ---------- el hilo: la estela en papel ---------- */
+.hilo{position:absolute;left:var(--carril);top:0;bottom:0;width:0;
+  border-left:.35mm solid var(--hilo-tenue)}
+.nodo{position:absolute;left:calc(-1 * (10mm + 1.1mm));top:1.2mm;
+  width:2.2mm;height:2.2mm;border-radius:50%;
+  background:var(--papel);border:.35mm solid var(--hilo)}
+.nodo-origen{background:var(--hilo)}
+.nodo-fin{background:var(--hilo);box-shadow:0 0 0 1.4mm rgba(150,117,63,.24),0 0 0 2.8mm rgba(150,117,63,.1)}
+
+/* ---------- tipografía de sistema ---------- */
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:7pt;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--niebla)}
+.eyebrow::after{content:"";display:block;width:9mm;height:.3mm;background:var(--hilo-tenue);margin-top:2.2mm}
+.eyebrow.destacado{color:var(--hilo)}
+.eyebrow.destacado::after{background:var(--hilo);height:.5mm}
+.prosa{font-size:9.6pt;line-height:1.56;color:var(--texto);font-weight:300}
+.prosa + .prosa{margin-top:3mm}
+
+/* ==================== PÁGINA 1 ==================== */
+.cabecera{display:flex;gap:9mm;align-items:flex-start}
+.identidad{flex:1;padding-top:3mm}
+.nombre{color:var(--carbon);letter-spacing:.3em;font-size:8.75pt}
+.nombre::after{display:none}
+.oficio{font-style:italic;color:var(--niebla);font-size:9.5pt;margin-top:2mm}
+.retrato{position:relative;width:56mm;flex-shrink:0;border:.3mm solid var(--linea)}
+.retrato img{display:block;width:100%;height:69mm;object-fit:cover;object-position:top}
+.p1 > .nodo-origen{left:calc(var(--carril) - 1.1mm);top:19.5mm}
+h1{font-weight:300;font-size:25.5pt;line-height:1.18;letter-spacing:-.005em;
+  margin-top:8mm;max-width:100mm}
+
+.contacto-linea{font-family:'IBM Plex Mono',monospace;font-size:7pt;letter-spacing:.05em;
+  color:var(--niebla);margin-top:5.5mm;padding-bottom:4.5mm;border-bottom:.3mm solid var(--linea)}
+
+.bloque{position:relative;margin-top:6.5mm}
+.bloque > .nodo{top:1mm}
+
+.capacidades-intro{font-size:11.5pt;font-weight:300;color:var(--carbon);
+  margin:4mm 0 2mm;max-width:120mm}
+.cap{display:flex;gap:5mm;padding:4.5mm 0;border-bottom:.3mm solid var(--linea);align-items:baseline}
+.cap:last-of-type{border-bottom:none}
+.idx{font-family:'IBM Plex Mono',monospace;font-size:7.5pt;color:var(--hilo);min-width:7mm}
+.cap h2{font-size:11pt;font-weight:500;letter-spacing:.01em;margin-bottom:1mm}
+.cap p{font-size:9pt;line-height:1.5;color:var(--texto);font-weight:300;max-width:128mm}
+.bloque .prosa{margin-top:4.5mm;max-width:150mm}
+.bloque .prosa + .prosa{margin-top:2.6mm}
+
+/* ---------- pie ---------- */
+.pie{margin-top:auto;padding-top:3.5mm;border-top:.3mm solid var(--linea);
+  display:flex;justify-content:space-between;
+  font-family:'IBM Plex Mono',monospace;font-size:6.5pt;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--niebla)}
+
+/* ==================== PÁGINA 2 ==================== */
+.p2-grid{display:flex;gap:10mm;flex:1;min-height:0}
+.trayectoria{flex:1;position:relative}
+.titulo-seccion{margin-bottom:7mm}
+
+.etapa{position:relative;padding:0 0 6.5mm;margin-bottom:6.5mm;border-bottom:.3mm solid var(--linea)}
+.etapa .nodo{top:1.4mm}
+.anios{font-family:'IBM Plex Mono',monospace;font-size:7pt;letter-spacing:.14em;color:var(--hilo)}
+.etapa h2{font-size:14pt;font-weight:500;margin-top:1.6mm;letter-spacing:.005em}
+.rol{font-family:'IBM Plex Mono',monospace;font-size:7pt;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--niebla);margin:1.4mm 0 2.6mm}
+.etapa .prosa{font-size:9.2pt;line-height:1.58;max-width:112mm}
+
+.cierre{position:relative;margin-top:8mm}
+.cierre .nodo{top:1.2mm}
+.cierre-frase{font-style:italic;color:var(--carbon);font-size:11pt}
+.cierre .contacto-linea{margin-top:3mm;padding-bottom:0;border-bottom:none}
+
+.lateral{width:52mm;flex-shrink:0;padding-top:0.5mm}
+.grupo{margin-bottom:8mm}
+.grupo .eyebrow{margin-bottom:3.5mm}
+.item{font-size:8.6pt;line-height:1.5;color:var(--texto);font-weight:300;
+  padding:2.4mm 0;border-bottom:.25mm dotted rgba(34,38,31,.18)}
+.item:last-child{border-bottom:none}
+.item strong{font-weight:500;color:var(--carbon)}
+.distincion{border-top:.3mm solid var(--hilo-tenue);padding-top:4mm}
