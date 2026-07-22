@@ -4,6 +4,30 @@
    tipografía, estela, custodia del autor. Variables: temperatura por sección.
    ========================================================================== */
 
+/* ---------- tipografía autohospedada (sin dependencias externas) ----------
+   Newsreader variable (opsz 6–72 · wght 200–800) subconjunto latino en WOFF2.
+   Elimina el CSS render-blocking de Google Fonts y la fuga de datos a terceros. */
+@font-face{
+  font-family:'Newsreader';
+  src:url('fonts/Newsreader-var.woff2') format('woff2');
+  font-weight:200 800;font-style:normal;font-display:swap;
+}
+@font-face{
+  font-family:'Newsreader';
+  src:url('fonts/Newsreader-Italic-var.woff2') format('woff2');
+  font-weight:200 800;font-style:italic;font-display:swap;
+}
+@font-face{
+  font-family:'IBM Plex Mono';
+  src:url('fonts/IBMPlexMono-Regular.woff2') format('woff2');
+  font-weight:400;font-style:normal;font-display:swap;
+}
+@font-face{
+  font-family:'IBM Plex Mono';
+  src:url('fonts/IBMPlexMono-Medium.woff2') format('woff2');
+  font-weight:500;font-style:normal;font-display:swap;
+}
+
 :root{
   --tinta:#101312;            /* lienzo único de todo el recorrido */
   --hueso:#EAE7DF;            /* texto primario */
@@ -138,9 +162,13 @@ strong{font-weight:500}
 /* ---------- HERO ---------- */
 .hero{min-height:100svh;display:flex;align-items:center;padding-top:clamp(48px,8vh,96px)}
 .hero .marco{width:100%}
-.hero-cabecera{margin-bottom:clamp(40px,9vh,110px)}
-.hero-cabecera .eyebrow{color:var(--hueso);letter-spacing:.3em}
-.hero-sub{font-style:italic;color:var(--niebla);font-size:15px;margin-top:8px}
+.hero-cabecera{margin-bottom:clamp(44px,9vh,112px)}
+/* logotipo GOLD: identidad principal, SVG vectorial, escala editorial */
+.hero-logo{display:block;width:auto;height:clamp(46px,6.4vw,74px);
+  filter:drop-shadow(0 1px 24px rgba(200,161,90,.14))}
+.hero-rol{font-family:var(--mono);font-size:11px;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--niebla);margin-top:clamp(16px,2.2vh,22px);
+  padding-left:2px}
 .hero-cuerpo{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr);
   gap:clamp(24px,4vw,56px);align-items:end}
 .hero-texto{position:relative;z-index:3;padding-bottom:clamp(24px,6vh,64px)}
@@ -155,6 +183,7 @@ strong{font-weight:500}
 
 /* ---------- retratos: la autoría ---------- */
 .retrato{position:relative;margin:0;background:#161917;border:1px solid var(--linea)}
+.retrato picture{display:block;width:100%;height:100%}
 .retrato img{display:block;width:100%;height:100%;object-fit:cover;
   filter:grayscale(1) contrast(1.08) brightness(.94)}
 .retrato.sin-imagen img{display:none}
@@ -199,6 +228,36 @@ strong{font-weight:500}
 /* ---------- pie ---------- */
 .pie{position:relative;z-index:2;border-top:1px solid var(--linea);padding:28px 0 40px}
 .pie .eyebrow{letter-spacing:.14em}
+
+/* ---------- intro: umbral de marca (secuencia ≈760 ms + disolución) ----------
+   Isotipo entra · se convierte en el logotipo MELARA · disuelve hacia el hero.
+   Sin spinner ni barra. Se muestra una vez por sesión. */
+.intro-off #intro{display:none!important}
+#intro{position:fixed;inset:0;z-index:9999;background:var(--tinta);
+  display:flex;align-items:center;justify-content:center;
+  opacity:1;transition:opacity .5s ease}
+#intro.intro-done{opacity:0;pointer-events:none}
+.intro-mark{position:relative;display:flex;flex-direction:column;align-items:center;
+  gap:clamp(16px,2.6vh,26px)}
+.intro-iso{width:clamp(64px,9vw,92px);height:auto;opacity:0}
+.intro-iso path{fill:var(--hilo)}
+.intro-word{width:clamp(148px,19vw,224px);height:auto;opacity:0}
+#intro.playing .intro-iso{animation:iso-in .60s cubic-bezier(.22,.61,.36,1) forwards}
+#intro.playing .intro-word{animation:word-in .48s cubic-bezier(.22,.61,.36,1) .24s forwards}
+@keyframes iso-in{
+  0%{opacity:0;transform:translateY(6px) scale(.94)}
+  30%{opacity:1;transform:none}
+  62%{opacity:1;transform:none}
+  100%{opacity:0;transform:translateY(-4px) scale(1.02)}
+}
+@keyframes word-in{
+  0%{opacity:0;transform:translateY(8px)}
+  100%{opacity:1;transform:none}
+}
+@media (prefers-reduced-motion: reduce){
+  #intro{transition:opacity .2s ease}
+  #intro.playing .intro-iso,#intro.playing .intro-word{animation:none;opacity:1}
+}
 
 /* ---------- responsive ---------- */
 @media(max-width:900px){
