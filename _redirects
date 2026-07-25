@@ -1,0 +1,2 @@
+# Documentación interna: versionada en el repo, nunca servida en producción.
+/docs/*   /index.html   404
