@@ -1,2 +1,5 @@
 # Documentación interna: versionada en el repo, nunca servida en producción.
-/docs/*   /index.html   404
+/docs/*                     /index.html   404
+/.impeccable/*              /index.html   404
+/DESIGN.md                  /index.html   404
+/PRODUCT.md                 /index.html   404

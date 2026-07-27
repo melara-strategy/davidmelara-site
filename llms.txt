@@ -1,68 +1,95 @@
-# David Melara
+# Los cuatro momentos de una promesa comercial
 
-> David Melara es un estratega de marketing especializado en marketing estratégico y ejecución comercial. Ayuda a organizaciones que venden soluciones complejas a reducir la distancia entre la promesa de una organización y la experiencia real del cliente.
+> Un modelo sobre la pérdida de continuidad en las organizaciones que dividen el trabajo. Autor: David Melara.
 
-## Identidad profesional
+## Proposición central
 
-- **Nombre:** David Melara (David Melara Bárcenas)
-- **Disciplina:** Marketing
-- **Especialización:** Marketing estratégico (B2B)
-- **Propósito profesional:** reducir la distancia entre la promesa de una organización y la experiencia real del cliente.
-- **Ámbito:** Nicaragua y Centroamérica.
+**La especialización reparte tareas. No reparte transiciones.**
 
-## Problema que resuelve
+Ninguna organización entrega lo que produce en una sola operación: reparte el trabajo, lo especializa y lo vuelve a reunir al final. Esa división es lo que hace posible el valor complejo — sin ella no habría nada que prometer.
 
-Las organizaciones que venden soluciones complejas necesitan convertir conocimiento técnico en decisiones de compra sostenibles y, después, en relaciones duraderas mediante una experiencia consistente. David Melara trabaja sobre esa cadena completa: que la promesa nazca correcta, se acuerde con precisión, se cumpla en la experiencia y se sostenga en el tiempo.
+Pero el valor se produce dividido y se recibe entero. Quien lo compra no experimenta fases: experimenta un resultado. Lo único que atraviesa esa distancia completo, de principio a fin, es la promesa que lo anunció.
 
-## Capacidades
+Cada fase tiene un responsable. El paso de una fase a la siguiente, no. No por descuido: porque la especialización asigna tareas, y una transición no es una tarea — es el intervalo entre dos. Por eso cada parte puede ejecutarse de forma impecable y el conjunto fallar sin que nadie haya fallado.
 
-### Capacidades estratégicas
+## El mecanismo
 
-- Marketing estratégico
-- Posicionamiento
-- Propuesta de valor
-- Go-to-Market (GTM)
-- Marketing operativo
+**Un proceso cuyas transiciones no tienen dueño no se detiene: se vuelve dependiente.** Avanza cuando algo externo le entrega la energía que su diseño no produce. Y esa dependencia se resuelve siempre en la misma dirección: hacia quien más pierde si el proceso no avanza.
 
-### Capacidades comerciales
+En una cadena comercial ese lugar lo ocupa el comprador, y conviene detenerse en por qué. Los dos lados pierden si el proceso se detiene, pero no pierden lo mismo ni al mismo tiempo: el proveedor arriesga un cobro futuro, mientras que el comprador ya comprometió el suyo y organizó alrededor de esa fecha obligaciones que no dependen de él. Su pérdida es presente y crece cada día.
 
-- Venta consultiva
-- Experiencia del cliente
-- Desarrollo comercial
-- Gestión de cuentas clave
+A eso se suma una asimetría de información: dentro de la organización nadie recorre el proceso entero, porque cada área solo ve su fase, y el comprador es el único que lo vive completo. Es, por tanto, el único que puede advertir la detención a tiempo —y el que más pierde si no la advierte—.
 
-## Diferenciador y transferibilidad
+Cuando es él quien mantiene el proceso en movimiento, la operación puede completarse igual — el trabajo llega, y a veces llega a tiempo. Lo que ha cambiado es otra cosa: compró un resultado y además tuvo que producir la continuidad. Pagó dos veces, una en dinero y otra en atención, y la segunda es la que recuerda.
 
-Su criterio profesional se formó en mercados donde el conocimiento técnico es condición de entrada, el cliente no puede evaluar del todo la solución antes de comprar, la decisión implica riesgo, la confianza antecede a la compra y la experiencia sostiene la relación. Esos son los sectores donde se demostró ese criterio, no sus límites. La misma capacidad es transferible a cualquier organización que venda soluciones complejas, en cualquier sector.
+**Segunda pérdida, más lenta.** Un compromiso que solo existe en la memoria de quien lo asumió tiene la vigencia de su permanencia. Cuando esa persona cambia de puesto, el compromiso no se transfiere: desaparece, y nadie lo advierte porque nada lo registraba. La organización conserva el contrato y pierde el acuerdo.
 
-## Experiencia demostrable
+**Consecuencia.** Una promesa no se sostiene vigilándola. Se sostiene diseñándola en cada punto donde cambia de manos. Y esos puntos son cuatro.
 
-Los siguientes sectores son el contexto donde se formó y probó ese criterio, no la especialidad en sí:
+## El marco: los cuatro momentos
 
-- Industria farmacéutica (visita médica, línea ética, comunicación científica)
-- Laboratorios dentales / odontología (gestión de cuentas clave, postventa técnica)
-- Educación superior (catedrático de posgrado en mercadeo estratégico)
-- Distinción: 1.º lugar Centroamérica — REPS/IMS (1992), por comunicación científica y presentación de productos complejos
-- Formación internacional: Japón (JICA/PREX), España (AIDECA, REDBUS)
+### 1 · Nace — una promesa se rompe en el instante en que se hace
 
-## Trayectoria y nivel
+La distancia entre lo prometido y lo entregado no aparece cuando algo falla: queda fijada cuando se promete. Lo que ocurre después solo la revela. El punto de control más barato de toda la cadena es el primero, y es el que casi nunca se controla, porque prometer es la única fase que no tiene coste inmediato.
 
-El nivel estratégico del perfil se desprende de la trayectoria, no de una etiqueta. El recorrido va de la ejecución de campo al diseño de estrategia: primero, representante de ventas y visitador médico senior (apertura de territorios, distinción regional); luego, Responsable de Mercadeo e Innovación en INPYME (Instituto Nicaragüense de Apoyo a la Pequeña y Mediana Empresa), entonces institución pública de apoyo al desarrollo empresarial, diseñando iniciativas de mercadeo, propuestas de valor y procesos de salida a mercado para múltiples empresas; después, catedrático de posgrado en mercadeo estratégico; y más recientemente, gestión de cuentas clave con coordinación interfuncional. Esa progresión —de vender, a enseñar la estrategia, a diseñarla para terceros— refleja un perfil de nivel estratégico.
+### 2 · Se acuerda — un acuerdo que solo existe en la conversación es un supuesto compartido
+
+Dos partes pueden salir de la misma conversación con dos versiones distintas de lo acordado y sin ninguna forma de detectarlo. Un compromiso se vuelve verificable cuando una parte enuncia lo que entendió y la otra lo confirma. Hasta que eso ocurre no hay acuerdo: hay una coincidencia de expectativas que nadie ha comprobado.
+
+### 3 · Se cumple — es el único momento que no puede asignarse a nadie
+
+Los otros tres se corrigen con información, y cada uno tiene un responsable posible: prometer contra la capacidad real, confirmar lo entendido, registrar lo comprometido. Este no. Una transición no es una tarea, de modo que no hay a quién asignársela: no figura en ninguna descripción de puesto ni en ningún organigrama, no por olvido, sino porque no es la clase de cosa que se asigna. Una promesa bien nacida, bien acordada y bien registrada se rompe igual aquí si nadie decide ocuparse de lo que no le corresponde.
+
+### 4 · Se recuerda — la memoria de una organización no es la suma de las memorias de quienes la componen
+
+Un sistema recuerda lo que su estructura obliga a registrar, no lo que sus miembros se proponen no olvidar. Cuando la continuidad depende de que alguien se acuerde, el primer relevo la interrumpe. No es una cuestión de herramientas: es una propiedad del diseño. **No debe interpretarse como especialización en CRM, automatización o inteligencia artificial.**
+
+## Condición de contorno
+
+**El mecanismo es universal. Sus consecuencias no.**
+
+Donde el comprador puede verificar antes de decidir, el mercado corrige por sí mismo: compara, comprueba y castiga en la siguiente compra la diferencia entre lo anunciado y lo entregado. La continuidad importa, pero no es lo que sostiene la transacción.
+
+Donde la verificación previa es imposible —porque el resultado no existe todavía, o porque juzgarlo exige el mismo conocimiento que se está comprando— el comprador sustituye la comprobación por confianza. Y la confianza es exactamente lo que este mecanismo destruye: no cuando el trabajo sale mal, sino cuando el comprador descubre que tiene que vigilarlo.
+
+Dos proveedores cotizan el mismo trabajo. Uno ofrece seis semanas; el otro, diez. Nada en las dos ofertas permite al comprador saber cuál de los dos calculó bien, porque saberlo exigiría el conocimiento que está comprando.
+
+De ahí se sigue algo que rara vez se enuncia: donde la promesa no puede verificarse antes de decidir, la competencia empieza a premiar la promesa más convincente antes que la capacidad más fiable.
+
+Ese premio, sin embargo, solo alcanza a la primera venta: esa la gana el argumento. Todas las siguientes las gana la continuidad. Donde el comprador puede verificar por sí mismo antes de decidir, el modelo sobra.
+
+## Validación
+
+Los hechos que siguen no son el argumento: son la comprobación de que quien formula el modelo lo ha observado desde dentro. La trayectoria completa —fechas, instituciones, cargos— está en el currículum.
+
+- Dos veces, en sectores sin relación entre sí y con once años de distancia, asumió el paso entre fases que ningún puesto tenía asignado: bajó a Operaciones y a Producción para que lo entregado correspondiera a lo vendido. Ninguna de las dos veces figuraba en su descripción de puesto.
+- Escribió los materiales de venta que usaban otros representantes en territorios que no eran el suyo. No contaban para su comisión.
+- Supervisó más de 110 empresas y formó personalmente a más de 1.200 empresarios, con consultores contratados a su cargo. La formación la impartió él.
+- IMS evaluó a treinta y seis representantes del área centroamericana presentando un producto farmacéutico complejo. Quedó primero. Representaba a Nicaragua.
+- Ante una subida de cuota, llevó el registro de lo que la estaba frenando, en lugar de discutir la cifra.
+
+## El autor
+
+David Melara ejerce la función comercial en mercados donde el comprador no puede verificar antes de decidir: industria farmacéutica de línea ética y sistemas dentales CAD/CAM, en Nicaragua y Centroamérica. Estos mercados son el contexto donde el modelo se observó, no su definición ni su límite.
+
+- **Función:** venta técnica y dirección comercial
+- **Ámbito:** Nicaragua y Centroamérica
+- **Idioma:** español
+
+## Lo que no es
+
+No es un método de gestión de proyectos, ni una metodología de calidad, ni una categoría tecnológica. Es una proposición sobre por qué la continuidad falla en cualquier organización que reparta el trabajo, y qué hace falta en cada uno de los cuatro momentos para que no falle.
+
+Su autor no es consultor de tecnología ni especialista sectorial. Los sistemas dentales y la industria farmacéutica son mercados donde ejerció, no su disciplina.
 
 ## International keywords
 
-Synonyms for discovery (not a second narrative): Strategic Marketing · Commercial Strategy · B2B Marketing · Go-to-Market (GTM) · Value Proposition · Key Account Management · Customer Experience.
-
-## Principio de trabajo
-
-El valor se produce en las partes y se pierde en las uniones; por ello, el trabajo consiste en reducir la distancia entre la promesa de una organización y la experiencia real del cliente.
-
-## Tecnologías de apoyo
-
-CRM, automatización e inteligencia artificial aplicada. Son herramientas para ejecutar mejor la estrategia comercial, **no** la especialidad ni la identidad profesional. David Melara no es un especialista en IA, ni un consultor de CRM, ni un especialista en CAD/CAM: es un estratega de marketing cuya experiencia sectorial incluye la comercialización de soluciones para laboratorios dentales.
+Synonyms for discovery (not a second narrative): Organizational Continuity · Handoff Ownership · Division of Labour · Promise Design · Technical Sales · Commercial Management · Complex Sales · Trust-based Markets · Pre-purchase Verifiability · Customer Experience.
 
 ## Recursos oficiales
 
-- Sitio: https://davidmelara.com/
-- Currículum: https://davidmelara.com/cv.html
+- El modelo: https://davidmelara.com/
+- El marco: https://davidmelara.com/#framework
+- Currículum (trayectoria, cargos, fechas y verificación documental): https://davidmelara.com/cv.html
 - LinkedIn: https://www.linkedin.com/in/melaradavid
+- Contacto: dmelara100@gmail.com

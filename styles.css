@@ -31,17 +31,17 @@
 :root{
   --tinta:#101312;            /* lienzo único de todo el recorrido */
   --hueso:#EAE7DF;            /* texto primario */
+  --cuerpo:#CFCCC3;           /* prosa narrativa: hueso atenuado, entre hueso y niebla */
   --niebla:#9CA29B;           /* texto secundario */
   --hilo:#B99B6B;             /* estela: memoria del sistema */
   --hilo-tenue:rgba(185,155,107,.55);
   --linea:rgba(234,231,223,.14);
 
   /* temperaturas (una lámpara por registro) */
-  --t-hero:#5E6D78;           /* manifiesto: acero frío */
-  --t-sobre:#8A6F52;          /* humano: cálido */
+  --t-hero:#5E6D78;           /* tesis: acero frío */
+  --t-mecanismo:#46545F;      /* la lógica del problema: el más frío */
+  --t-framework:#7A6B4F;      /* el marco: operativo, templado */
   --t-territorio:#5C6F66;     /* observacional: sereno */
-  --t-problema:#46545F;       /* quirúrgico: el más frío */
-  --t-capacidades:#7A6B4F;    /* operativo: templado */
   --t-contacto:#996F3D;       /* cercano: el más cálido */
 
   --serif:'Newsreader',Georgia,serif;
@@ -72,19 +72,31 @@ a{color:var(--hueso)}
 :focus-visible{outline:1.5px solid var(--hilo);outline-offset:4px}
 
 .skip{position:absolute;left:-999px;top:8px;background:var(--hueso);color:var(--tinta);
-  padding:8px 14px;font-family:var(--mono);font-size:12px;z-index:100}
+  padding:8px 14px;font-family:var(--mono);font-size:12px;z-index:10000}
 .skip:focus{left:8px}
 
 .marco{max-width:1200px;margin:0 auto;padding:0 var(--margen) 0 calc(var(--carril) + clamp(24px,4vw,72px))}
 .marco-lectura{max-width:calc(var(--medida) + var(--carril) + 160px)}
-.marco-estrecho{max-width:calc(58ch + var(--carril) + 160px)}
 
 /* ---------- tipografía de sistema ---------- */
-.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--niebla)}
+/* peso e interlínea explícitos: los rótulos de sección son <h2> por semántica,
+   y sin esto tomarían los valores de la regla h2 (400 / 1.25) y alterarían la
+   composición. Con ellos, el rótulo se compone idéntico. Único efecto residual:
+   al dejar de ser <p>, la apertura ya no recibe el margen de `p + p`, así que
+   el hueco bajo el rótulo lo gobierna ahora .eyebrow-seccion (36 px en lugar de
+   los 39 que resultaban del margen heredado). */
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--niebla);font-weight:300;line-height:1.72}
 .eyebrow-seccion{margin-bottom:clamp(28px,4vh,44px)}
 .eyebrow-seccion::after{content:"";display:block;width:34px;height:1px;background:var(--hilo-tenue);margin-top:12px}
 
-h1{font-weight:300;font-size:clamp(42px,6.4vw,88px);line-height:1.02;letter-spacing:-.015em;
+/* 88px era un tamaño que la retícula no podía sostener: la columna del hero está
+   topada en ~510px por el marco de 1200, y «Una promesa comercial» ocupa 9.85px
+   por cada px de cuerpo, así que a 88px el pareado se rompía en cinco líneas y
+   la más larga entraba 31px dentro del retrato. 58px es el mayor cuerpo que la
+   retícula sostiene con dos líneas por oración, ya con la columna ensanchada
+   (ver .hero-cuerpo): a 64px hacían falta 630px de medida y solo hay 592. */
+h1{font-weight:300;font-size:clamp(42px,5.2vw,58px);line-height:1.04;letter-spacing:-.015em;
   font-variation-settings:'opsz' 72}
 h2{font-weight:400;font-size:clamp(20px,2vw,24px);line-height:1.25;letter-spacing:.01em}
 
@@ -92,10 +104,23 @@ p + p{margin-top:1.35em}
 em{font-style:italic;color:var(--hueso)}
 strong{font-weight:500}
 
-.apertura{font-size:clamp(21px,2.3vw,29px);line-height:1.4;font-weight:300;color:var(--hueso);
-  max-width:32ch;margin-bottom:1.4em;font-variation-settings:'opsz' 40}
+/* h2 de sección: la afirmación del modelo, no un rótulo. Es la unidad citable
+   del documento, así que es encabezado real y va al paso Title; la regla h2
+   (24px, ls .01em) queda anulada por especificidad de clase. */
+h2.afirmacion{font-size:clamp(21px,2.3vw,29px);line-height:1.35;font-weight:300;color:var(--hueso);
+  max-width:34ch;margin-bottom:1.4em;letter-spacing:normal;font-variation-settings:'opsz' 40}
 .transicion{font-style:italic;color:var(--niebla)}
-.sec p:not(.apertura):not(.posicionamiento){color:#CFCCC3}
+/* el movimiento del mecanismo que sostiene todo lo demás */
+.destacado{color:var(--hueso)}
+/* ilustración: el caso no demuestra la ley, la hace visible. Se aparta con filete
+   —como un ejemplo en un libro— sin escalón tipográfico propio: es lectura de
+   cuerpo, no una nota. Nunca precede a la afirmación que ilustra. */
+.ilustracion{margin-top:1.6em;padding-left:1.2em;border-left:1px solid var(--hilo-tenue);
+  max-width:52ch;color:var(--cuerpo)}
+.ilustracion + .ilustracion{margin-top:.9em}
+/* cuerpo narrativo: clase propia en lugar de exclusión por :not(),
+   que con especificidad 0-3-1 anulaba eyebrow, rol, transición, respondo y cierre */
+.cuerpo{color:var(--cuerpo)}
 
 /* ---------- estela: esqueleto y memoria ----------
    El SVG ya no es el fenómeno: es la trayectoria (invisible como objeto)
@@ -123,14 +148,20 @@ strong{font-weight:500}
 /* ---------- momentos (avance, no scroll) ---------- */
 #momentos{position:fixed;right:clamp(14px,2.4vw,32px);top:50%;transform:translateY(-50%);
   display:flex;flex-direction:column;gap:26px;z-index:10}
+/* .42 daba 2.24:1 sobre el lienzo: texto real por debajo del mínimo AA (4.5:1)
+   y punto por debajo del mínimo de componente (3:1). .78 = 4.80:1. El estado
+   activo sigue distinguiéndose por color (oro, 7.09:1) y por el punto relleno. */
 .momento{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;
-  color:rgba(156,162,155,.42);text-align:right;position:relative;padding-right:16px;
+  color:rgba(156,162,155,.78);text-align:right;position:relative;padding-right:16px;
   transition:color .5s ease}
 .momento::after{content:"";position:absolute;right:0;top:50%;transform:translateY(-50%);
-  width:5px;height:5px;border-radius:50%;border:1px solid rgba(156,162,155,.42);transition:all .5s ease}
+  width:5px;height:5px;border-radius:50%;border:1px solid rgba(156,162,155,.78);transition:all .5s ease}
 .momento.activo{color:var(--hilo)}
 .momento.activo::after{background:var(--hilo);border-color:var(--hilo)}
-@media(max-width:900px){#momentos{display:none}}
+/* Por debajo de 1340px no hay margen libre para el índice: el retrato lo alcanza
+   (-24px a 1280) y quedaría sobre la fotografía, con contraste impredecible.
+   Los cuatro h3 del marco llevan la misma información en el cuerpo del texto. */
+@media(max-width:1339px){#momentos{display:none}}
 
 /* ---------- secciones: un lienzo, seis temperaturas ---------- */
 .sec{position:relative;z-index:2;padding:clamp(72px,12vh,140px) 0}
@@ -140,19 +171,26 @@ strong{font-weight:500}
 .sec.activa::before{opacity:.20}
 
 .hero{--lampara:var(--t-hero);--foco:68% 42%}
-.sobre{--lampara:var(--t-sobre);--foco:26% 34%}
+.mecanismo{--lampara:var(--t-mecanismo);--foco:30% 40%}
+.framework{--lampara:var(--t-framework);--foco:58% 38%}
 .territorio{--lampara:var(--t-territorio);--foco:60% 30%}
-.problema{--lampara:var(--t-problema);--foco:34% 46%}
-.capacidades{--lampara:var(--t-capacidades);--foco:30% 50%}
 .contacto{--lampara:var(--t-contacto);--foco:42% 46%}
 
 /* ---------- costuras: el silencio con dueño ---------- */
+/* --espina: el eje único del trazo. Antes las costuras se anclaban a --carril,
+   que está fijado al borde del viewport, mientras las unidades del marco se
+   anclan al contenido. A 1900px eso son 415px de separación y el trazo salía
+   disparado al margen y volvía, seis veces. La fórmula reproduce exactamente
+   dónde empieza el contenido: borde del marco centrado (tope 1200) + carril.
+   Se usa 100% y no 100vw para no contar la barra de desplazamiento. */
 .costura{position:relative;z-index:2;height:clamp(140px,26vh,300px);
-  display:flex;align-items:center;justify-content:center}
+  display:flex;align-items:center;justify-content:center;
+  --espina:calc(max(0px,(100% - 1200px)/2) + var(--carril))}
 .costura .anclaje{position:absolute;top:50%}
-.costura .anclaje[data-estela="izq"]{left:calc(var(--carril) - 22px)}
-.costura .anclaje[data-estela="der"]{left:calc(var(--carril) + 30px)}
-.costura .anclaje[data-estela="lane"]{left:var(--carril)}
+/* el latido del trazo: ±30px alrededor de la espina, no ±365 */
+.costura .anclaje[data-estela="izq"]{left:calc(var(--espina) - 22px)}
+.costura .anclaje[data-estela="der"]{left:calc(var(--espina) + 30px)}
+.costura .anclaje[data-estela="lane"]{left:var(--espina)}
 
 /* ---------- revelado direccional (avance) ---------- */
 [data-motion="on"] .revela{opacity:0;transform:translateY(18px);
@@ -166,20 +204,33 @@ strong{font-weight:500}
 /* logotipo GOLD: identidad principal, SVG vectorial, escala editorial */
 .hero-logo{display:block;width:auto;height:clamp(46px,6.4vw,74px);
   filter:drop-shadow(0 1px 24px rgba(200,161,90,.14))}
-.hero-rol{font-family:var(--mono);font-size:11px;letter-spacing:.24em;
-  text-transform:uppercase;color:var(--niebla);margin-top:clamp(16px,2.2vh,22px);
-  padding-left:2px}
+/* El marco se topa en 1200px, pero por encima de ese ancho sobra margen a los
+   lados que el hero no aprovecha. Se extiende solo hacia la derecha —el borde
+   izquierdo no se mueve, o el carril de la estela dejaría de alinear con las
+   secciones siguientes—. El tope de 280px deja aire antes del índice lateral. */
 .hero-cuerpo{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr);
-  gap:clamp(24px,4vw,56px);align-items:end}
-.hero-texto{position:relative;z-index:3;padding-bottom:clamp(24px,6vh,64px)}
-.hero h1{margin-bottom:.55em;max-width:12ch}
-.posicionamiento{font-size:clamp(18px,1.8vw,22px);line-height:1.55;color:var(--niebla);max-width:38ch}
+  gap:clamp(24px,4vw,56px);align-items:end;
+  margin-right:calc(-1 * min(max(0px,(100vw - 1200px)/2 - 158px),260px))}
+/* el titular nunca debe alcanzar la sangría del retrato */
+.hero-texto{position:relative;z-index:3;padding-bottom:clamp(24px,6vh,64px);
+  padding-right:clamp(0px,1.8vw,36px)}
+/* La medida corta cada oración en dos líneas. En ch, porque escala con el cuerpo
+   y la proporción se mantiene a cualquier tamaño: 17ch dejaba entrar «El trabajo
+   que la cumple,» entero y abandonaba «sí.» sola en una línea de 45px. */
+.hero h1{margin-bottom:.55em;max-width:16.6ch}
+/* Realce: prosa alzada sobre el cuerpo sin llegar a encabezado. Un solo paso para
+   los dos usos que lo necesitan —la línea de apertura y las situaciones citadas—,
+   que antes llevaban escalas propias a 1 px de distancia (18→22 y 18→21). */
+.posicionamiento{font-size:clamp(18px,1.75vw,22px);line-height:1.55;color:var(--niebla);max-width:38ch}
+.hero-tesis{font-size:clamp(17px,1.4vw,19px);line-height:1.6;color:var(--hueso);
+  max-width:44ch;margin-top:1.1em}
 .cta-fila{display:flex;gap:16px;margin-top:clamp(28px,5vh,48px);flex-wrap:wrap}
 .cta{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;
   text-decoration:none;border:1px solid var(--hueso);padding:14px 26px;color:var(--hueso);
   transition:border-color .3s,color .3s,background .3s}
 .cta:hover{border-color:var(--hilo);color:var(--hilo)}
-.cta-secundaria{border-color:rgba(234,231,223,.3);color:var(--niebla)}
+/* .40 = 3.29:1 sobre el lienzo; .30 daba 2.40:1 y el borde es la única afordancia */
+.cta-secundaria{border-color:rgba(234,231,223,.4);color:var(--niebla)}
 
 /* ---------- retratos: la autoría ---------- */
 .retrato{position:relative;margin:0;background:#161917;border:1px solid var(--linea)}
@@ -190,88 +241,229 @@ strong{font-weight:500}
 .retrato.sin-imagen::after{content:"D M";position:absolute;inset:0;display:flex;
   align-items:center;justify-content:center;font-family:var(--serif);font-weight:300;
   font-size:clamp(40px,5vw,72px);letter-spacing:.3em;color:rgba(234,231,223,.22)}
-.retrato-hero{height:clamp(380px,72vh,680px);margin-left:clamp(-90px,-6vw,-24px)}
+/* la sangría hacia el centro se conserva, pero -6vw metía el retrato hasta 90px
+   dentro de la columna de texto y dejaba el titular a 14px de la imagen */
+.retrato-hero{height:clamp(380px,72vh,680px);margin-left:clamp(-64px,-4.2vw,-24px)}
+/* El sujeto es el rostro. En móvil la caja se vuelve apaisada y `cover` recorta
+   142 px de alto; centrado se llevaba 71 px de arriba, es decir, la cabeza por
+   encima de la frente y el candelabro entero. Anclado arriba, el recorte sale
+   íntegro de la parte baja —la mesa— y los ojos quedan al 36% del encuadre.
+   En escritorio la caja es más alta que ancha, el recorte es horizontal y este
+   valor no tiene efecto. */
+.retrato-hero img{object-position:50% 0%}
 .retrato-hero .anclaje{position:absolute;left:0;bottom:22%}
 .retrato-contacto{width:clamp(180px,22vw,240px);height:clamp(220px,28vw,300px);flex-shrink:0}
-.retrato-contacto .anclaje{position:absolute;left:30%;top:0}
+/* el trazo termina en el borde izquierdo del retrato, a media altura: llega a él
+   sin montársele encima. El 30% anterior era una fracción del ancho de la foto,
+   es decir, un punto arbitrario sobre la imagen. */
+.retrato-contacto .anclaje{position:absolute;left:0;top:50%}
 
-/* ---------- PROBLEMA: compresión quirúrgica ---------- */
-.problema p:not(.apertura){line-height:1.66}
-.problema .apertura{max-width:30ch}
+/* ---------- EL MARCO: los cuatro momentos ----------
+   Cada unidad afirma una condición del flujo. No nombra disciplinas ni servicios:
+   si de una unidad se dedujera qué se le contrataría al autor, estaría mal escrita. */
+.momentos-lista{list-style:none;margin-top:clamp(40px,7vh,72px)}
+.momento-unidad{position:relative;padding:clamp(28px,4.5vh,44px) 0;
+  border-top:1px solid var(--linea)}
+.momento-unidad:last-of-type{border-bottom:1px solid var(--linea)}
+.anclaje-mom{position:absolute;left:calc(-1 * clamp(24px,4vw,72px));top:2.2em}
+/* usa el paso Headline declarado, no una copia suya: clamp(19,1.9vw,23) estaba a
+   1 px de él en ambos extremos. El paso existía sin usuario porque todos los h2
+   llevan .afirmacion y lo anulan; este h3 es su usuario legítimo. */
+.momento-unidad h3{font-family:var(--serif);font-weight:400;
+  font-size:clamp(20px,2vw,24px);line-height:1.3;letter-spacing:.005em;
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:0 .5em}
+.momento-nombre{color:var(--hueso)}
+/* la condición es lo que el momento exige; subordinada al nombre, no decorativa */
+/* el guion va en el marcado, no en un ::before: el h3 es la unidad citable del
+   documento y su textContent debe leerse «Nace — que se prometa…», no «Naceque» */
+.momento-condicion{color:var(--niebla);font-style:italic;font-weight:300;
+  font-size:clamp(17px,1.5vw,20px)}
+.momento-unidad .cuerpo{margin-top:.85em;max-width:58ch}
 
-/* ---------- CAPACIDADES: estaciones sobre la línea ---------- */
-.apertura-capacidades{max-width:40ch}
-.capacidad-lista{list-style:none;margin-top:clamp(40px,7vh,72px)}
-.capacidad{position:relative;display:flex;gap:clamp(20px,3vw,44px);
-  padding:clamp(28px,4.5vh,44px) 0;border-top:1px solid var(--linea);align-items:baseline}
-.capacidad:last-child{border-bottom:1px solid var(--linea)}
-.anclaje-cap{position:absolute;left:calc(-1 * clamp(24px,4vw,72px));top:2.4em}
-.cap-indice{font-family:var(--mono);font-size:12px;color:var(--hilo);letter-spacing:.1em;min-width:34px}
-.cap-cuerpo{max-width:56ch}
-.cap-cuerpo h2{margin-bottom:.5em;font-weight:500}
-.cap-cuerpo p{color:#CFCCC3}
-.cierre-capacidades{margin-top:clamp(36px,6vh,60px);font-family:var(--mono);font-size:12px;
-  letter-spacing:.22em;text-transform:uppercase;color:var(--hilo)}
+/* ---------- validación: un solo hecho, después de la afirmación que valida ---------- */
+.validacion{margin-top:clamp(48px,8vh,84px);padding-top:clamp(28px,4vh,40px);
+  border-top:1px solid var(--hilo-tenue);max-width:58ch}
+.validacion .afirma{color:var(--hueso)}
+.validacion .prueba{color:var(--cuerpo);margin-top:.9em}
+.validacion .remite{margin-top:1.6em;font-family:var(--mono);font-size:12px;
+  letter-spacing:.08em;color:var(--niebla)}
+.validacion .remite a{color:var(--hueso);text-decoration:none;
+  border-bottom:1px solid rgba(185,155,107,.62);padding-bottom:2px;
+  transition:color .3s,border-color .3s}
+.validacion .remite a:hover{color:var(--hilo);border-color:var(--hilo)}
 
 /* ---------- CONTACTO: la entrega ---------- */
 .contacto{padding-bottom:clamp(100px,16vh,180px)}
 .marco-contacto{display:flex;gap:clamp(28px,5vw,64px);align-items:flex-start;
   max-width:calc(60ch + 260px + var(--carril) + 160px)}
-.contacto-texto{max-width:52ch}
+.contacto-texto{max-width:52ch;min-width:0}
+/* las dos situaciones, en palabras del visitante */
+.situacion{font-size:clamp(18px,1.75vw,22px);line-height:1.5;color:var(--hueso);
+  font-style:italic;max-width:40ch;margin-top:.85em;padding-left:1.1em;
+  border-left:1px solid var(--hilo-tenue)}
+.situacion + .situacion{margin-top:.7em}
 .respondo{font-style:italic;color:var(--hueso)}
-.contacto-vias{margin-top:1.8em;font-family:var(--mono);font-size:13px;letter-spacing:.06em}
-.contacto-vias a{text-decoration:none;border-bottom:1px solid var(--hilo-tenue);
+/* la firma del autor: va al pie y en el registro de una nota, no en el cuerpo.
+   Aparece en la portada, no en cada párrafo. */
+.autoria{margin-top:2em;padding-top:1.4em;border-top:1px solid var(--linea);
+  font-size:clamp(15px,1.2vw,16px);line-height:1.6;color:var(--niebla);max-width:46ch}
+/* flex + wrap: el marcado no deja espacios entre enlace y separador, así que la
+   línea era un solo bloque inline de 399 px. En móvil desbordaba el marco y
+   «Currículum» quedaba recortado por overflow-x:hidden. El gap reproduce
+   exactamente los 14 px que daba el margen del separador. */
+.contacto-vias{margin-top:1.8em;font-family:var(--mono);font-size:13px;letter-spacing:.06em;
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:.55em 14px}
+/* el enlace comparte color exacto con el texto vecino, así que el subrayado es
+   lo único que lo identifica: necesita 3:1. --hilo-tenue (.55) daba 2.96. */
+.contacto-vias a{text-decoration:none;border-bottom:1px solid rgba(185,155,107,.62);
   padding-bottom:3px;transition:color .3s,border-color .3s}
 .contacto-vias a:hover{color:var(--hilo);border-color:var(--hilo)}
-.contacto-vias .sep{margin:0 14px;color:var(--niebla)}
+.contacto-vias .sep{color:var(--niebla)}
 
 /* ---------- pie ---------- */
 .pie{position:relative;z-index:2;border-top:1px solid var(--linea);padding:28px 0 40px}
 .pie .eyebrow{letter-spacing:.14em}
 
-/* ---------- intro: umbral de marca (secuencia ≈760 ms + disolución) ----------
-   Isotipo entra · se convierte en el logotipo MELARA · disuelve hacia el hero.
-   Sin spinner ni barra. Se muestra una vez por sesión. */
+/* ---------- intro: umbral de marca (cuatro tiempos + disolución) ----------
+   La M llega · ocupa su sitio dentro de la palabra · el nombre se despliega ·
+   reposa. Una sola marca, no dos: el trazado de .im-m es idéntico carácter por
+   carácter al de la M del logotipo, así que no hay fundido cruzado que fingir.
+   Antes eran dos elementos apilados solapándose 360 ms —el 46% de la secuencia—:
+   llamaban a la puerta y aparecía sentado, sin verlo entrar. */
 .intro-off #intro{display:none!important}
-#intro{position:fixed;inset:0;z-index:9999;background:var(--tinta);
+#intro{position:fixed;inset:0;z-index:9999;
   display:flex;align-items:center;justify-content:center;
   opacity:1;transition:opacity .5s ease}
+/* el velo vive en su propia capa: así puede disolverse sin arrastrar la marca,
+   que en el quinto tiempo tiene que seguir opaca mientras viaja al hero */
+#intro::before{content:"";position:absolute;inset:0;background:var(--tinta);
+  transition:opacity .45s ease}
+#intro.despeja::before{opacity:0}
+#intro.despeja{pointer-events:none}
 #intro.intro-done{opacity:0;pointer-events:none}
-.intro-mark{position:relative;display:flex;flex-direction:column;align-items:center;
-  gap:clamp(16px,2.6vh,26px)}
-.intro-iso{width:clamp(64px,9vw,92px);height:auto;opacity:0}
-.intro-iso path{fill:var(--hilo)}
-.intro-word{width:clamp(148px,19vw,224px);height:auto;opacity:0}
-#intro.playing .intro-iso{animation:iso-in .60s cubic-bezier(.22,.61,.36,1) forwards}
-#intro.playing .intro-word{animation:word-in .48s cubic-bezier(.22,.61,.36,1) .24s forwards}
-@keyframes iso-in{
-  0%{opacity:0;transform:translateY(6px) scale(.94)}
-  30%{opacity:1;transform:none}
-  62%{opacity:1;transform:none}
-  100%{opacity:0;transform:translateY(-4px) scale(1.02)}
+.intro-mark{position:relative;display:flex;align-items:center;justify-content:center}
+/* overflow visible: en el primer tiempo la M se dibuja al doble, fuera de la caja.
+   El drop-shadow replica el del logotipo del hero para que el relevo sea exacto. */
+.intro-svg{width:clamp(148px,19vw,224px);height:auto;overflow:visible;
+  filter:drop-shadow(0 1px 24px rgba(200,161,90,.14));
+  transform-origin:50% 50%;
+  transition:transform .52s cubic-bezier(.22,.61,.36,1)}
+/* el hueco del logotipo del hero espera vacío mientras la marca viaja hacia él */
+.intro-activo .hero-logo{opacity:0}
+/* El hero no se revela bajo el umbral: se muestra ya asentado. No es una pérdida
+   —esa animación siempre ocurrió bajo un velo opaco y nadie la vio— y es condición
+   del corte por coincidencia: el revelado desplaza la cabecera 18px y el destino
+   seguía moviéndose mientras se medía, con lo que la marca aterrizaba 6px baja. */
+html.intro-activo .hero .revela{opacity:1;transform:none;transition:none}
+
+/* translate(0,-197.5) scale(2) sitúa el centro geométrico de la M exactamente en
+   el centro del viewBox, que es donde acabará el centro del logotipo completo.
+   Por eso no hay descentrado en ningún tiempo: el eje óptico no se mueve.
+   (Antes el isotipo a opacidad 0 seguía reservando su caja en el flujo flex y
+   empujaba el logotipo 41 px bajo el centro.) */
+.im-todo{transform-box:view-box;transform-origin:0 0;
+  transform:translate(0px,-197.5px) scale(2)}
+.im-m{transform-box:view-box;transform-origin:0 0;opacity:0}
+.im-letra{transform-box:view-box;transform-origin:0 0;opacity:0}
+
+#intro.playing .im-m{animation:m-llega .38s cubic-bezier(.22,.61,.36,1) forwards}
+#intro.playing .im-todo{animation:m-asienta .20s cubic-bezier(.22,.61,.36,1) .38s forwards}
+#intro.playing .im-letra{animation:letra-llega .20s cubic-bezier(.22,.61,.36,1) forwards}
+#intro.playing .im-letra:nth-child(1){animation-delay:.58s}
+#intro.playing .im-letra:nth-child(2){animation-delay:.615s}
+#intro.playing .im-letra:nth-child(3){animation-delay:.65s}
+#intro.playing .im-letra:nth-child(4){animation-delay:.685s}
+#intro.playing .im-letra:nth-child(5){animation-delay:.72s}
+/* el nombre queda completo a los 920 ms y end() dispara a 1200: 280 ms de reposo.
+   Antes la opacidad llegaba a 1.000 en el mismo instante en que empezaba a irse. */
+
+@keyframes m-llega{
+  0%{opacity:0;transform:translate(0px,14px)}
+  100%{opacity:1;transform:translate(0px,0px)}
 }
-@keyframes word-in{
-  0%{opacity:0;transform:translateY(8px)}
-  100%{opacity:1;transform:none}
+@keyframes m-asienta{
+  from{transform:translate(0px,-197.5px) scale(2)}
+  to{transform:translate(0px,0px) scale(1)}
 }
+@keyframes letra-llega{
+  0%{opacity:0;transform:translate(-16px,0px)}
+  100%{opacity:1;transform:translate(0px,0px)}
+}
+
+/* Sin movimiento: el logotipo completo, quieto y visible. La regla no puede
+   depender de .playing, que la rama de movimiento reducido nunca añade. */
 @media (prefers-reduced-motion: reduce){
   #intro{transition:opacity .2s ease}
-  #intro.playing .intro-iso,#intro.playing .intro-word{animation:none;opacity:1}
+  #intro .im-todo{transform:none;animation:none}
+  #intro .im-m,#intro .im-letra{opacity:1;animation:none}
 }
 
 /* ---------- responsive ---------- */
+
+/* Pantallas anchas y bajas (16:9 de portátil). La escala del titular se indexa
+   al ancho, pero el pliegue es de altura: sin esto, a 1366×768 los CTA quedan
+   123 px por debajo y la línea de posicionamiento se corta a mitad de oración. */
+@media (min-width:901px) and (max-height:1040px){
+  .hero{padding-top:clamp(28px,4vh,48px)}
+  /* 3.4vw, no un tope fijo: en pantallas bajas la columna tampoco crece, así que
+     el cuerpo debe seguir al ancho o el pareado vuelve a partirse en cinco */
+  .hero h1{font-size:clamp(38px,3.4vw,56px)}
+  .hero-cabecera{margin-bottom:clamp(26px,5vh,56px)}
+  .hero-logo{height:clamp(40px,5vw,56px)}
+  .cta-fila{margin-top:clamp(18px,3vh,28px)}
+  .hero-texto{padding-bottom:clamp(12px,3vh,32px)}
+}
+
 @media(max-width:900px){
   .hero-cuerpo{grid-template-columns:1fr;align-items:start}
-  .retrato-hero{order:-1;height:clamp(300px,52vh,440px);margin-left:0;max-width:420px}
-  .hero{min-height:auto;padding-top:clamp(72px,10vh,110px)}
+  /* 52vh dejaba el titular partido por el pliegue (h1 de 647 a 861 en 375×812).
+     Con 34vh el pareado cierra completo y la línea de posicionamiento entra
+     entera en la primera pantalla, sin reordenar el retrato. */
+  /* 34vh volvió a cortar la apertura por el pliegue cuando el texto del hero
+     creció en la reescritura editorial: terminaba en 829 sobre un pliegue de 812. */
+  .retrato-hero{order:-1;height:clamp(220px,30vh,320px);margin-left:0;max-width:420px}
+  .hero{min-height:auto;padding-top:clamp(48px,6vh,76px)}
   .marco-contacto{flex-direction:column}
 }
 @media(max-width:640px){
   :root{--carril:20px}
+  /* Reparto vertical del hero, solo en móvil (tablet y escritorio congelados).
+     El retrato íntegro a ancho de columna pedía 386 px y solo había 244: faltaban
+     142 y el espaciado solo daba 95, así que los 47 restantes habrían salido del
+     titular. Un retrato completo pero estrecho (240 px) deja la cara en 79 px y
+     un hueco huérfano a la derecha; al máximo (275 px) la tesis deja de asomar.
+     La redistribución se emplea entonces en agrandar el recorte anclado arriba:
+     +22 px de retrato y, a la vez, +13 px de holgura al pliegue. */
+  .hero{padding-top:clamp(24px,4vh,36px)}
+  .hero-cabecera{margin-bottom:clamp(40px,7vh,60px)}
+  .retrato-hero{height:clamp(200px,33vh,300px)}
+  /* el canal derecho separaba el texto del retrato cuando iban en paralelo; en
+     una sola columna solo desalinea el borde del texto con el de la fotografía */
+  .hero-texto{padding-right:0}
+  /* 38px (−9,5%). No invierte la jerarquía: el titular conserva las seis señales
+     de dominancia —2,11× sobre el elemento siguiente, único en hueso a 15,12:1
+     frente a 7,17:1, primera posición de texto, 198 px de masa frente a 112, cinco
+     líneas y uso exclusivo del paso Display—. Tampoco cambia la composición: mismo
+     número de líneas y mismo rag proporcional (58%). Los 20 px liberados se dejan
+     como aire, no se dan al retrato: la holgura al pliegue sube de 32 a 55 px y la
+     línea de tesis pasa de asomar a leerse. */
+  .hero h1{font-size:38px}
+  /* Cierre del primer acto. Logotipo, retrato, titular y apertura forman una
+     unidad: la apertura termina en punto y la tesis es de otro registro —el
+     subtítulo de la obra, no su argumento—. Con la separación de párrafo (1.1em)
+     la tesis asomaba seccionada por la mitad de las letras a 812 px de alto.
+     Un valor en em no puede resolverlo: la holgura tras la apertura crece con la
+     pantalla (55 px a 812, 73 a 844, 136 a 932) porque el contenido crece más
+     despacio que el viewport. Solo una separación proporcional a la altura cierra
+     el acto en toda la banda. No queda un vacío: la estela lo atraviesa. */
+  .hero-tesis{margin-top:clamp(24px,16vh,160px)}
   .marco{padding-left:calc(var(--carril) + 24px)}
   .costura{height:clamp(96px,18vh,150px)}
-  .capacidad{flex-direction:column;gap:10px}
-  .anclaje-cap{top:1.2em}
+  .momento-unidad h3{display:block}
+  /* la condición pasa a su propia línea con el guion delante; no se oculta,
+     para que el texto extraíble del h3 sea idéntico en todos los anchos */
+  .momento-condicion{display:block;margin-top:.3em}
+  .anclaje-mom{top:1.2em}
 }
 
 /* ---------- movimiento reducido: la memoria completa, en reposo ---------- */

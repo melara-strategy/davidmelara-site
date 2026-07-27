@@ -2,3 +2,9 @@
 # El contenido permanece en el disco local; su reorganización (repo privado u otra
 # estrategia de almacenamiento) se hará por separado.
 docs/
+
+# Estado efimero del servidor de previsualizacion de Impeccable (pid, puerto, token de sesion).
+.impeccable/live/
+
+# Especificacion de la fase anterior (evidencia primero). Superada por PRODUCT.md y DESIGN.md.
+IMPLEMENTACION_WEB_V1.md

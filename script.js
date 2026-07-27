@@ -34,11 +34,10 @@
 
   /* temperatura del residuo y factor de la energía, por registro */
   var TEMPERATURAS = {
-    'hero':        { color: '#DFC08F', op: 0.95, factor: 1.0  },  /* nacimiento: máxima */
-    'sobre-mi':    { color: '#C4A87A', op: 0.80, factor: 0.78 },  /* serena */
+    'hero':        { color: '#DFC08F', op: 0.95, factor: 1.0  },  /* la tesis: máxima */
+    'mecanismo':   { color: '#8A98A0', op: 0.62, factor: 0.60 },  /* analítica: la más fría */
+    'framework':   { color: '#C4A87A', op: 0.82, factor: 0.80 },  /* operativa: templada */
     'territorio':  { color: '#A99B79', op: 0.70, factor: 0.70 },  /* estable */
-    'problema':    { color: '#8A98A0', op: 0.45, factor: 0.42 },  /* mínima intensidad */
-    'capacidades': { color: '#BBA070', op: 0.80, factor: 0.80 },  /* recuperación */
     'conversemos': { color: '#E8CD9C', op: 1.00, factor: 1.0  }   /* máxima otra vez */
   };
   var VENTANA = 420;      /* longitud del frente vivo */
@@ -365,27 +364,50 @@
     requestAnimationFrame(cuadro);
   }
 
-  /* ---------- momentos y lámparas ---------- */
+  /* ---------- momentos y lámparas ----------
+     El índice lateral indexa el marco, no las secciones del sitio: lo mueven
+     las cuatro unidades de #framework. Las secciones sin data-moment encienden
+     su lámpara pero no tocan el índice, que conserva el último momento leído. */
   var secciones = Array.prototype.slice.call(document.querySelectorAll('.sec'));
+  var unidades  = Array.prototype.slice.call(document.querySelectorAll('.momento-unidad'));
   var etiquetas = {};
   document.querySelectorAll('.momento').forEach(function (m) { etiquetas[m.dataset.m] = m; });
   var mapaMomentos = { nace: 'nace', acuerda: 'acuerda', cumple: 'cumple', recuerda: 'recuerda' };
 
+  /* La banda del observador (32%–60% del viewport) es más alta que una unidad,
+     así que puede haber dos dentro a la vez. Elegir "la última que disparó" no es
+     determinista y parpadea; se elige la más cercana al centro de la banda. */
+  var vivos = [];
+  var CENTRO_BANDA = 0.46;
+
   var obs = new IntersectionObserver(function (entradas) {
     entradas.forEach(function (e) {
-      e.target.classList.toggle('activa', e.isIntersecting);
-      if (e.isIntersecting) {
-        var m = mapaMomentos[e.target.dataset.moment];
-        Object.keys(etiquetas).forEach(function (k) {
-          etiquetas[k].classList.toggle('activo', k === m);
-        });
+      if (e.target.classList.contains('sec')) {
+        e.target.classList.toggle('activa', e.isIntersecting);
       }
+      if (!mapaMomentos[e.target.dataset.moment]) return;
+      var i = vivos.indexOf(e.target);
+      if (e.isIntersecting && i === -1) vivos.push(e.target);
+      else if (!e.isIntersecting && i !== -1) vivos.splice(i, 1);
+    });
+
+    if (!vivos.length) return;   /* fuera del marco el índice conserva lo leído */
+
+    var centro = window.innerHeight * CENTRO_BANDA, mejor = null, dmin = Infinity;
+    vivos.forEach(function (el) {
+      var r = el.getBoundingClientRect();
+      var d = Math.abs((r.top + r.bottom) / 2 - centro);
+      if (d < dmin) { dmin = d; mejor = el; }
+    });
+    var m = mapaMomentos[mejor.dataset.moment];
+    Object.keys(etiquetas).forEach(function (k) {
+      etiquetas[k].classList.toggle('activo', k === m);
     });
   }, { rootMargin: '-32% 0px -40% 0px' });
-  secciones.forEach(function (s) { obs.observe(s); });
+  secciones.concat(unidades).forEach(function (s) { obs.observe(s); });
 
   /* ---------- revelado direccional ---------- */
-  document.querySelectorAll('.sec .marco > *, .capacidad').forEach(function (el) {
+  document.querySelectorAll('.sec .marco > *, .momento-unidad').forEach(function (el) {
     el.classList.add('revela');
   });
   if (reducida) {

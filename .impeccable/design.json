@@ -1,0 +1,311 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-27T02:17:18",
+  "title": "Design System: David Melara — Presencia Ejecutiva",
+  "extensions": {
+    "colorMeta": {
+      "tinta": {
+        "role": "neutral",
+        "displayName": "Tinta",
+        "purpose": "El lienzo. Fondo de toda la pagina y del umbral de marca."
+      },
+      "hueso": {
+        "role": "neutral",
+        "displayName": "Hueso",
+        "purpose": "Texto primario y bordes de CTA primario en reposo."
+      },
+      "cuerpo": {
+        "role": "neutral",
+        "displayName": "Cuerpo",
+        "purpose": "Prosa narrativa. Hueso atenuado, entre hueso y niebla."
+      },
+      "niebla": {
+        "role": "neutral",
+        "displayName": "Niebla",
+        "purpose": "Texto secundario, eyebrows, posicionamiento."
+      },
+      "hilo": {
+        "role": "primary",
+        "displayName": "Hilo Dorado",
+        "purpose": "Unico acento: estela, marcas de los cuatro momentos, hover, indice activo, seleccion."
+      },
+      "hilo-tenue": {
+        "role": "primary",
+        "displayName": "Hilo Tenue",
+        "purpose": "Bordes de los nodos de la estela y filete bajo el eyebrow de seccion."
+      },
+      "hilo-enlace": {
+        "role": "primary",
+        "displayName": "Hilo Enlace",
+        "purpose": "Subrayado de enlaces en reposo. .62 y no .55 porque el enlace comparte color con el texto vecino y la linea debe alcanzar 3:1."
+      },
+      "linea": {
+        "role": "neutral",
+        "displayName": "Linea",
+        "purpose": "Divisores y bordes de contenedor: unidades del marco, retratos."
+      },
+      "lamp-hero": {
+        "role": "ambient",
+        "displayName": "Acero Frio",
+        "purpose": "Lampara del hero: la tesis."
+      },
+      "lamp-mecanismo": {
+        "role": "ambient",
+        "displayName": "Azul Analitico",
+        "purpose": "Lampara del mecanismo: la logica del problema, la mas fria."
+      },
+      "lamp-marco": {
+        "role": "ambient",
+        "displayName": "Templado",
+        "purpose": "Lampara del marco: los cuatro momentos, registro operativo."
+      },
+      "lamp-territorio": {
+        "role": "ambient",
+        "displayName": "Verde Sereno",
+        "purpose": "Lampara del territorio: la condicion de contorno."
+      },
+      "lamp-contacto": {
+        "role": "ambient",
+        "displayName": "Cobre Cercano",
+        "purpose": "Lampara de conversemos: la mas calida."
+      },
+      "nodo-encendido": {
+        "role": "system",
+        "displayName": "Nodo Encendido",
+        "purpose": "Relleno y trazo del nodo de estela alcanzado. No es color de UI."
+      },
+      "estela-hero": {
+        "role": "system",
+        "displayName": "Estela Hero",
+        "purpose": "Parada del gradiente longitudinal del trazo (op .95, factor 1.0)."
+      },
+      "estela-mecanismo": {
+        "role": "system",
+        "displayName": "Estela Mecanismo",
+        "purpose": "Parada del gradiente longitudinal (op .62, factor .60)."
+      },
+      "estela-marco": {
+        "role": "system",
+        "displayName": "Estela Marco",
+        "purpose": "Parada del gradiente longitudinal (op .82, factor .80)."
+      },
+      "estela-territorio": {
+        "role": "system",
+        "displayName": "Estela Territorio",
+        "purpose": "Parada del gradiente longitudinal (op .70, factor .70)."
+      },
+      "estela-contacto": {
+        "role": "system",
+        "displayName": "Estela Contacto",
+        "purpose": "Parada del gradiente longitudinal (op 1.0, factor 1.0)."
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Titular-tesis del hero, unica h1. Tope 58px: por encima el pareado deja de partir en dos lineas por oracion en la columna disponible."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Encabezados de unidad y subtitulos."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "La afirmacion h2 que abre cada seccion. Unidad citable del documento."
+      },
+      "lead": {
+        "displayName": "Realce",
+        "purpose": "Prosa alzada sobre el cuerpo sin llegar a encabezado: linea de apertura del hero y situaciones citadas del cierre."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Texto de parrafo, medida maxima 66 caracteres."
+      },
+      "note": {
+        "displayName": "Nota",
+        "purpose": "Registro de pie: la firma del autor. Serif y fluida, por debajo del cuerpo. La mono es para etiquetas, no para prosa breve."
+      },
+      "label": {
+        "displayName": "Label 11",
+        "purpose": "Eyebrows de seccion y pie."
+      },
+      "label-xs": {
+        "displayName": "Label 10",
+        "purpose": "Indice lateral de los cuatro momentos."
+      },
+      "label-md": {
+        "displayName": "Label 12",
+        "purpose": "CTAs, enlace al curriculum, enlace de salto."
+      },
+      "label-lg": {
+        "displayName": "Label 13",
+        "purpose": "Vias de contacto."
+      },
+      "display-acotado": {
+        "displayName": "Display acotado",
+        "purpose": "El paso Display constrenido para pantallas bajas. No es un escalon nuevo: la columna del hero no crece en esas alturas y el cuerpo debe seguir al ancho."
+      },
+      "glifo-reserva": {
+        "displayName": "Glifo de reserva",
+        "purpose": "Iniciales que sustituyen a un retrato que no carga. Elemento dimensionado para llenar una caja, no texto de lectura."
+      }
+    },
+    "shadows": [
+      {
+        "name": "logo-ambient-glow",
+        "value": "drop-shadow(0 1px 24px rgba(200,161,90,0.14))",
+        "purpose": "Halo dorado de muy baja opacidad exclusivo del logotipo hero. La única sombra del sistema."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-brand",
+        "value": "cubic-bezier(0.22, 0.61, 0.36, 1)",
+        "purpose": "Desaceleracion sin rebote. Umbral de marca y revelado de secciones."
+      },
+      {
+        "name": "umbral-tiempos",
+        "value": "0-380 llega la M / 380-580 ocupa su sitio / 580-920 se despliega el nombre / 920-1200 reposo / 1200-1650 se disuelve el velo / 1220-1740 vuelo FLIP al logotipo del hero / ~1816 relevo",
+        "purpose": "Siete tiempos y una sola marca. El vuelo aterriza con error 0px: el destino se mide en el instante del vuelo y el relevo se ata a transitionend."
+      },
+      {
+        "name": "revelado",
+        "value": "opacity .9s ease, transform .9s ease",
+        "purpose": "Entrada direccional de los bloques de seccion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "movil",
+        "value": "640px"
+      },
+      {
+        "name": "columna-unica",
+        "value": "900px"
+      },
+      {
+        "name": "indice-lateral",
+        "value": "1340px"
+      },
+      {
+        "name": "pliegue-bajo",
+        "value": "max-height: 1040px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "CTA Primario",
+      "kind": "button",
+      "refersTo": "cta-primary",
+      "description": "Invitación contenida. Borde fino en hueso, tipografía mono en mayúsculas. El hilo dorado aparece solo al acercarse.",
+      "html": "<a href=\"#\" class=\"ds-cta\">Conocer el enfoque</a>",
+      "css": ".ds-cta { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; border: 1px solid #EAE7DF; padding: 14px 26px; color: #EAE7DF; background: transparent; border-radius: 0; transition: border-color 0.3s ease, color 0.3s ease; cursor: pointer; } .ds-cta:hover { border-color: #B99B6B; color: #B99B6B; } .ds-cta:focus-visible { outline: 1.5px solid #B99B6B; outline-offset: 4px; }"
+    },
+    {
+      "name": "CTA Secundario",
+      "kind": "button",
+      "refersTo": "cta-secondary",
+      "description": "Más quieto que el primario. Borde y texto en niebla; el mismo hover dorado al acercarse.",
+      "html": "<a href=\"#\" class=\"ds-cta-sec\">Conversemos</a>",
+      "css": ".ds-cta-sec { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; border: 1px solid rgba(234,231,223,0.3); padding: 14px 26px; color: #9CA29B; background: transparent; border-radius: 0; transition: border-color 0.3s ease, color 0.3s ease; cursor: pointer; } .ds-cta-sec:hover { border-color: #B99B6B; color: #B99B6B; } .ds-cta-sec:focus-visible { outline: 1.5px solid #B99B6B; outline-offset: 4px; }"
+    },
+    {
+      "name": "Eyebrow de Sección",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Etiqueta que precede al contenido de cada sección. Mono, mayúsculas, con línea de oro tenue debajo.",
+      "html": "<p class=\"ds-eyebrow\">Territorio profesional</p>",
+      "css": ".ds-eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #9CA29B; margin-bottom: 28px; } .ds-eyebrow::after { content: ''; display: block; width: 34px; height: 1px; background: rgba(185,155,107,0.55); margin-top: 12px; }"
+    },
+    {
+      "name": "Enlace de Contacto",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Los vínculos de la sección Conversemos. Mono, underline en hilo-tenue; al hover, el hilo dorado.",
+      "html": "<span class=\"ds-contacto-vias\"><a href=\"mailto:david@example.com\" class=\"ds-via\">Correo</a><span class=\"ds-sep\">·</span><a href=\"#\" class=\"ds-via\">LinkedIn</a></span>",
+      "css": ".ds-contacto-vias { font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.06em; } .ds-via { color: #EAE7DF; text-decoration: none; border-bottom: 1px solid rgba(185,155,107,0.55); padding-bottom: 3px; transition: color 0.3s ease, border-color 0.3s ease; } .ds-via:hover { color: #B99B6B; border-color: #B99B6B; } .ds-via:focus-visible { outline: 1.5px solid #B99B6B; outline-offset: 4px; } .ds-sep { margin: 0 14px; color: #9CA29B; }"
+    },
+    {
+      "name": "Momento de Navegación",
+      "kind": "nav",
+      "refersTo": null,
+      "description": "Indice del marco, no de las secciones. Cuatro etiquetas, una por unidad de #framework. Inactivo a rgba(156,162,155,.78) = 4.80:1; con .42 quedaba en 2.24 y no alcanzaba el minimo AA.",
+      "html": "<nav class=\"ds-momentos\"><a href=\"#\" class=\"ds-momento ds-momento--activo\">nace</a><a href=\"#\" class=\"ds-momento\">se acuerda</a><a href=\"#\" class=\"ds-momento\">se cumple</a><a href=\"#\" class=\"ds-momento\">se recuerda</a></nav>",
+      "css": ".ds-momentos { display: flex; flex-direction: column; gap: 26px; } .ds-momento { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(156,162,155,0.42); text-align: right; position: relative; padding-right: 16px; text-decoration: none; transition: color 0.5s ease; } .ds-momento::after { content: ''; position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 5px; height: 5px; border-radius: 50%; border: 1px solid rgba(156,162,155,0.42); transition: all 0.5s ease; } .ds-momento--activo { color: #B99B6B; } .ds-momento--activo::after { background: #B99B6B; border-color: #B99B6B; }"
+    },
+    {
+      "name": "Unidad de Momento",
+      "kind": "custom",
+      "refersTo": "momento-unidad",
+      "description": "Componente madre. El momento encabeza y la condicion que exige va subordinada. Regla de contenido: si de una unidad se deduce que se le contrataria al autor, esta mal escrita.",
+      "html": "<li class=\"ds-mom\"><h3><span class=\"ds-mom-n\">Se acuerda</span> <span class=\"ds-mom-c\"><span>— </span>que el compromiso quede explicito, fechado y confirmado</span></h3><p class=\"ds-mom-b\">Recibir no es acusar recibo.</p></li>",
+      "css": ".ds-mom{list-style:none;position:relative;padding:32px 0;border-top:1px solid var(--linea)}.ds-mom h3{font-family:var(--serif);font-weight:400;font-size:21px;line-height:1.3;display:flex;flex-wrap:wrap;align-items:baseline;gap:0 .5em;margin:0}.ds-mom-n{color:var(--hueso)}.ds-mom-c{color:var(--niebla);font-style:italic;font-weight:300;font-size:18px}.ds-mom-b{margin-top:.85em;max-width:58ch;color:#CFCCC3}"
+    },
+    {
+      "name": "Validacion",
+      "kind": "custom",
+      "refersTo": "validacion",
+      "description": "Cierre del marco: un solo hecho, siempre despues de la afirmacion que valida, y el traspaso al curriculum. Sin seccion propia, sin rotulo, sin entrada en el indice.",
+      "html": "<div class=\"ds-val\"><p class=\"ds-val-a\">Cuando no tenia dueno, lo asumi.</p><p class=\"ds-val-p\">Baje a Operaciones y a Produccion.</p><p class=\"ds-val-r\">El registro completo esta en el <a href=\"#\">curriculum</a>.</p></div>",
+      "css": ".ds-val{margin-top:64px;padding-top:32px;border-top:1px solid var(--hilo-tenue);max-width:58ch}.ds-val-a{color:var(--hueso)}.ds-val-p{color:#CFCCC3;margin-top:.9em}.ds-val-r{margin-top:1.6em;font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--niebla)}.ds-val-r a{color:var(--hueso);text-decoration:none;border-bottom:1px solid rgba(185,155,107,.62)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "La Evidencia del Criterio",
+    "overview": "El diseño nunca busca impresionar. Cada decisión visual existe para demostrar criterio. El negro elimina el ruido. El oro señala lo esencial. El espacio en blanco deja respirar las ideas. La animación introduce la identidad sin reclamar protagonismo. Todo debe sentirse inevitable.\n\nEl sistema trabaja con dos materiales: tinta (el lienzo oscuro, la ausencia de ruido, el peso del argumento) y hilo (el oro que aparece donde hay algo que recordar). No hay un tercer color. No hay degradados decorativos. No hay iconos que señalen lo que el texto ya dice. La economía visual es el argumento.\n\nCada sección del sitio lleva una temperatura luminosa propia — una variación mínima de color ambiental que sitúa el registro emocional sin declararlo.",
+    "keyCharacteristics": [
+      "Canvas oscuro absoluto con un único foco de acento dorado",
+      "Tipografía variable de alta calidad: opsz y wght se ajustan por contexto",
+      "Espacio negativo como argumento, no como vacío por llenar",
+      "Sin bordes redondeados en ningún contenedor de UI",
+      "Motion significativo: la estela recorre la página como memoria del sistema",
+      "Sin iconos, sin ilustraciones, sin elementos decorativos no funcionales"
+    ],
+    "rules": [
+      {
+        "name": "La Regla del Hilo",
+        "section": "colors",
+        "body": "El hilo dorado ocupa menos del 10% de cualquier viewport. No usarlo para texto de parrafo, fondos ni ornamento."
+      },
+      {
+        "name": "La Regla del Lienzo",
+        "section": "colors",
+        "body": "El fondo es siempre #101312. Ninguna excepcion, ni en overlays ni en el umbral."
+      },
+      {
+        "name": "La Regla del Borde Cero",
+        "section": "shapes",
+        "body": "border-radius 0 en todo elemento de UI. Los unicos puntos redondos son de senalizacion del sistema."
+      },
+      {
+        "name": "La Espina Unica",
+        "section": "layout",
+        "body": "El trazo corre sobre un solo eje: max(0px,(100% - 1200px)/2) + var(--carril). Anclar costuras al carril del viewport mientras el contenido usa otra referencia produjo 415px de separacion a 1900px."
+      },
+      {
+        "name": "La Home No Lleva Cronologia",
+        "section": "layout",
+        "body": "Ningun hecho aparece en orden temporal ni acompanado de un cargo. Si un dato solo se sostiene diciendo 'fui X en Y durante Z', pertenece al curriculum."
+      },
+      {
+        "name": "La Afirmacion Encabeza",
+        "section": "typography",
+        "body": "En cada escala manda la afirmacion propietaria: el mecanismo antes que la prueba, el momento antes que la disciplina, la home afirma y el CV verifica."
+      }
+    ],
+    "dos": [
+      "Do reservar el hilo dorado para estela, hover, marcas de los cuatro momentos, indice activo y seleccion.",
+      "Do usar los h2 como afirmaciones del modelo: son la unidad citable del documento.",
+      "Do mantener la evidencia despues de la afirmacion que valida, nunca antes.",
+      "Do anclar cualquier punto nuevo de la estela a --espina."
+    ],
+    "donts": [
+      "Don't usar color de fondo distinto a #101312 en ningun elemento de pantalla completa.",
+      "Don't nombrar disciplinas, servicios ni herramientas en las unidades del marco.",
+      "Don't abrir secciones con pruebas, empresas o fechas.",
+      "Don't condicionar a .playing ninguna regla que el estado sin movimiento necesite.",
+      "Don't anadir animaciones fuera de los sistemas reconocidos: estela+energia, revelado, lamparas, umbral, indice."
+    ]
+  }
+}
