@@ -14,7 +14,7 @@ La audiencia no se segmenta por industria. Cualquier definición sectorial del l
 
 ## Product Purpose
 
-davidmelara.com expone un modelo sobre cómo se pierde el valor en las organizaciones que dividen el trabajo, y acredita a su autor.
+davidmelara.com expone un modelo sobre **la continuidad de la promesa** —por qué las organizaciones incumplen lo que prometen y por qué el problema pertenece tanto al marketing como a la operación— y acredita a su autor.
 
 No es un portafolio, ni un CV en línea, ni una página de servicios. Es la exposición de un fenómeno organizacional: qué lo produce, dónde ocurre, qué condiciones lo contienen y en qué mercados decide la relación.
 
@@ -24,24 +24,29 @@ Esta métrica sustituye a la anterior —«el visitante contacta o descarga el C
 
 ## Positioning
 
-**El objeto del sitio es el mecanismo, no la persona.**
+**El sujeto de la obra es la promesa atravesando una organización.** No las organizaciones, no las ventas, no el marketing, no el autor.
 
-Lo que un cliente compra casi nunca es un objeto: es una cadena de fases. Al dividirse, la cadena crea uniones que no tienen dueño. Una cadena con uniones sin dueño no avanza sola: solo se mueve cuando algo la empuja desde fuera. Sobre esa lógica se ordenan los cuatro momentos por los que pasa toda promesa comercial.
+El cliente recibe la promesa como una sola continuidad; la empresa la ejecuta mediante múltiples decisiones. Desde que entra en la organización, mantener su continuidad deja de depender de una sola decisión y pasa a depender del sistema completo: cada espera, cada retrabajo, cada pérdida de contexto y cada decisión que aleja lo entregado de lo prometido la debilitan. Sobre esa lógica se ordenan los cuatro momentos.
 
-**Idea repetible (titular, invariable):**
-> Una promesa comercial no se divide. El trabajo que la cumple, sí.
+**Titular (invariable):**
+> La continuidad de una promesa.
 
-La formulación anterior —«cierro la distancia entre lo que las organizaciones prometen y lo que sus clientes experimentan»— queda **retirada**: figura en la lista de prohibidas del skill de posicionamiento con el diagnóstico «cualquier consultor», y además pone a la persona como sujeto de la acción.
+El artículo indeterminado no es un matiz: el titular nombra un fenómeno antes de que exista ninguna promesa en el texto. En el axioma y en el cuerpo se conserva «la promesa», que ahí remite a la que el lector ya tiene delante.
+
+**Axioma — va solo, sin número ni título, entre la introducción y el capítulo 1:**
+> La continuidad de la promesa deja de depender de personas cuando empieza a formar parte del diseño.
+
+«Una promesa comercial no se divide. El trabajo que la cumple, sí» dejó de ser titular y **abre el capítulo 1**: un titular delimita el fenómeno, y esa frase ya lo explica. La formulación «cierro la distancia entre lo que las organizaciones prometen y lo que sus clientes experimentan» sigue **retirada**: figura en la lista de prohibidas del skill de posicionamiento con el diagnóstico «cualquier consultor», y además pone a la persona como sujeto de la acción.
 
 Los mercados donde el criterio se formó —farmacéutica de línea ética, sistemas dentales CAD/CAM en Centroamérica— son el contexto donde el modelo se probó, **nunca su definición**. No aparecen antes que el mecanismo ni lo sustituyen.
 
 ## Operating Context
 
-Página única. El recorrido es un argumento, no un menú: tesis → mecanismo → marco → territorio → conversación. El marco de los cuatro momentos (nace · se acuerda · se cumple · se recuerda) no es una sección: es el principio que organiza secuencia, jerarquía, navegación, lenguaje y transiciones.
+Página única. El recorrido es un argumento, no un menú: hero → introducción → axioma → idea → mecanismo → marco → tecnología → conversación. Primero se delimita el fenómeno y después se explica; nunca al revés. El marco de los cuatro momentos (nace · se acuerda · se cumple · se recuerda) no es una sección: es el principio que organiza secuencia, jerarquía, navegación, lenguaje y transiciones. El axioma no forma parte del índice: lo atraviesa.
 
 La verificación documental —trayectoria, cargos, fechas, instituciones— vive exclusivamente en `cv.html` y en el PDF. La home no contiene cronología ni cargos.
 
-Sin formulario. El cierre es correo, LinkedIn o currículum.
+Sin formulario y **sin botones**. La entrada al modelo es un enlace tenue —`Leer el modelo ↓`— en Plex Mono: una obra invita, no convierte. El cierre es correo, LinkedIn o currículum.
 
 ## Capabilities and Constraints
 
@@ -61,7 +66,7 @@ Sin formulario. El cierre es correo, LinkedIn o currículum.
 - **Prohibido sin excepción:** iconos genéricos, ilustraciones corporativas, personajes, infografías decorativas, efectos llamativos, animaciones innecesarias, apariencia de agencia digital o landing de marketing.
 - Referencias estéticas vinculantes: Apple, Aesop, B&O, Stripe Press.
 - **Voz:** expositiva. Autoridad por precisión del análisis, no por volumen ni por credenciales.
-- **CRM, inteligencia artificial y automatización no aparecen en ningún soporte.** No tienen respaldo documental y contradicen la identidad cerrada. El cuarto momento —«se recuerda»— es una condición estructural del sistema, nunca una categoría tecnológica. *(Sustituye al principio anterior «CRM, IA y automatización son capacidad 04 de cuatro».)*
+- **No se reclama competencia en CRM, inteligencia artificial ni automatización.** No tienen respaldo documental en el expediente, así que no pueden figurar como capacidad, especialidad ni servicio en ningún soporte. **Distinto es escribir sobre ellas:** el marco tiene posición propia sobre dónde cabe una herramienta y dónde no, y esa posición sí es publicable porque se deriva del modelo. La restricción es de evidencia, no ideológica. El cuarto momento —«se recuerda»— es una condición estructural del sistema, nunca una categoría tecnológica. *(Sustituye al principio anterior «CRM, IA y automatización son capacidad 04 de cuatro».)*
 
 ## Evidence on Hand
 

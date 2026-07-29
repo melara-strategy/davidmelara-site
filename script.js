@@ -34,11 +34,13 @@
 
   /* temperatura del residuo y factor de la energía, por registro */
   var TEMPERATURAS = {
-    'hero':        { color: '#DFC08F', op: 0.95, factor: 1.0  },  /* la tesis: máxima */
-    'mecanismo':   { color: '#8A98A0', op: 0.62, factor: 0.60 },  /* analítica: la más fría */
-    'framework':   { color: '#C4A87A', op: 0.82, factor: 0.80 },  /* operativa: templada */
-    'territorio':  { color: '#A99B79', op: 0.70, factor: 0.70 },  /* estable */
-    'conversemos': { color: '#E8CD9C', op: 1.00, factor: 1.0  }   /* máxima otra vez */
+    'hero':         { color: '#DFC08F', op: 0.95, factor: 1.00 },  /* el fenómeno: máxima */
+    'introduccion': { color: '#B9AE95', op: 0.72, factor: 0.70 },  /* se delimita: enfría */
+    'idea':         { color: '#D8BC8C', op: 0.88, factor: 0.90 },  /* la proposición: cálida */
+    'mecanismo':    { color: '#8A98A0', op: 0.62, factor: 0.60 },  /* analítica: la más fría */
+    'framework':    { color: '#C4A87A', op: 0.82, factor: 0.80 },  /* operativa: templada */
+    'tecnologia':   { color: '#CBB489', op: 0.86, factor: 0.85 },  /* el instrumento */
+    'conversemos':  { color: '#E8CD9C', op: 1.00, factor: 1.00 }   /* máxima otra vez */
   };
   var VENTANA = 420;      /* longitud del frente vivo */
   var MAX_ORGANISMOS = 48;
@@ -422,6 +424,18 @@
       });
     }, { rootMargin: '0px 0px -12% 0px' });
     document.querySelectorAll('.revela').forEach(function (el) { obsRevela.observe(el); });
+
+    /* El hero se revela entero, no por scroll: es la pantalla de llegada.
+       Con el umbral en juego lo hace releva() al aterrizar el corte; sin umbral
+       —segunda visita en adelante— nadie lo haría, y la nota de apertura cae en
+       la banda de -12% que el observador excluye, es decir, aparecería recién al
+       primer scroll. Se revela aquí, que es donde se sabe que el umbral no va. */
+    if (document.documentElement.classList.contains('intro-off')) {
+      document.querySelectorAll('#hero .revela').forEach(function (el) {
+        el.classList.add('visible');
+        obsRevela.unobserve(el);
+      });
+    }
   }
 
   /* ---------- reconstrucción y arranque ---------- */

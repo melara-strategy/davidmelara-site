@@ -10,15 +10,19 @@ colors:
   hilo-tenue: "rgba(185,155,107,0.55)"
   linea: "rgba(234,231,223,0.14)"
   lamp-hero: "#5E6D78"
+  lamp-introduccion: "#5C6F66"
+  lamp-idea: "#6B6551"
   lamp-mecanismo: "#46545F"
   lamp-marco: "#7A6B4F"
-  lamp-territorio: "#5C6F66"
+  lamp-tecnologia: "#89704A"
   lamp-contacto: "#996F3D"
   nodo-encendido: "#D8B98A"
   estela-hero: "#DFC08F"
+  estela-introduccion: "#B9AE95"
+  estela-idea: "#D8BC8C"
   estela-mecanismo: "#8A98A0"
   estela-marco: "#C4A87A"
-  estela-territorio: "#A99B79"
+  estela-tecnologia: "#CBB489"
   estela-contacto: "#E8CD9C"
 typography:
   display:
@@ -40,6 +44,13 @@ typography:
     fontWeight: 300
     lineHeight: 1.4
     fontVariation: "'opsz' 40"
+  axioma:
+    fontFamily: "'Newsreader', Georgia, serif"
+    fontSize: "clamp(24px, 3vw, 36px)"
+    fontWeight: 300
+    lineHeight: 1.3
+    letterSpacing: "-0.012em"
+    fontVariation: "'opsz' 42"
   lead:
     fontFamily: "'Newsreader', Georgia, serif"
     fontSize: "clamp(18px, 1.75vw, 22px)"
@@ -58,6 +69,16 @@ typography:
   display-acotado:
     fontFamily: "'Newsreader', Georgia, serif"
     fontSize: "clamp(38px, 3.4vw, 56px)"
+    fontWeight: 300
+    lineHeight: 1.04
+  display-movil:
+    fontFamily: "'Newsreader', Georgia, serif"
+    fontSize: "38px"
+    fontWeight: 300
+    lineHeight: 1.04
+  display-estrecho:
+    fontFamily: "'Newsreader', Georgia, serif"
+    fontSize: "34px"
     fontWeight: 300
     lineHeight: 1.04
   glifo-reserva:
@@ -88,21 +109,18 @@ spacing:
   carril: "clamp(16px, 6vw, 88px)"
   medida: "66ch"
 components:
-  cta-primary:
+  enlace-entrada:
     backgroundColor: "transparent"
     textColor: "{colors.hueso}"
+    borderBottom: "1px solid rgba(185,155,107,0.62)"
     rounded: "{rounded.none}"
-    padding: "14px 26px"
-  cta-primary-hover:
+    padding: "0 0 6px 0"
+  enlace-entrada-hover:
     backgroundColor: "transparent"
     textColor: "{colors.hilo}"
+    borderBottom: "1px solid {colors.hilo}"
     rounded: "{rounded.none}"
-    padding: "14px 26px"
-  cta-secondary:
-    backgroundColor: "transparent"
-    textColor: "{colors.niebla}"
-    rounded: "{rounded.none}"
-    padding: "14px 26px"
+    padding: "0 0 6px 0"
 ---
 
 # Design System: David Melara — Presencia Ejecutiva
@@ -140,7 +158,7 @@ Un sistema de dos voces: la tinta silencia, el hilo señala. Los doce valores de
 ### Neutral
 
 - **Tinta** (`#101312`): el lienzo. Fondo de toda la página y del umbral de marca. Nunca sustituido por ningún otro oscuro.
-- **Hueso** (`#EAE7DF`): texto primario, bordes de CTA primario en reposo, color de selección invertida. Blanco roto, no blanco puro — la diferencia hace que el lienzo respire.
+- **Hueso** (`#EAE7DF`): texto primario, enlace de entrada en reposo, color de selección invertida. Blanco roto, no blanco puro — la diferencia hace que el lienzo respire.
 - **Cuerpo** (`#CFCCC3`): la prosa narrativa. Un hueso atenuado entre Hueso y Niebla: el texto que sostiene el argumento sin la presencia del texto primario ni la subordinacion del secundario.
 - **Niebla** (`#9CA29B`): texto secundario, eyebrows en reposo, rol, posicionamiento. Subordinado, presente.
 - **Hilo Tenue** (`rgba(185,155,107,0.55)`): versión atenuada del hilo dorado. Bordes de los nodos de la estela y la línea decorativa bajo eyebrow-sección.
@@ -149,23 +167,31 @@ Un sistema de dos voces: la tinta silencia, el hilo señala. Los doce valores de
 
 ### Section Lamps (temperatura por registro)
 
-Valores de color ambiental aplicados como gradiente radial dentro de cada sección (`opacity: 0.10` en reposo, `0.20` cuando activa). No aparecen en la UI; modulan el ambiente emocional del lienzo por sección. Son cinco, una por sección del recorrido:
+Valores de color ambiental aplicados como gradiente radial dentro de cada sección (`opacity: 0.10` en reposo, `0.20` cuando activa). No aparecen en la UI; modulan el ambiente emocional del lienzo por sección. Son siete, una por sección del recorrido:
 
-- **Acero Frío** (`#5E6D78`): hero — la tesis
+- **Acero Frío** (`#5E6D78`): hero — el fenómeno, nombrado
+- **Verde Sereno** (`#5C6F66`): introducción — se delimita el territorio
+- **Neutra Cálida** (`#6B6551`): idea — la proposición
 - **Azul Analítico** (`#46545F`): mecanismo — la lógica del problema, el más frío
 - **Templado** (`#7A6B4F`): marco — los cuatro momentos, registro operativo
-- **Verde Sereno** (`#5C6F66`): territorio — la condición de contorno
+- **Ámbar Sordo** (`#89704A`): tecnología — el instrumento, entre el marco y el cierre
 - **Cobre Cercano** (`#996F3D`): conversemos — el más cálido
+
+El axioma no lleva lámpara: no es una sección. Atraviesa el lienzo sin cambiarle la temperatura.
 
 ### Rampa longitudinal de la estela
 
 Segunda rampa, independiente de las lámparas: son las paradas del gradiente del trazo SVG y el factor de energía del lienzo, definidos en `script.js` (`TEMPERATURAS`). No son colores de UI y no deben confundirse con la paleta de texto.
 
-- `#DFC08F` (op .95, factor 1.0) — hero
+- `#DFC08F` (op .95, factor 1.00) — hero
+- `#B9AE95` (op .72, factor .70) — introducción
+- `#D8BC8C` (op .88, factor .90) — idea
 - `#8A98A0` (op .62, factor .60) — mecanismo
 - `#C4A87A` (op .82, factor .80) — marco
-- `#A99B79` (op .70, factor .70) — territorio
-- `#E8CD9C` (op 1.0, factor 1.0) — conversemos
+- `#CBB489` (op .86, factor .85) — tecnología
+- `#E8CD9C` (op 1.0, factor 1.00) — conversemos
+
+La curva no es decorativa: entra caliente, se enfría al delimitar, vuelve a calentarse con la proposición, toca su punto más frío en el análisis y sube sin interrupción hasta el cierre. El axioma queda entre dos paradas y el gradiente lo interpola: el trazo lo atraviesa sin nodo.
 
 **La Regla del Hilo.** El hilo dorado (`#B99B6B`) ocupa menos del 10% de cualquier viewport. Cuanto menos aparece, más significa cuando aparece. No usarlo para texto de párrafo, fondos, ni elementos decorativos.
 
@@ -175,25 +201,28 @@ Segunda rampa, independiente de las lámparas: son las paradas del gradiente del
 
 **Display Font:** Newsreader (variable, opsz 6–72, wght 200–800), Georgia fallback — serif clásico con musculatura editorial. Autohospedado como WOFF2; sin Google Fonts.
 
-**Label/Mono Font:** IBM Plex Mono, monospace — el sistema de registro, no de expresión. Para etiquetas, índices, CTAs, datos tácticos.
+**Label/Mono Font:** IBM Plex Mono, monospace — el sistema de registro, no de expresión. Para etiquetas, índices, enlaces de sistema, datos tácticos.
 
 **Carácter:** Newsreader tiene la densidad óptica de una publicación impresa seria — en peso 300 fluye; en opsz 72 tiene la autoridad de una firma. IBM Plex Mono funciona como el sistema nervioso técnico: preciso, invisible, nunca expresivo por sí mismo. Los dos no compiten; se turnan.
 
 ### Hierarchy
 
-- **Display** (wght 300, clamp(42px,5.2vw,58px), lh 1.04, ls -0.015em, opsz 72): el titular-tesis del hero. La única h1 del sitio. El tope son 58px y no más: la columna del hero está acotada por el marco de 1200px, y «Una promesa comercial» ocupa 9.85px por cada px de cuerpo, de modo que por encima de 58px el pareado deja de partir en dos líneas por oración. La medida de 16.6ch fuerza ese corte e impide que «sí.» quede sola en una línea.
+- **Display** (wght 300, clamp(42px,5.2vw,58px), lh 1.04, ls -0.015em, opsz 72): el titular del hero, que delimita el fenómeno. La única h1 del sitio. El tope son 58px y no más: la columna del hero está acotada por el marco de 1200px. La medida es de 12ch y fija dónde parte: «La continuidad» mide 10.5ch y «La continuidad de la», 14.1ch, de modo que por encima de esa segunda cifra el corte deja el artículo colgando y «promesa.» sola. A 12ch parte donde debe y las dos líneas quedan parejas —308 y 292px a 1440.
 - **Headline** (wght 400, clamp(20px,2vw,24px), lh 1.25, ls 0.01em): subtítulos y encabezados de unidad. Peso ligeramente mayor que el cuerpo para señalar sin dominar.
-- **Title** (wght 300, clamp(21px,2.3vw,29px), lh 1.4, opsz 40): la `.apertura` que abre cada sección. Tono intermedio entre Display y Body; opsz 40 mantiene la gracia óptica a tamaño intermedio.
-- **Realce** (wght 300, clamp(18px,1.75vw,22px), lh 1.5–1.55): prosa alzada sobre el cuerpo sin llegar a encabezado. Dos usos: la línea de apertura del hero y las situaciones citadas del cierre. Antes eran dos escalas propias a 1 px de distancia —18→22 y 18→21—, un escalón que existía en el uso y no en el sistema.
+- **Axioma** (wght 300, clamp(24px,3vw,36px), lh 1.3, ls -0.012em, opsz 42): un solo usuario, `.axioma p`, y un solo enunciado. Es el paso que faltaba: el axioma no es un titular —no delimita— ni una afirmación de sección —no pertenece a ninguna—, y a los 29px de Title se leía como un encabezado más. Cae en el hueco real de la rampa: 7px por encima del tope de Title y 22px por debajo del de Display.
+- **Title** (wght 300, clamp(21px,2.3vw,29px), lh 1.4, opsz 40): la `h2.afirmacion` que abre cada sección. Tono intermedio entre Display y Body; opsz 40 mantiene la gracia óptica a tamaño intermedio.
+- **Realce** (wght 300, clamp(18px,1.75vw,22px), lh 1.5–1.55): prosa alzada sobre el cuerpo sin llegar a encabezado. Un solo usuario desde que el cierre dejó de citar situaciones: el subtítulo del hero, que dice de qué trata el modelo. El paso se conserva —no se colapsa contra Body— porque ese subtítulo es lo primero que se lee después del titular y necesita separarse de la prosa.
 - **Body** (wght 300, clamp(17px,1.35vw,19px), lh 1.72): texto de párrafo. Medida máxima de 66 caracteres (`--medida`). Interlineado generoso para lectura editorial larga.
-- **Nota** (wght 300, clamp(15px,1.2vw,16px), lh 1.6, color Niebla): el registro de pie. Un manuscrito necesita una voz por debajo del cuerpo para lo que acompaña al argumento sin formar parte de él —la firma del autor—. Serif y fluida como el resto de la rampa de lectura; la mono es para etiquetas, no para prosa breve.
-- **Label** (IBM Plex Mono, ls 0.14–0.24em, uppercase): todo lo que organiza sin narrar. Cuatro escalones discretos, no un rango continuo — **10px** navegación de momentos, **11px** eyebrows de sección y pie, **12px** CTAs, enlace de salto y remite de la validación, **13px** vías de contacto.
+- **Nota** (wght 300, clamp(15px,1.2vw,16px), lh 1.6, color Niebla): el registro de pie. Un manuscrito necesita una voz por debajo del cuerpo para lo que acompaña al argumento sin formar parte de él. Dos usuarios: la nota de apertura del hero —la que dice que el fenómeno ya se ha vivido sin nombrarse— y el oficio bajo la firma. Serif y fluida como el resto de la rampa de lectura; la mono es para etiquetas, no para prosa breve. La nota del hero llegó a escribir su propio `clamp(14px,1.15vw,16px)`, idéntico en el tope y a 1px en el suelo: exactamente la deriva que esta rampa existe para impedir.
+- **Label** (IBM Plex Mono, ls 0.14–0.24em, uppercase): todo lo que organiza sin narrar. Cuatro escalones discretos, no un rango continuo — **10px** navegación de momentos, **11px** eyebrows de sección y pie, **12px** enlace de entrada al modelo y enlace de salto, **13px** vías de contacto.
 
 ### Valores fuera de la rampa
 
-Dos literales del CSS no son escalones y no deben leerse como tales:
+Cuatro literales del CSS no son escalones y no deben leerse como tales. Los tres primeros son el mismo paso **Display** constreñido por el espacio disponible; el cuarto no es texto de lectura:
 
-- **Display acotado** (`clamp(38px,3.4vw,56px)`, dentro de `@media (min-width:901px) and (max-height:1040px)`): no es un paso nuevo, es el paso Display constreñido para pantallas bajas. La columna del hero no crece en esas alturas, así que el cuerpo debe seguir al ancho o el pareado vuelve a partirse en cinco líneas.
+- **Display acotado** (`clamp(38px,3.4vw,56px)`, dentro de `@media (min-width:901px) and (max-height:1040px)`): la columna del hero no crece en esas alturas, así que el cuerpo debe seguir al ancho o el titular pasa de dos líneas a tres.
+- **Display móvil** (`38px`, dentro de `@media(max-width:640px)`): −9,5% sobre el mínimo de la rampa. Se probó contra la hipótesis de que reducirlo invertiría la jerarquía; no la invierte, y los píxeles liberados se dejan como aire.
+- **Display estrecho** (`34px`, dentro de `@media(max-width:360px)`): por debajo de 360px la columna del hero cae a ~240px y «de una promesa.» deja de caber, de modo que el titular parte en tres líneas y la de en medio queda con dos palabras. A 34px la segunda línea mide 233px y vuelve a entrar. Es el único ajuste por debajo de 360; el resto del bloque móvil no cambia. Medido a 320×640: dos líneas, sin desbordamiento horizontal.
 - **Glifo de reserva** (`clamp(40px,5vw,72px)`, en `.retrato.sin-imagen::after`): las iniciales que sustituyen a un retrato que no carga. Es un elemento dimensionado para llenar una caja, no texto de lectura.
 
 ### Cierre de la voz intermedia
@@ -203,20 +232,20 @@ Tres componentes usaban escalas casi idénticas y sin nombre. Al mirarlas juntas
 | Componente | Antes | Ahora |
 |---|---|---|
 | `.posicionamiento` | 18 → 22 | **Realce** 18 → 22 |
-| `.situacion` | 18 → 21 | **Realce** 18 → 22 |
+| `.situacion` *(retirado)* | 18 → 21 | **Realce** 18 → 22 |
 | `.momento-unidad h3` | 19 → 23 | **Headline** 20 → 24 |
 
 Los dos primeros son prosa alzada y comparten paso nuevo. El tercero es un encabezado: se había fabricado una copia del paso **Headline** a 1 px de distancia en ambos extremos, mientras el paso declarado no tenía usuario —todos los `h2` llevan `.afirmacion` y lo anulan—. Ahora lo usa.
 
-Coste medido del cambio: `.situacion` +1 px y `.momento-unidad h3` +1 px en sus máximos; `.posicionamiento` sin variación.
+Coste medido del cambio: `.situacion` +1 px y `.momento-unidad h3` +1 px en sus máximos; `.posicionamiento` sin variación. `.situacion` se retiró después, con las situaciones citadas del cierre; el paso **Realce** conserva un solo usuario y se justifica en la rampa.
 
-**La Regla del Opsz.** `font-variation-settings: 'opsz' N` siempre se ajusta al tamaño de uso: 72 para titulares display, 40 para aperturas, 6–12 por defecto en cuerpo. Un Newsreader sin ajuste óptico es la misma fuente con la mitad de su carácter.
+**La Regla del Opsz.** `font-variation-settings: 'opsz' N` siempre se ajusta al tamaño de uso: 72 para titulares display, 40 para las afirmaciones de sección, 42 para el axioma, 6–12 por defecto en cuerpo. Un Newsreader sin ajuste óptico es la misma fuente con la mitad de su carácter.
 
 **La Regla del Peso Único.** Newsreader aparece en 300 casi siempre — la ligereza es parte del argumento. El peso 400 y 500 existen pero se reservan para h2 y `strong`: deben sentirse como un subrayado, no como un cambio de voz.
 
 ## Layout
 
-El layout es un solo canvas vertical, dividido en seis secciones y cinco costuras. No hay sidebar, no hay grid de tarjetas, no hay columnas secundarias en la narrativa principal.
+El layout es un solo canvas vertical: siete secciones, un axioma sin sección propia y seis costuras. No hay sidebar, no hay grid de tarjetas, no hay columnas secundarias en la narrativa principal.
 
 **Contenedor:** `.marco` — `max-width: 1200px`, centrado, con padding lateral asimétrico: la izquierda lleva `--carril` (clamp(16px,6vw,88px)) + offset adicional (clamp(24px,4vw,72px)) para dejar espacio al rastro de la estela SVG. La derecha usa `--margen` (clamp(20px,6vw,96px)). El carril izquierdo es la autopista de la identidad interactiva.
 
@@ -228,7 +257,7 @@ El layout es un solo canvas vertical, dividido en seis secciones y cinco costura
 
 **Costuras:** Bloques vacíos de `clamp(140px, 26vh, 300px)` entre secciones que alojan los anclajes de la estela. No son decoración — son el sistema nervioso del recorrido.
 
-**Responsive:** A 900px el grid del hero colapsa a columna única (retrato primero), el panel de momentos desaparece. A 640px el carril reduce a 20px, el encabezado de cada momento pasa a bloque y el hero reparte su ritmo vertical. El sitio no tiene tablet breakpoint — la fluidez de `clamp()` hace la transición continua.
+**Responsive:** El índice de momentos desaparece a 1339px, no a 900: por debajo de ese ancho el marco de 1200px deja de tener aire a la derecha y el índice se montaría sobre el texto. A 900px el grid del hero colapsa a columna única (retrato primero). A 640px el carril reduce a 20px, el encabezado de cada momento pasa a bloque y el hero reparte su ritmo vertical. El sitio no tiene tablet breakpoint — la fluidez de `clamp()` hace la transición continua.
 
 ## Elevation & Depth
 
@@ -254,14 +283,14 @@ Las únicas formas curvas del sistema son funcionales:
 
 ## Components
 
-### Botones / CTAs
+### Enlace de entrada (`.hero-enlace`)
 
-Los CTAs nunca interrumpen la lectura; aparecen como una invitación natural a continuarla. Permanecen contenidos mientras el usuario observa y solo revelan un matiz de identidad cuando decide acercarse.
+**El sitio no tiene botones.** Un ensayo invita a seguir leyendo; no convierte. El único paso adelante del hero es un enlace tenue, y su forma es deliberadamente la de una nota al pie, no la de un control.
 
-- **Forma:** rectangular, sin radio (0px), borde de 1px
-- **Primario (`.cta`):** fondo transparente, borde `1px solid var(--hueso)` (#EAE7DF), texto en IBM Plex Mono 12px caps, padding 14px 26px, letter-spacing 0.16em
-- **Hover primario:** `border-color: var(--hilo)`, `color: var(--hilo)` — transición 0.3s. El oro aparece solo cuando el usuario se acerca
-- **Secundario (`.cta-secundaria`):** mismo formato, borde `rgba(234,231,223,0.3)`, texto en `var(--niebla)`. Más quieto, más distante
+- **Forma:** sin caja, sin borde, sin radio. Solo un subrayado
+- **Estilo:** IBM Plex Mono 12px caps, `letter-spacing: 0.16em`, color `var(--hueso)`, `border-bottom: 1px solid rgba(185,155,107,0.62)`, `padding-bottom: 6px`
+- **Por qué .62 y no --hilo-tenue:** el enlace comparte color exacto con el texto vecino, así que el subrayado es lo único que lo identifica y necesita 3:1. A .55 daba 2.96
+- **Hover:** `color` y `border-color` a `var(--hilo)` — transición 0.3s. El oro aparece solo cuando el usuario se acerca
 - **Focus visible:** `outline: 1.5px solid var(--hilo)`, offset 4px — el hilo marca también el estado de teclado
 
 ### Eyebrow Label
@@ -274,7 +303,7 @@ Los CTAs nunca interrumpen la lectura; aparecen como una invitación natural a c
 
 Índice del marco, no de las secciones del sitio: sus cuatro etiquetas corresponden una a una con las unidades de `#framework`.
 
-- **Posición:** fija, derecha del viewport, centrada verticalmente, desaparece a 900px
+- **Posición:** fija, derecha del viewport, centrada verticalmente, desaparece a 1339px
 - **Estado inactivo:** IBM Plex Mono 10px, color `rgba(156,162,155,0.78)`, indicador circular de 5px con borde en el mismo color. El 0.78 no es estético: con 0.42 el rótulo quedaba en 2.24:1 sobre el lienzo, por debajo del mínimo AA para texto (4.5:1) y del mínimo de componente para el punto (3:1). A 0.78 da 4.80:1
 - **Estado activo (`.momento.activo`):** color `var(--hilo)`, indicador relleno — transición 0.5s ease en ambos
 - **Selección del activo:** la banda del observador (32%–60% del viewport) es más alta que una unidad, de modo que puede haber dos dentro a la vez. Se enciende la más cercana al centro de la banda, no la última que disparó: elegir por orden de callback no es determinista y parpadea. Fuera del marco el índice conserva el último momento leído en lugar de apagarse
@@ -283,11 +312,11 @@ Los CTAs nunca interrumpen la lectura; aparecen como una invitación natural a c
 
 - **Contenedor (`.retrato`):** fondo `#161917`, borde `1px solid var(--linea)`, sin radio
 - **Imagen:** `filter: grayscale(1) contrast(1.08) brightness(0.94)` — blanco y negro con leve refuerzo de contraste
-- **Hero:** `height: clamp(380px, 72vh, 680px)`, `margin-left: clamp(-90px, -6vw, -24px)` — la imagen sangra ligeramente hacia el centro
+- **Hero:** `height: clamp(360px, 66vh, 620px)`, `margin-left: clamp(-64px, -4.2vw, -24px)` — la imagen sangra ligeramente hacia el centro. Bajó de 72vh a 66vh cuando el hero ganó la nota de apertura: a 72vh el bloque medía 1000px sobre un viewport de 900 y cortaba la nota 10px por debajo del pliegue. A 66vh la nota cierra en 856 con 44px de holgura, y el retrato sigue siendo el elemento mayor de la pantalla.
 - **Encuadre (`object-position: 50% 0%`):** el sujeto es el rostro. En móvil la caja se vuelve apaisada y `cover` recorta 142 px de alto; centrado se llevaba 71 px de arriba —la cabeza por encima de la frente y el candelabro entero—. Anclado arriba, el recorte sale íntegro de la parte baja y los ojos quedan al 36% del encuadre. En escritorio el recorte es horizontal (70 px) y este valor no tiene efecto.
 - **Reparto vertical en móvil (≤640px):** el retrato íntegro a ancho de columna pide 386 px y el hero solo tenía 244. El espaciado daba 95 de los 142 necesarios, así que los 47 restantes habrían salido del titular. Un retrato completo pero estrecho (240 px) deja la cara en 79 px y un hueco huérfano a la derecha; al máximo que permite el presupuesto (275 px) la tesis deja de asomar. La redistribución se emplea entonces en agrandar el recorte anclado arriba: la ventana pasa del 63,1% al 69,4% del original y, a la vez, la holgura al pliegue sube de 24 a 32 px. Tablet y escritorio no participan: sus valores siguen viniendo del bloque ≤900 y del base.
-- **Escala del titular en móvil (38px, −9,5%):** probada contra la hipótesis de que reducirla invertiría la jerarquía. No la invierte: el titular conserva las seis señales de dominancia —2,11× sobre el elemento siguiente, único en Hueso a 15,12:1 frente a 7,17:1, primera posición de texto, 198 px de masa frente a 112, cinco líneas y uso exclusivo del paso Display—. Tampoco reorganiza la composición: mismo número de líneas y mismo rag proporcional (58%). Los 20 px liberados se dejan como aire y no se dan al retrato —invertirlos en la imagen devuelve el margen al pliegue a 34 px y vuelve a cortar la tesis—. Resultado: holgura de 32 a 55 px y la línea de tesis pasa de asomar a leerse.
-- **Cierre del primer acto (móvil):** logotipo, retrato, titular y apertura forman una unidad —la apertura termina en punto y la tesis pertenece a otro registro: es el subtítulo de la obra, no su argumento—. Con la separación de párrafo la tesis asomaba seccionada por la mitad de las letras a 812 px de alto. Ningún valor en em lo resuelve: la holgura tras la apertura crece con la pantalla (55 px a 812, 73 a 844, 136 a 932) porque el contenido crece más despacio que el viewport. Con `clamp(24px,16vh,160px)` el acto cierra en toda la banda —holgura de 62 px a 844 y 13 px a 932— y la separación no queda vacía: la estela la atraviesa, de modo que el propio sistema del sitio provee la transición entre actos.
+- **Escala del titular en móvil (38px, −9,5%) · medida sobre el titular anterior:** probada contra la hipótesis de que reducirla invertiría la jerarquía. No la invierte: el titular conserva las seis señales de dominancia —2,11× sobre el elemento siguiente, único en Hueso a 15,12:1 frente a 7,17:1, primera posición de texto, 198 px de masa frente a 112, cinco líneas y uso exclusivo del paso Display—. Tampoco reorganiza la composición: mismo número de líneas y mismo rag proporcional (58%). Los 20 px liberados se dejan como aire y no se dan al retrato —invertirlos en la imagen devuelve el margen al pliegue a 34 px y vuelve a cortar la tesis—. Resultado: holgura de 32 a 55 px y la línea de tesis pasa de asomar a leerse.
+- **Cierre del primer acto (móvil) · superado el 2026-07-29, se conserva el método:** logotipo, retrato, titular y apertura forman una unidad —la apertura termina en punto y la tesis pertenece a otro registro: es el subtítulo de la obra, no su argumento—. Con la separación de párrafo la tesis asomaba seccionada por la mitad de las letras a 812 px de alto. Ningún valor en em lo resuelve: la holgura tras la apertura crece con la pantalla (55 px a 812, 73 a 844, 136 a 932) porque el contenido crece más despacio que el viewport. Con `clamp(24px,16vh,160px)` el acto cierra en toda la banda —holgura de 62 px a 844 y 13 px a 932— y la separación no queda vacía: la estela la atraviesa, de modo que el propio sistema del sitio provee la transición entre actos.
 
 ### Los cuatro momentos — principio organizador
 
@@ -301,7 +330,9 @@ Los CTAs nunca interrumpen la lectura; aparecen como una invitación natural a c
 
 **Regla de contenido, no de estilo.** Ninguna unidad nombra una disciplina, un servicio, una herramienta ni una capacidad. Cada una afirma una condición del flujo. La prueba: si al leer una unidad se puede deducir qué se le contrataría al autor, la unidad está mal escrita — ese fue el modo de fallo del componente anterior (`.capacidad`, «Capacidades»), que anteponía la disciplina al momento y se leía como catálogo de servicios.
 
-### Ilustración (`.ilustracion`)
+### Ilustración (`.ilustracion`) — RETIRADO 2026-07-29
+
+*El componente salió del sitio con la sección `territorio`. Las dos reglas de contenido siguen vigentes como criterio editorial y por eso se conservan: si vuelve una ilustración, vuelve con ellas.*
 
 El caso no demuestra la ley: hace visible una ley que el lector ya ha comprendido. De ahí las dos únicas reglas del componente.
 
@@ -311,7 +342,9 @@ El caso no demuestra la ley: hace visible una ley que el lector ya ha comprendid
 
 Tipográficamente se aparta con filete izquierdo en `var(--hilo-tenue)` y color Cuerpo, **sin escalón propio**: es lectura de cuerpo, no una nota. Añadir un tamaño para el ejemplo lo convertiría en material secundario, y no lo es.
 
-### Validación (`.validacion`)
+### Validación (`.validacion`) — RETIRADO 2026-07-29
+
+*La acreditación del autor dejó de ser un bloque dentro del marco. Vive en la firma del cierre, en `llms.txt` y en el currículum. Se conserva la regla de asimetría, que sigue gobernando.*
 
 Cierre de la sección del marco. Un solo hecho, nunca un bloque, y siempre **después** de la afirmación que valida. Separado por filete superior en `var(--hilo-tenue)`, max-width 58ch, y cerrado con el traspaso explícito al currículum.
 
@@ -319,7 +352,7 @@ La asimetría es estructural, no de criterio: la validación no tiene sección p
 
 ### Umbral de marca (`#intro`)
 
-Cuatro tiempos, una sola marca. El trazado de la M (`.im-m`) es idéntico carácter por carácter al del isotipo —los mismos 3.549 caracteres de path, en el mismo espacio de coordenadas—, así que el logotipo se sirve en línea con sus seis grupos direccionables y no hay dos elementos que fundir.
+Siete tiempos, una sola marca. El trazado de la M (`.im-m`) es idéntico carácter por carácter al del isotipo —los mismos 3.549 caracteres de path, en el mismo espacio de coordenadas—, así que el logotipo se sirve en línea con sus seis grupos direccionables y no hay dos elementos que fundir.
 
 | tiempo | ms | qué ocurre |
 |---|---|---|
@@ -368,19 +401,19 @@ Componente no de UI sino de sistema. Los puntos que marcan los anclajes de la tr
 
 ### Do:
 
-- **Do** usar `font-variation-settings: 'opsz' 72` para el display h1 y `'opsz' 40` para `.apertura` — Newsreader sin ajuste óptico pierde la mitad de su carácter.
+- **Do** usar `font-variation-settings: 'opsz' 72` para el display h1 y `'opsz' 40` para `h2.afirmacion` — Newsreader sin ajuste óptico pierde la mitad de su carácter.
 - **Do** mantener la medida de lectura en 66ch (`--medida`) para cualquier bloque de texto narrativo en desktop.
-- **Do** reservar el hilo dorado (`#B99B6B`) exclusivamente para: estela, hover states, estado activo del índice de momentos, filete de la validación, y selección de texto.
+- **Do** reservar el hilo dorado (`#B99B6B`) exclusivamente para: estela, hover states, estado activo del índice de momentos, subrayado del enlace de entrada y de las vías de contacto, y selección de texto.
 - **Do** implementar `prefers-reduced-motion: reduce` en toda animación — el sistema tiene `transition: none` y `animation: none` explícitos para ese caso.
-- **Do** usar IBM Plex Mono para todo lo que organiza: labels, índices, CTAs, timestamps, datos tácticos, pie.
+- **Do** usar IBM Plex Mono para todo lo que organiza: labels, índices, enlace de entrada, vías de contacto, pie.
 - **Do** dejar las costuras (espacios entre secciones) tan generosas como dicta `clamp(140px, 26vh, 300px)` — el silencio entre argumentos es parte del argumento.
 - **Do** aplicar `grayscale(1) contrast(1.08) brightness(0.94)` a toda fotografía de retrato — la coherencia del filtro es parte de la identidad.
 
 ### Don't:
 
-- **Don't** añadir `border-radius` a ningún botón, contenedor, tarjeta o card. Las esquinas vivas son el carácter del sistema, no un olvido.
+- **Don't** añadir `border-radius` a ningún enlace, contenedor, tarjeta o card. Las esquinas vivas son el carácter del sistema, no un olvido.
 - **Don't** usar `box-shadow` en elementos de UI. La única sombra del sistema es el `drop-shadow` de baja opacidad en el logotipo hero.
-- **Don't** usar el hilo dorado como color de texto en párrafos, títulos, ni eyebrows — solo en los cinco contextos especificados en el Do anterior.
+- **Don't** usar el hilo dorado como color de texto en párrafos, títulos, ni eyebrows — solo en los contextos especificados en el Do anterior.
 - **Don't** añadir iconos, ilustraciones, o imágenes decorativas que no sean el retrato profesional o los assets de marca congelados.
 - **Don't** presentar el marco como una sección más: los cuatro momentos ordenan la secuencia, la jerarquía, el índice y el léxico del documento entero.
 - **Don't** usar color de fondo distinto a `#101312` en ningún elemento de pantalla completa — ni modals, ni overlays, ni intro screens.
