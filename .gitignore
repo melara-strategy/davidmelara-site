@@ -8,3 +8,7 @@ docs/
 
 # Especificacion de la fase anterior (evidencia primero). Superada por PRODUCT.md y DESIGN.md.
 IMPLEMENTACION_WEB_V1.md
+
+# Estado canónico del proyecto: documento de trabajo interno, no se versiona ni se sirve.
+# _redirects lo bloquea además en producción, como salvaguarda si se comiteara por error.
+ESTADO_CANONICO_PROYECTO_V1.md

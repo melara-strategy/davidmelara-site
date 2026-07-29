@@ -5,3 +5,6 @@
 /PRODUCT.md                 /index.html   404
 /HANDOFF.md                 /index.html   404
 /CLAUDE.md                  /index.html   404
+
+# No versionado (excluido en .gitignore). La regla es una salvaguarda por si se comiteara.
+/ESTADO_CANONICO_PROYECTO_V1.md  /index.html  404
