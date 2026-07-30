@@ -386,6 +386,11 @@
     entradas.forEach(function (e) {
       if (e.target.classList.contains('sec')) {
         e.target.classList.toggle('activa', e.isIntersecting);
+        /* el índice acompaña al marco: se reutiliza este observador en lugar de añadir otro,
+           así que entra y sale con la misma banda que enciende la lámpara de la sección */
+        if (e.target.id === 'framework') {
+          document.documentElement.classList.toggle('marco-a-la-vista', e.isIntersecting);
+        }
       }
       if (!mapaMomentos[e.target.dataset.moment]) return;
       var i = vivos.indexOf(e.target);

@@ -210,6 +210,8 @@ La curva no es decorativa: entra caliente, se enfría al delimitar, vuelve a cal
 - **Display** (wght 300, clamp(42px,5.2vw,58px), lh 1.04, ls -0.015em, opsz 72): el titular del hero, que delimita el fenómeno. La única h1 del sitio. El tope son 58px y no más: la columna del hero está acotada por el marco de 1200px. La medida es de 12ch y fija dónde parte: «La continuidad» mide 10.5ch y «La continuidad de la», 14.1ch, de modo que por encima de esa segunda cifra el corte deja el artículo colgando y «promesa.» sola. A 12ch parte donde debe y las dos líneas quedan parejas —308 y 292px a 1440.
 - **Headline** (wght 400, clamp(20px,2vw,24px), lh 1.25, ls 0.01em): subtítulos y encabezados de unidad. Peso ligeramente mayor que el cuerpo para señalar sin dominar.
 - **Axioma** (wght 300, clamp(24px,3vw,36px), lh 1.3, ls -0.012em, opsz 42): un solo usuario, `.axioma p`, y un solo enunciado. Es el paso que faltaba: el axioma no es un titular —no delimita— ni una afirmación de sección —no pertenece a ninguna—, y a los 29px de Title se leía como un encabezado más. Cae en el hueco real de la rampa: 7px por encima del tope de Title y 22px por debajo del de Display.
+
+  **Medida: 25ch, y es una decisión de rag, no de columna.** A 26ch el enunciado caía en 532 · 430 · 490 px: 102px de desnivel y una mella visible en el centro del borde derecho. En un texto de tres líneas a 36px el ojo no promedia el rag, así que cada desnivel se lee como decisión, y un rag irregular en la frase que sostiene la obra le resta autoridad. Barrido de 20 a 34ch: 23ch y menos parten en cuatro líneas; 26 a 32 mantienen o empeoran el bache; 33 en adelante dejan 101px en la última. La meseta buena es 24–25ch, con **489 · 473 · 490 y 17px de desnivel**. En `ch` porque medida y cuerpo escalan juntos y los cortes se conservan a cualquier ancho. Escala, peso, aire y aislamiento no se tocan.
 - **Title** (wght 300, clamp(21px,2.3vw,29px), lh 1.4, opsz 40): la `h2.afirmacion` que abre cada sección. Tono intermedio entre Display y Body; opsz 40 mantiene la gracia óptica a tamaño intermedio.
 - **Realce** (wght 300, clamp(18px,1.75vw,22px), lh 1.5–1.55): prosa alzada sobre el cuerpo sin llegar a encabezado. Un solo usuario desde que el cierre dejó de citar situaciones: el subtítulo del hero, que dice de qué trata el modelo. El paso se conserva —no se colapsa contra Body— porque ese subtítulo es lo primero que se lee después del titular y necesita separarse de la prosa.
 - **Body** (wght 300, clamp(17px,1.35vw,19px), lh 1.72): texto de párrafo. Medida máxima de 66 caracteres (`--medida`). Interlineado generoso para lectura editorial larga.
@@ -224,6 +226,9 @@ Cuatro literales del CSS no son escalones y no deben leerse como tales. Los tres
 - **Display móvil** (`38px`, dentro de `@media(max-width:640px)`): −9,5% sobre el mínimo de la rampa. Se probó contra la hipótesis de que reducirlo invertiría la jerarquía; no la invierte, y los píxeles liberados se dejan como aire.
 - **Display estrecho** (`34px`, dentro de `@media(max-width:360px)`): por debajo de 360px la columna del hero cae a ~240px y «de una promesa.» deja de caber, de modo que el titular parte en tres líneas y la de en medio queda con dos palabras. A 34px la segunda línea mide 233px y vuelve a entrar. Es el único ajuste por debajo de 360; el resto del bloque móvil no cambia. Medido a 320×640: dos líneas, sin desbordamiento horizontal.
 - **Glifo de reserva** (`clamp(40px,5vw,72px)`, en `.retrato.sin-imagen::after`): las iniciales que sustituyen a un retrato que no carga. Es un elemento dimensionado para llenar una caja, no texto de lectura.
+- **Firma** (`clamp(19px,1.7vw,22px)`, en `.firma`): el nombre del autor al cierre. Roza el paso **Realce** (18→22) sin coincidir con él. Se conserva como está —compone bien y no hay evidencia de defecto, sólo de un valor sin declarar— y queda registrado aquí para que deje de parecer una inconsistencia.
+
+*Retirado de esta lista:* `.momento-condicion` llevaba un `clamp(17px,1.5vw,20px)` que tampoco era escalón — valía 1px sobre el cuerpo en escritorio y 0 en móvil, de modo que no creaba intervalo en ninguna parte— y ahora usa el paso **Body** declarado.
 
 ### Cierre de la voz intermedia
 
@@ -251,13 +256,21 @@ El layout es un solo canvas vertical: siete secciones, un axioma sin sección pr
 
 **Grid del Hero:** `grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr)` — texto ligeramente más ancho que el retrato, alineados al final del contenedor (align-items: end). La asimetría es intencional: el argumento textual domina.
 
-**Medida de lectura:** 66ch (`--medida`). Ningún bloque de párrafo supera esta medida en desktop. La legibilidad no se negocia.
+**Medida de lectura:** 66ch (`--medida`). **La medida se declara sobre el texto, nunca sobre el contenedor.** Ninguna columna de la obra supera 66ch: ni la prosa, ni el cuerpo de las unidades del marco, ni la condición de cada momento. Verificado a 1440, 1280, 375 y 320. La legibilidad no se negocia.
+
+**El borde editorial único.** Todas las secciones arrancan en el mismo borde izquierdo. Antes no era así: `.marco-lectura` y `.marco-contacto` conseguían su columna estrecha angostando el contenedor, y como el contenedor está centrado, angostarlo **desplazaba el borde izquierdo del texto**. Medido sobre la página completa había **cuatro márgenes izquierdos** en un mismo documento —264px en el hero y en el marco, 388 en los capítulos, 289 en el retrato del cierre, 593 en su texto— y el marco sobresalía respecto a los capítulos que lo rodean, de modo que la pieza estructural de la obra parecía pertenecer a otro documento.
+
+Ahora `.marco-lectura` cierra la columna por la derecha (`.marco-lectura .cuerpo{max-width:var(--medida)}`) y `.marco-contacto` no lleva tope propio: ambos conservan el eje de 1200px. Un solo borde a cada ancho: 264 · 168 · 44 · 44. En el cierre el borde lo ocupa el retrato y el texto se compone a su derecha —una plancha al margen con el texto al lado, disposición editorial normal—.
+
+Consecuencia que no era el objetivo y vale por sí sola: **la distancia del carril de la estela al texto pasó de alternar 70/182px a ser constante en 80px.** El elemento que representa la continuidad era el único cuya relación con el texto no era continua. Y la medida de lectura, que medía 69ch, cayó en los 66 declarados.
 
 **Secciones:** `padding: clamp(72px, 12vh, 140px) 0`. El espacio entre secciones escala con la ventana; el silencio entre argumentos también.
 
 **Costuras:** Bloques vacíos de `clamp(140px, 26vh, 300px)` entre secciones que alojan los anclajes de la estela. No son decoración — son el sistema nervioso del recorrido.
 
-**Responsive:** El índice de momentos desaparece a 1339px, no a 900: por debajo de ese ancho el marco de 1200px deja de tener aire a la derecha y el índice se montaría sobre el texto. A 900px el grid del hero colapsa a columna única (retrato primero). A 640px el carril reduce a 20px, el encabezado de cada momento pasa a bloque y el hero reparte su ritmo vertical. El sitio no tiene tablet breakpoint — la fluidez de `clamp()` hace la transición continua.
+**Responsive:** El índice de momentos desaparece a 1339px, no a 900: por debajo de ese ancho el marco de 1200px deja de tener aire a la derecha y el índice se montaría sobre el texto. A 900px el grid del hero colapsa a columna única (retrato primero) y el cierre pasa a columna. A 640px el carril reduce a 20px y el hero reparte su ritmo vertical. A 360px el titular baja a 34px. El sitio no tiene tablet breakpoint — la fluidez de `clamp()` hace la transición continua.
+
+*El encabezado de cada momento ya no depende del ancho: se compone en bloque a cualquier tamaño (ver «Los cuatro momentos»). La versión anterior de este documento situaba ese cambio en 640px y el código lo hacía en 360; ambas cifras quedan obsoletas.*
 
 ## Elevation & Depth
 
@@ -304,9 +317,10 @@ Las únicas formas curvas del sistema son funcionales:
 Índice del marco, no de las secciones del sitio: sus cuatro etiquetas corresponden una a una con las unidades de `#framework`.
 
 - **Posición:** fija, derecha del viewport, centrada verticalmente, desaparece a 1339px
+- **Presencia — acompaña al marco, no al lector.** Sólo es visible mientras `#framework` está en la banda de lectura: `opacity:0` por defecto y `html.marco-a-la-vista #momentos{opacity:1}`, con la clase gobernada por el mismo `IntersectionObserver` que enciende las lámparas de sección (no se añade un observador nuevo). Antes acompañaba al lector desde la primera pantalla y nombraba cuatro momentos que todavía no había conocido: era el índice de un capítulo que no había empezado, y su permanencia es lo que lo hacía leer como interfaz y no como publicación — un elemento que no se va es cromo. Entra y sale por opacidad en 0.7s, deliberadamente más lento y discreto que el propio elemento: algo que aparece llama más la atención que algo que siempre estuvo. `transition:none` bajo `prefers-reduced-motion`. **Ni su forma, ni su tamaño, ni sus valores de contraste, ni su estado activo cambian: sólo su presencia**
 - **Estado inactivo:** IBM Plex Mono 10px, color `rgba(156,162,155,0.78)`, indicador circular de 5px con borde en el mismo color. El 0.78 no es estético: con 0.42 el rótulo quedaba en 2.24:1 sobre el lienzo, por debajo del mínimo AA para texto (4.5:1) y del mínimo de componente para el punto (3:1). A 0.78 da 4.80:1
 - **Estado activo (`.momento.activo`):** color `var(--hilo)`, indicador relleno — transición 0.5s ease en ambos
-- **Selección del activo:** la banda del observador (32%–60% del viewport) es más alta que una unidad, de modo que puede haber dos dentro a la vez. Se enciende la más cercana al centro de la banda, no la última que disparó: elegir por orden de callback no es determinista y parpadea. Fuera del marco el índice conserva el último momento leído en lugar de apagarse
+- **Selección del activo:** la banda del observador (32%–60% del viewport) es más alta que una unidad, de modo que puede haber dos dentro a la vez. Se enciende la más cercana al centro de la banda, no la última que disparó: elegir por orden de callback no es determinista y parpadea. Fuera del marco el índice conserva el último momento leído en lugar de apagarse — la lógica sigue vigente y verificada, aunque desde el cambio de presencia sólo se observa entrando y saliendo del marco: deja de verse, no de existir
 
 ### Retrato
 
@@ -324,11 +338,31 @@ Las únicas formas curvas del sistema son funcionales:
 
 `.momento-unidad` es solo su manifestación tipográfica: la forma visible del mecanismo. Cuatro unidades separadas por filetes de `1px solid var(--linea)`; la última lleva también filete inferior.
 
-- **Encabezado (`h3`):** el momento (`.momento-nombre`, hueso) seguido de la condición que exige (`.momento-condicion`, niebla, itálica, un escalón menor). El guión separador va en el marcado (`.guion`), no en un `::before`: el `h3` es la unidad citable del documento y su texto extraído debe leerse «Nace — que se prometa…», idéntico en todos los anchos.
-- **Cuerpo:** `#CFCCC3`, max-width 58ch.
-- **Mobile (≤640px):** el `h3` pasa a bloque y la condición baja a su propia línea, con el guión delante.
+- **Encabezado (`h3`) — dos líneas, no run-in, a cualquier ancho.** El momento (`.momento-nombre`, hueso, paso Headline) ocupa línea propia y la condición que exige (`.momento-condicion`) baja a la siguiente como subtítulo: itálica, Niebla, **paso Body**. El guión separador va en el marcado (`.guion`), no en un `::before`: el `h3` es la unidad citable del documento y su texto extraído debe leerse «Nace — la fecha se da contra un estándar…», idéntico en todos los anchos y sin cambio respecto a la forma anterior.
+- **Cuerpo:** `#CFCCC3`, `max-width: var(--medida)`.
+- **Los tres niveles comparten exactamente una columna.** El `h3` lleva `max-width: var(--medida)` y la condición **lleva el suyo propio**: `--medida` en el `h3` se resuelve contra la letra del `h3` (24px) y vale 880px, de modo que la condición, siendo de 19px, podía correr hasta 84 caracteres. Declarado en la condición, 66ch valen los mismos 691px que el cuerpo.
+- **Sin caso especial por ancho.** La disposición en bloque era una excepción de ≤360px y ahora es la regla general.
+
+**Por qué cambió la forma del encabezado.** Al unificar el borde editorial, el desequilibrio del marco cambió de signo: dejó de ser una columna un 50% más ancha que sus vecinas y pasó a ser un cuerpo de 607px contra los 691 del resto —la excepción de 58ch ya sin razón— y un encabezado que llegaba a 782px, más ancho que cualquier columna de lectura de la obra. Un encabezado más ancho que el texto que encabeza es defecto de oficio.
+
+La forma nueva **retira dos excepciones en lugar de añadir una** y da al momento tres niveles reales, subordinados por escala y no sólo por color: 24px Hueso · 19px itálica Niebla · 19px Cuerpo. El efecto editorial buscado —que el centro de la obra tenga un acontecimiento y no una meseta— se consigue por claridad, no por compresión: el marco se lee como la taxonomía que es y no como prosa más ancha. La condición perdió su tamaño propio de 20px, que nunca creaba intervalo real (1px sobre el cuerpo en escritorio, 0 en móvil) y sólo introducía un escalón sin declarar.
 
 **Regla de contenido, no de estilo.** Ninguna unidad nombra una disciplina, un servicio, una herramienta ni una capacidad. Cada una afirma una condición del flujo. La prueba: si al leer una unidad se puede deducir qué se le contrataría al autor, la unidad está mal escrita — ese fue el modo de fallo del componente anterior (`.capacidad`, «Capacidades»), que anteponía la disciplina al momento y se leía como catálogo de servicios.
+
+### Remate de capítulo (`.cuerpo.destacado`)
+
+La frase que cierra el argumento de un capítulo se alza al texto primario: `color: var(--hueso)`, **11.64 → 15.12:1**. Sin cambio de tamaño ni de registro — diferenciación por peso óptico, no por escala. Cuatro usuarios: el cierre de la introducción, de idea, de mecanismo y la línea de tecnología que dice que el atraso es de atención.
+
+**Va con dos clases y no con una.** El marcado es `class="cuerpo destacado"`; `.destacado` sola (0-1-0) empataba en especificidad con `.cuerpo` y perdía por orden de fuente, de modo que la regla **no tenía ningún efecto** y los cuatro remates se pintaban idénticos al cuerpo. Con `.cuerpo.destacado` (0-2-0) el resultado deja de depender del orden. Es probable que nunca llegara a verse: la versión anterior de `.cuerpo` usaba una exclusión por `:not()` con especificidad 0-3-1, que también lo anulaba.
+
+**Por qué importa.** La cadencia de un capítulo se cierra visualmente, no sólo sintácticamente. Un remate que no se distingue obliga a releer para saber si terminó — en tecnología, «Se está quedando atrás en atención.» quedaba sola en una línea corta y se leía como fragmento huérfano en lugar de como golpe. Con el remate alzado, cada capítulo tiene tres niveles: afirmación (Title, Hueso), remate (Body, Hueso) y prosa (Body, Cuerpo); la afirmación conserva la jerarquía por escala, 29px contra 19.
+
+### Cierre: firma y acreditación
+
+- **Bloque (`.contacto-texto`):** `max-width: 62ch`. Antes 52ch, que topaban el bloque en 544px.
+- **Firma (`.firma`):** serif 400, `clamp(19px,1.7vw,22px)`, filete superior en `var(--linea)`. Cierra la obra: el lector llega conociendo el modelo, así que el nombre no presenta, acredita. Por eso va después y no antes.
+- **Acreditación (`.firma-oficio`) — una sola línea.** IBM Plex Mono 12px, `ls .11em`, versales, Niebla. **Sin tope propio.** El `max-width:34ch` que llevaba valía 245px a 12px de mono —un tercio de la cadena, no 34 caracteres de lectura— y era la restricción real que la partía en tres líneas, con un separador colgando al final de la primera y «Gestión comercial y operativa» seccionado entre la segunda y la tercera. Es la acreditación del autor, ocupa el lugar de mayor responsabilidad de la obra, y era el texto peor compuesto del proyecto. La cadena pide 630px y el bloque a 62ch los concede: entra completa a 1440.
+- **`text-wrap: pretty`** para los anchos donde vuelve a partir. Medido a 900 y 375: sin `pretty` quedaba «operativa» sola; con `balance` el corte cae en separador a 900 pero a 375 devuelve el separador colgante. `pretty` no falla en ninguno de los tres anchos. **La cadena literal no se toca** — sigue siendo idéntica en los cinco soportes.
 
 ### Ilustración (`.ilustracion`) — RETIRADO 2026-07-29
 
@@ -402,7 +436,8 @@ Componente no de UI sino de sistema. Los puntos que marcan los anclajes de la tr
 ### Do:
 
 - **Do** usar `font-variation-settings: 'opsz' 72` para el display h1 y `'opsz' 40` para `h2.afirmacion` — Newsreader sin ajuste óptico pierde la mitad de su carácter.
-- **Do** mantener la medida de lectura en 66ch (`--medida`) para cualquier bloque de texto narrativo en desktop.
+- **Do** mantener la medida de lectura en 66ch (`--medida`) para cualquier bloque de texto narrativo en desktop, y **declararla sobre el texto y nunca sobre el contenedor**: un contenedor centrado que se angosta desplaza el borde izquierdo, y el borde izquierdo es la única promesa estructural que la página hace al ojo.
+- **Do** comprobar, al declarar `--medida` en `ch` dentro de un elemento, contra qué letra se resuelve: `ch` usa la del propio elemento, así que 66ch valen 691px a 19px y 880px a 24px. Un hijo más pequeño heredaría una columna más ancha de lo permitido.
 - **Do** reservar el hilo dorado (`#B99B6B`) exclusivamente para: estela, hover states, estado activo del índice de momentos, subrayado del enlace de entrada y de las vías de contacto, y selección de texto.
 - **Do** implementar `prefers-reduced-motion: reduce` en toda animación — el sistema tiene `transition: none` y `animation: none` explícitos para ese caso.
 - **Do** usar IBM Plex Mono para todo lo que organiza: labels, índices, enlace de entrada, vías de contacto, pie.
@@ -417,5 +452,5 @@ Componente no de UI sino de sistema. Los puntos que marcan los anclajes de la tr
 - **Don't** añadir iconos, ilustraciones, o imágenes decorativas que no sean el retrato profesional o los assets de marca congelados.
 - **Don't** presentar el marco como una sección más: los cuatro momentos ordenan la secuencia, la jerarquía, el índice y el léxico del documento entero.
 - **Don't** usar color de fondo distinto a `#101312` en ningún elemento de pantalla completa — ni modals, ni overlays, ni intro screens.
-- **Don't** añadir animaciones que no pertenezcan a los sistemas reconocidos: estela+energía, reveal de secciones, lámparas de temperatura, umbral de marca, transición de momentos.
+- **Don't** añadir animaciones que no pertenezcan a los sistemas reconocidos: estela+energía, reveal de secciones, lámparas de temperatura, umbral de marca, transición de momentos y presencia del índice.
 - **Don't** usar Newsreader en `font-weight: 700` ni superior — el peso máximo para titulares es 300 y para subtítulos 500. El diseño no habla a gritos.
