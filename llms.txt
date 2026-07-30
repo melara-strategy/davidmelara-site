@@ -2,11 +2,13 @@
 
 > Un modelo sobre por qué las organizaciones incumplen lo que prometen y por qué el problema pertenece tanto al marketing como a la operación. Autor: David Melara.
 
-Cualquier organización que coordine múltiples funciones ha experimentado este fenómeno, aunque todavía no le haya puesto nombre.
+nace · se acuerda · se cumple · se recuerda
 
 ## Introducción
 
-**Este modelo propone observar la organización desde la continuidad de la promesa hecha al mercado.**
+Cualquier organización que coordine múltiples funciones ha experimentado este fenómeno, aunque todavía no le haya puesto nombre.
+
+Este modelo propone observar la organización desde la continuidad de la promesa hecha al mercado.
 
 Desde esa perspectiva, el problema deja de ser exclusivamente operativo. Se convierte también en un problema de marketing.
 
@@ -16,17 +18,31 @@ Cada promesa incumplida modifica la percepción de valor. Y la percepción de va
 
 El mercado no recuerda cómo estaba organizada una empresa. Recuerda cómo fue cumplir una promesa con ella.
 
-## Axioma
+La continuidad de la promesa deja de depender de personas cuando empieza a formar parte del diseño.
 
-**La continuidad de la promesa deja de depender de personas cuando empieza a formar parte del diseño.**
+---
+
+Durante gran parte del siglo pasado, las organizaciones podían dividir su trabajo con claridad. Unas diseñaban, otras fabricaban, otras vendían. El marketing recibía el producto cuando ya estaba decidido y construía la *value proposition* con la que llegaría al mercado.
+
+Mientras los productos cambiaban lentamente, esa división funcionó.
+
+Después cambió la forma de competir. Los ciclos de desarrollo se acortaron. Los clientes empezaron a comparar experiencias, no solo productos. Cada decisión tomada durante el diseño modificaba también la promesa que se haría al mercado.
+
+Entonces la promesa dejó de poder construirse al final.
+
+No fue casual que surgieran disciplinas como el *Product Marketing*, el *Customer Experience*, el *Service Design* o el *Go-to-Market*. Tampoco que aparecieran artefactos como el Product Requirements Document (PRD), destinados a dejar por escrito, y por tanto a hacer verificable, lo que antes se daba por entendido.
 
 ## 1 · Idea
 
-**Vender no consiste solo en obtener un sí.**
+Vender no consiste solo en obtener un sí.
 
 Consiste en poner en circulación una promesa que después tendrá que atravesar una organización entera. El cliente la recibe como una sola continuidad; la empresa la ejecuta mediante múltiples decisiones.
 
+En el *Go-to-Market*, esa promesa recibe su forma definitiva ante el mercado. Lo que ocurre después ya no depende del mensaje.
+
 El problema ya no está en el cliente cuando la promesa entra en la organización. A partir de ese momento, mantener su continuidad deja de depender de una sola decisión y pasa a depender del sistema completo.
+
+Una *brand promise* no se sostiene en el texto del anuncio. Se sostiene en el recorrido completo.
 
 Cada vez que esa continuidad deja de sostenerse, la distancia entre lo prometido y lo entregado empieza a crecer.
 
@@ -38,17 +54,25 @@ Ahí la promesa empieza a perder valor.
 
 Una organización divide el trabajo porque es la única manera de operar a escala. Cada área recibe una parte y responde por ella: una redacta la propuesta, otra la ejecuta, otra la entrega, otra la cobra. Todas pueden cumplir lo suyo.
 
+El *messaging* llega intacto al mercado. No siempre llega intacto a quien debe cumplirlo.
+
 La promesa, aun así, puede incumplirse.
 
 El recorrido completo solo avanza cuando algo lo impulsa.
 
 Entonces ocurre una inversión silenciosa. El cliente pregunta porque no puede ver el recorrido. Quien hizo la promesa vuelve a intervenir para mantenerla en movimiento. Ambos terminan gestionando un proceso que nunca formó parte de su función.
 
+El *customer journey* se diseña desde fuera, como una sola línea. Dentro de la organización, nadie la ve completa.
+
 Ese tiempo no crea valor. Solo compensa una continuidad que la organización no consiguió sostener por sí misma.
 
-## 3 · Marco: los cuatro momentos
+## 3 · Marco
 
-### 1 · Nace — la fecha se da contra un estándar, no contra la carga real
+El *positioning* define qué se promete. Este marco observa qué ocurre con esa promesa después.
+
+**Los cuatro momentos de una promesa.**
+
+**1. Nace** — *la fecha se da contra un estándar, no contra la carga real*
 
 Casi siempre se consulta antes. Se describe lo que hay que hacer y llega una respuesta. Esa respuesta es un estándar. No es una reserva de tiempo ni un compromiso con ese encargo en concreto.
 
@@ -56,7 +80,7 @@ Por eso una fecha consultada puede incumplirse sin que nadie haya mentido.
 
 Preguntar cuánto tarda algo no es lo mismo que apartar el momento en que se hará.
 
-### 2 · Se acuerda — un acuerdo solo existe cuando puede verificarse
+**2. Se acuerda** — *un acuerdo solo existe cuando puede verificarse*
 
 Un compromiso se vuelve verificable cuando lleva fecha y alguien lo confirma.
 
@@ -64,19 +88,23 @@ Una promesa sin fecha no es una promesa. Es una excusa en espera.
 
 No comprometerse no evita el error, sino que pueda señalarse.
 
-### 3 · Se cumple — la continuidad de una promesa depende de mucho más que ejecutar una tarea
+**3. Se cumple** — *la continuidad de una promesa depende de mucho más que ejecutar una tarea*
 
 Cada área puede cumplir su parte.
 
 La promesa puede incumplirse igualmente.
 
-### 4 · Se recuerda — la memoria de una organización no es la suma de las memorias de quienes la componen
+**4. Se recuerda** — *la memoria de una organización no es la suma de las memorias de quienes la componen*
 
 Un sistema recuerda lo que su estructura obliga a registrar, no lo que sus miembros se proponen no olvidar.
 
 ## 4 · Tecnología
 
-**Una organización que no incorpora tecnologías como la inteligencia artificial no se está quedando atrás en tecnología. Se está quedando atrás en atención.**
+Una organización que no incorpora tecnologías como la inteligencia artificial no se está quedando atrás en tecnología.
+
+Se está quedando atrás en atención.
+
+Un CRM no es solo un registro de clientes. Es la memoria de cada promesa hecha y de cada compromiso pendiente. La *marketing automation* no sustituye el criterio: protege el recorrido cuando nadie lo está mirando.
 
 Las mejores organizaciones utilizan estos instrumentos para proteger la continuidad de la promesa. Les permiten registrar, recordar y seguir su recorrido con una constancia que la memoria humana nunca tendrá. Así, las personas dejan de invertir su tiempo en sostener el sistema y pueden volver a aquello para lo que no existe sustituto: comprender el mercado, interpretar lo que ocurre y decidir.
 
@@ -84,7 +112,11 @@ El resultado no es menos trabajo humano, sino mejor trabajo humano. Mientras una
 
 ## 5 · Conversación
 
-Si al leer estas páginas alguien reconoce algo que ya había visto en su organización y todavía no sabía nombrar, esa es la conversación que tiene sentido tener.
+Si al leer estas páginas reconoció algo que ya había visto en su organización y todavía no sabía nombrar, conversemos.
+
+David Melara — Marketing estratégico · Ventas consultivas · Gestión comercial y operativa.
+
+Trabajo con organizaciones farmacéuticas, dentales e industriales en Centroamérica: estrategia comercial, *Go-to-Market* y *customer experience*.
 
 ## El autor
 

@@ -420,7 +420,7 @@ setTimeout(releva,2600);
 
 <main id="contenido">
 
-  <!-- ============ HERO · el fenómeno, delimitado ============ -->
+  <!-- ============ HERO · barra de estado (N0), título (N1) y subtítulo (N2) ============ -->
   <section class="sec hero" id="hero" aria-labelledby="t-hero">
     <div class="marco">
       <header class="hero-cabecera">
@@ -430,6 +430,9 @@ setTimeout(releva,2600);
 
       <div class="hero-cuerpo">
         <div class="hero-texto">
+          <!-- N0 · barra de estado: pertenece a la obra, superior al título y fuera del
+               flujo del cuerpo. Punto medio U+00B7 con el mismo espaciado que la firma. -->
+          <p class="barra-estado">nace · se acuerda · se cumple · se recuerda</p>
           <h1 id="t-hero">La continuidad de una promesa.</h1>
           <p class="posicionamiento">Un modelo sobre por qué las organizaciones incumplen lo que prometen y por qué el problema pertenece tanto al marketing como a la operación.</p>
           <p class="hero-enlace"><a href="#introduccion">Leer el modelo <span aria-hidden="true">↓</span></a></p>
@@ -443,18 +446,21 @@ setTimeout(releva,2600);
           <span class="anclaje" data-estela="origen" aria-hidden="true"></span>
         </figure>
       </div>
-
-      <p class="hero-nota">Cualquier organización que coordine múltiples funciones ha experimentado este fenómeno, aunque todavía no le haya puesto nombre.</p>
     </div>
   </section>
 
   <div class="costura" aria-hidden="true"><span class="anclaje" data-estela="izq"></span></div>
 
-  <!-- ============ INTRODUCCIÓN · el territorio ============ -->
-  <section class="sec introduccion" id="introduccion" aria-labelledby="t-intro">
-    <div class="marco marco-lectura">
-      <p class="eyebrow eyebrow-seccion">Introducción</p>
-      <h2 class="afirmacion" id="t-intro">Este modelo propone observar la organización desde la continuidad de la promesa hecha al mercado.</h2>
+  <!-- ============ INTRODUCCIÓN (N3) · incluye el umbral tras el filete ============
+       El umbral no tiene título, ni numeración, ni rótulo, ni id: no es direccionable,
+       no genera ancla y no figura en el índice. Su única marca es el filete de entrada. -->
+  <section class="sec introduccion" id="introduccion" aria-labelledby="s-intro">
+    <div class="marco">
+      <h2 class="eyebrow eyebrow-seccion" id="s-intro">Introducción</h2>
+
+      <p class="cuerpo">Cualquier organización que coordine múltiples funciones ha experimentado este fenómeno, aunque todavía no le haya puesto nombre.</p>
+
+      <p class="cuerpo">Este modelo propone observar la organización desde la continuidad de la promesa hecha al mercado.</p>
 
       <p class="cuerpo">Desde esa perspectiva, el problema deja de ser exclusivamente operativo. Se convierte también en un problema de marketing.</p>
 
@@ -462,44 +468,59 @@ setTimeout(releva,2600);
 
       <p class="cuerpo">Cada promesa incumplida modifica la percepción de valor. Y la percepción de valor es donde el mercado toma sus decisiones.</p>
 
-      <p class="cuerpo destacado">El mercado no recuerda cómo estaba organizada una empresa. Recuerda cómo fue cumplir una promesa con ella.</p>
+      <p class="cuerpo">El mercado no recuerda cómo estaba organizada una empresa. Recuerda cómo fue cumplir una promesa con ella.</p>
+
+      <p class="cuerpo">La continuidad de la promesa deja de depender de personas cuando empieza a formar parte del diseño.</p>
+
+      <hr class="filete-umbral">
+
+      <p class="cuerpo">Durante gran parte del siglo pasado, las organizaciones podían dividir su trabajo con claridad. Unas diseñaban, otras fabricaban, otras vendían. El marketing recibía el producto cuando ya estaba decidido y construía la <em>value proposition</em> con la que llegaría al mercado.</p>
+
+      <p class="cuerpo">Mientras los productos cambiaban lentamente, esa división funcionó.</p>
+
+      <p class="cuerpo">Después cambió la forma de competir. Los ciclos de desarrollo se acortaron. Los clientes empezaron a comparar experiencias, no solo productos. Cada decisión tomada durante el diseño modificaba también la promesa que se haría al mercado.</p>
+
+      <p class="cuerpo">Entonces la promesa dejó de poder construirse al final.</p>
+
+      <p class="cuerpo">No fue casual que surgieran disciplinas como el <em>Product Marketing</em>, el <em>Customer Experience</em>, el <em>Service Design</em> o el <em>Go-to-Market</em>. Tampoco que aparecieran artefactos como el Product Requirements Document (PRD), destinados a dejar por escrito, y por tanto a hacer verificable, lo que antes se daba por entendido.</p>
     </div>
   </section>
 
-  <!-- El axioma atraviesa la obra: sin número, sin título y sin nodo en la estela. -->
-  <div class="axioma">
-    <div class="marco marco-lectura">
-      <p>La continuidad de la promesa deja de depender de personas cuando empieza a formar parte del diseño.</p>
-    </div>
-  </div>
-
   <div class="costura" aria-hidden="true"><span class="anclaje" data-estela="der"></span></div>
 
-  <!-- ============ 1 · IDEA ============ -->
-  <section class="sec idea" id="idea" aria-labelledby="t-idea">
-    <div class="marco marco-lectura">
-      <p class="eyebrow eyebrow-seccion">1 · Idea</p>
-      <h2 class="afirmacion" id="t-idea">Vender no consiste solo en obtener un sí.</h2>
+  <!-- ============ 1 · IDEA (N3) ============ -->
+  <section class="sec idea" id="idea" aria-labelledby="s-idea">
+    <div class="marco">
+      <h2 class="eyebrow eyebrow-seccion" id="s-idea">1 · Idea</h2>
+
+      <p class="cuerpo">Vender no consiste solo en obtener un sí.</p>
 
       <p class="cuerpo">Consiste en poner en circulación una promesa que después tendrá que atravesar una organización entera. El cliente la recibe como una sola continuidad; la empresa la ejecuta mediante múltiples decisiones.</p>
 
+      <p class="cuerpo">En el <em>Go-to-Market</em>, esa promesa recibe su forma definitiva ante el mercado. Lo que ocurre después ya no depende del mensaje.</p>
+
       <p class="cuerpo">El problema ya no está en el cliente cuando la promesa entra en la organización. A partir de ese momento, mantener su continuidad deja de depender de una sola decisión y pasa a depender del sistema completo.</p>
+
+      <p class="cuerpo">Una <em>brand promise</em> no se sostiene en el texto del anuncio. Se sostiene en el recorrido completo.</p>
 
       <p class="cuerpo">Cada vez que esa continuidad deja de sostenerse, la distancia entre lo prometido y lo entregado empieza a crecer.</p>
 
-      <p class="cuerpo destacado">Ahí la promesa empieza a perder valor.</p>
+      <p class="cuerpo">Ahí la promesa empieza a perder valor.</p>
     </div>
   </section>
 
   <div class="costura" aria-hidden="true"><span class="anclaje" data-estela="izq"></span></div>
 
-  <!-- ============ 2 · MECANISMO ============ -->
-  <section class="sec mecanismo" id="mecanismo" aria-labelledby="t-mec">
-    <div class="marco marco-lectura">
-      <p class="eyebrow eyebrow-seccion">2 · Mecanismo</p>
-      <h2 class="afirmacion" id="t-mec">Cada función protege su tarea. La continuidad de la promesa depende del recorrido completo.</h2>
+  <!-- ============ 2 · MECANISMO (N3) · su apertura es N4, párrafo en peso fuerte ============ -->
+  <section class="sec mecanismo" id="mecanismo" aria-labelledby="s-mec">
+    <div class="marco">
+      <h2 class="eyebrow eyebrow-seccion" id="s-mec">2 · Mecanismo</h2>
+
+      <p class="cuerpo enunciado">Cada función protege su tarea. La continuidad de la promesa depende del recorrido completo.</p>
 
       <p class="cuerpo">Una organización divide el trabajo porque es la única manera de operar a escala. Cada área recibe una parte y responde por ella: una redacta la propuesta, otra la ejecuta, otra la entrega, otra la cobra. Todas pueden cumplir lo suyo.</p>
+
+      <p class="cuerpo">El <em>messaging</em> llega intacto al mercado. No siempre llega intacto a quien debe cumplirlo.</p>
 
       <p class="cuerpo">La promesa, aun así, puede incumplirse.</p>
 
@@ -507,22 +528,29 @@ setTimeout(releva,2600);
 
       <p class="cuerpo">Entonces ocurre una inversión silenciosa. El cliente pregunta porque no puede ver el recorrido. Quien hizo la promesa vuelve a intervenir para mantenerla en movimiento. Ambos terminan gestionando un proceso que nunca formó parte de su función.</p>
 
-      <p class="cuerpo destacado">Ese tiempo no crea valor. Solo compensa una continuidad que la organización no consiguió sostener por sí misma.</p>
+      <p class="cuerpo">El <em>customer journey</em> se diseña desde fuera, como una sola línea. Dentro de la organización, nadie la ve completa.</p>
+
+      <p class="cuerpo">Ese tiempo no crea valor. Solo compensa una continuidad que la organización no consiguió sostener por sí misma.</p>
     </div>
   </section>
 
   <div class="costura" aria-hidden="true"><span class="anclaje" data-estela="der"></span></div>
 
-  <!-- ============ 3 · MARCO · los cuatro momentos ============ -->
-  <section class="sec framework" id="framework" aria-labelledby="t-marco">
+  <!-- ============ 3 · MARCO (N3) · los cuatro momentos son N5 ============
+       N5: párrafo mixto, rótulo en peso fuerte y glosa en cursiva. No es encabezado,
+       no genera ancla y no figura en navegación. Numeración con punto y espacio. -->
+  <section class="sec framework" id="framework" aria-labelledby="s-marco">
     <div class="marco">
-      <p class="eyebrow eyebrow-seccion">3 · Marco</p>
-      <h2 class="afirmacion" id="t-marco">Los cuatro momentos de una promesa.</h2>
+      <h2 class="eyebrow eyebrow-seccion" id="s-marco">3 · Marco</h2>
+
+      <p class="cuerpo">El <em>positioning</em> define qué se promete. Este marco observa qué ocurre con esa promesa después.</p>
+
+      <p class="cuerpo enunciado">Los cuatro momentos de una promesa.</p>
 
       <ol class="momentos-lista">
         <li class="momento-unidad" data-moment="nace">
           <span class="anclaje anclaje-mom" data-estela="lane" aria-hidden="true"></span>
-          <h3><span class="momento-nombre">Nace</span> <span class="momento-condicion"><span class="guion" aria-hidden="true">— </span>la fecha se da contra un estándar, no contra la carga real</span></h3>
+          <p class="momento-titular"><span class="momento-nombre">1. Nace</span> <span class="guion" aria-hidden="true">— </span><em class="momento-condicion">la fecha se da contra un estándar, no contra la carga real</em></p>
           <p class="cuerpo">Casi siempre se consulta antes. Se describe lo que hay que hacer y llega una respuesta. Esa respuesta es un estándar. No es una reserva de tiempo ni un compromiso con ese encargo en concreto.</p>
           <p class="cuerpo">Por eso una fecha consultada puede incumplirse sin que nadie haya mentido.</p>
           <p class="cuerpo">Preguntar cuánto tarda algo no es lo mismo que apartar el momento en que se hará.</p>
@@ -530,7 +558,7 @@ setTimeout(releva,2600);
 
         <li class="momento-unidad" data-moment="acuerda">
           <span class="anclaje anclaje-mom" data-estela="lane" aria-hidden="true"></span>
-          <h3><span class="momento-nombre">Se acuerda</span> <span class="momento-condicion"><span class="guion" aria-hidden="true">— </span>un acuerdo solo existe cuando puede verificarse</span></h3>
+          <p class="momento-titular"><span class="momento-nombre">2. Se acuerda</span> <span class="guion" aria-hidden="true">— </span><em class="momento-condicion">un acuerdo solo existe cuando puede verificarse</em></p>
           <p class="cuerpo">Un compromiso se vuelve verificable cuando lleva fecha y alguien lo confirma.</p>
           <p class="cuerpo">Una promesa sin fecha no es una promesa. Es una excusa en espera.</p>
           <p class="cuerpo">No comprometerse no evita el error, sino que pueda señalarse.</p>
@@ -538,14 +566,14 @@ setTimeout(releva,2600);
 
         <li class="momento-unidad" data-moment="cumple">
           <span class="anclaje anclaje-mom" data-estela="lane" aria-hidden="true"></span>
-          <h3><span class="momento-nombre">Se cumple</span> <span class="momento-condicion"><span class="guion" aria-hidden="true">— </span>la continuidad de una promesa depende de mucho más que ejecutar una tarea</span></h3>
+          <p class="momento-titular"><span class="momento-nombre">3. Se cumple</span> <span class="guion" aria-hidden="true">— </span><em class="momento-condicion">la continuidad de una promesa depende de mucho más que ejecutar una tarea</em></p>
           <p class="cuerpo">Cada área puede cumplir su parte.</p>
           <p class="cuerpo">La promesa puede incumplirse igualmente.</p>
         </li>
 
         <li class="momento-unidad" data-moment="recuerda">
           <span class="anclaje anclaje-mom" data-estela="lane" aria-hidden="true"></span>
-          <h3><span class="momento-nombre">Se recuerda</span> <span class="momento-condicion"><span class="guion" aria-hidden="true">— </span>la memoria de una organización no es la suma de las memorias de quienes la componen</span></h3>
+          <p class="momento-titular"><span class="momento-nombre">4. Se recuerda</span> <span class="guion" aria-hidden="true">— </span><em class="momento-condicion">la memoria de una organización no es la suma de las memorias de quienes la componen</em></p>
           <p class="cuerpo">Un sistema recuerda lo que su estructura obliga a registrar, no lo que sus miembros se proponen no olvidar.</p>
         </li>
       </ol>
@@ -554,13 +582,16 @@ setTimeout(releva,2600);
 
   <div class="costura" aria-hidden="true"><span class="anclaje" data-estela="izq"></span></div>
 
-  <!-- ============ 4 · TECNOLOGÍA ============ -->
-  <section class="sec tecnologia" id="tecnologia" aria-labelledby="t-tec">
-    <div class="marco marco-lectura">
-      <p class="eyebrow eyebrow-seccion">4 · Tecnología</p>
-      <h2 class="afirmacion" id="t-tec">Una organización que no incorpora tecnologías como la inteligencia artificial no se está quedando atrás en tecnología.</h2>
+  <!-- ============ 4 · TECNOLOGÍA (N3) ============ -->
+  <section class="sec tecnologia" id="tecnologia" aria-labelledby="s-tec">
+    <div class="marco">
+      <h2 class="eyebrow eyebrow-seccion" id="s-tec">4 · Tecnología</h2>
 
-      <p class="cuerpo destacado">Se está quedando atrás en atención.</p>
+      <p class="cuerpo">Una organización que no incorpora tecnologías como la inteligencia artificial no se está quedando atrás en tecnología.</p>
+
+      <p class="cuerpo">Se está quedando atrás en atención.</p>
+
+      <p class="cuerpo">Un CRM no es solo un registro de clientes. Es la memoria de cada promesa hecha y de cada compromiso pendiente. La <em>marketing automation</em> no sustituye el criterio: protege el recorrido cuando nadie lo está mirando.</p>
 
       <p class="cuerpo">Las mejores organizaciones utilizan estos instrumentos para proteger la continuidad de la promesa. Les permiten registrar, recordar y seguir su recorrido con una constancia que la memoria humana nunca tendrá. Así, las personas dejan de invertir su tiempo en sostener el sistema y pueden volver a aquello para lo que no existe sustituto: comprender el mercado, interpretar lo que ocurre y decidir.</p>
 
@@ -570,8 +601,8 @@ setTimeout(releva,2600);
 
   <div class="costura" aria-hidden="true"><span class="anclaje" data-estela="der"></span></div>
 
-  <!-- ============ 5 · CONVERSACIÓN · aquí, y solo aquí, aparece el autor ============ -->
-  <section class="sec contacto" id="conversemos" aria-labelledby="t-conv">
+  <!-- ============ 5 · CONVERSACIÓN (N3) · aquí, y solo aquí, aparece el autor ============ -->
+  <section class="sec contacto" id="conversemos" aria-labelledby="s-conv">
     <div class="marco marco-contacto">
       <figure class="retrato retrato-contacto">
         <picture>
@@ -581,10 +612,11 @@ setTimeout(releva,2600);
         <span class="anclaje" data-estela="fin" aria-hidden="true"></span>
       </figure>
       <div class="contacto-texto">
-        <p class="eyebrow eyebrow-seccion">5 · Conversación</p>
-        <h2 class="afirmacion" id="t-conv">Si al leer estas páginas reconoció algo que ya había visto en su organización y todavía no sabía nombrar, conversemos.</h2>
+        <h2 class="eyebrow eyebrow-seccion" id="s-conv">5 · Conversación</h2>
+        <p class="cuerpo">Si al leer estas páginas reconoció algo que ya había visto en su organización y todavía no sabía nombrar, conversemos.</p>
         <p class="firma">David Melara</p>
         <p class="firma-oficio">Marketing estratégico · Ventas consultivas · Gestión comercial y operativa</p>
+        <p class="cuerpo linea-profesional">Trabajo con organizaciones farmacéuticas, dentales e industriales en Centroamérica: estrategia comercial, <em>Go-to-Market</em> y <em>customer experience</em>.</p>
         <p class="contacto-vias">
           <a href="mailto:dmelara100@gmail.com?subject=Consulta%20profesional%20desde%20DavidMelara.com&amp;body=Hola,%20David:%0A%0AEncontr%C3%A9%20tu%20sitio%20web%20y%20me%20gustar%C3%ADa%20ponerme%20en%20contacto%20contigo%20para%20conversar%20sobre%20el%20siguiente%20tema:%0A%0AQuedo%20atento(a)%20a%20tu%20respuesta.%0A%0ASaludos,">dmelara100@gmail.com</a><span class="sep">·</span><a href="https://www.linkedin.com/in/melaradavid" target="_blank" rel="noopener">LinkedIn</a><span class="sep">·</span><a href="/cv.html">Currículum</a>
         </p>

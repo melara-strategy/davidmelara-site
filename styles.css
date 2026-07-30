@@ -51,20 +51,43 @@
 
   --margen:clamp(20px,6vw,96px);
   --carril:clamp(16px,6vw,88px);   /* carril de la estela */
-  --medida:66ch;
+
+  /* ---------- las cuatro voces ----------
+     Declarar se congela hacia arriba: su tamaño lo fija la composición.
+     Leer crece sin detenerse: es la única voz con argumento físico —a más pantalla,
+     más distancia de lectura—. Afirmar se cuelga de la voz de lectura como múltiplo,
+     para que el intervalo sea estructural y no coincidencia. Orientar apenas crece:
+     una etiqueta que crece deja de ser mobiliario.
+     La pendiente de lectura es 0.36vw: 19px a 1440, 20.7 a 1920, 23 a 2560. Antes el
+     techo caía en 19px a 1408px, de modo que en cualquier monitor la obra dejaba de
+     crecer y solo aumentaba el margen muerto —104px por lado a 1408, 680px a 2560—. */
+  --voz-lectura:clamp(17px,0.36vw + 13.8px,23px);
+  --voz-rotulo:clamp(11px,0.09vw + 9.7px,12px);
+
+  /* En em y no en ch: `ch` es el avance de la cifra cero, así que la misma declaración
+     daba 691px en Newsreader, 752 con opsz 12 y 770 en Georgia. Una medida que cambia
+     sola al cambiar la letra no es una medida. 27.5em son ~60 caracteres reales a
+     cualquier tamaño: el recuento es la constante y el ancho, la consecuencia. */
+  --medida:27.5em;
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
 
+/* Peso 350 y no 300: a tamaño de lectura sobre lienzo oscuro el 300 produce un asta de
+   1px que es casi toda cobertura parcial, y el trazo mediano da 8.80:1 cuando el CSS
+   declara 11.64:1. No es gusto: es que 300 no llega a pintar. Y no 400, que dejaría el
+   cuerpo más pesado que las voces que lo encabezan.
+   Interlineado 1.6 y no 1.72: a 60 caracteres la línea es corta y no pide tanto aire.
+   Sube gratis la relación hueco-de-párrafo sobre línea, de 0.78 a 0.84, sin tocar `p + p`. */
 body{
   background:var(--tinta);
   color:var(--hueso);
   font-family:var(--serif);
-  font-size:clamp(17px,1.35vw,19px);
-  line-height:1.72;
-  font-weight:300;
+  font-size:var(--voz-lectura);
+  line-height:1.6;
+  font-weight:350;
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
 }
@@ -78,24 +101,17 @@ a{color:var(--hueso)}
 .skip:focus{left:8px}
 
 .marco{max-width:1200px;margin:0 auto;padding:0 var(--margen) 0 calc(var(--carril) + clamp(24px,4vw,72px))}
-/* La columna de lectura se cierra por la DERECHA; el borde izquierdo no se mueve nunca.
-   Antes esta clase angostaba el contenedor, y al estar centrado el contenedor, angostarlo
-   desplazaba el borde izquierdo del texto: 388px en los capítulos contra 256px en el hero
-   y en el marco. Cuatro márgenes izquierdos en un mismo documento, medidos sobre la página
-   completa. La medida pasa al texto y el contenedor conserva el eje de 1200, de modo que
-   todas las secciones arrancan en el mismo sitio y la distancia del carril de la estela al
-   texto queda constante (50px a 1440, 56px a 1920; antes 182px en los capítulos). */
-.marco-lectura .cuerpo{max-width:var(--medida)}
+/* .marco-lectura se retiró: la medida vive en .cuerpo, así que todas las secciones usan
+   el mismo contenedor y arrancan en el mismo borde izquierdo. Un solo margen izquierdo en
+   todo el documento, y la distancia del carril de la estela al texto queda constante. */
 
 /* ---------- tipografía de sistema ---------- */
-/* peso e interlínea explícitos: los rótulos de sección son <h2> por semántica,
-   y sin esto tomarían los valores de la regla h2 (400 / 1.25) y alterarían la
-   composición. Con ellos, el rótulo se compone idéntico. Único efecto residual:
-   al dejar de ser <p>, la apertura ya no recibe el margen de `p + p`, así que
-   el hueco bajo el rótulo lo gobierna ahora .eyebrow-seccion (36 px en lugar de
-   los 39 que resultaban del margen heredado). */
-.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;
-  color:var(--niebla);font-weight:300;line-height:1.72}
+/* Los seis rótulos de sección son los únicos h2 del documento —MC v7.1 §4.4: un
+   encabezado de primer orden y seis de segundo, ningún otro—. Orientan, no se leen:
+   de ahí el mono, el tracking amplio y Niebla, y de ahí que crezcan un solo píxel
+   entre un portátil y un monitor de 27". */
+.eyebrow{font-family:var(--mono);font-size:var(--voz-rotulo);letter-spacing:.22em;
+  text-transform:uppercase;color:var(--niebla);font-weight:400;line-height:1.72}
 .eyebrow-seccion{margin-bottom:clamp(28px,4vh,44px)}
 .eyebrow-seccion::after{content:"";display:block;width:34px;height:1px;background:var(--hilo-tenue);margin-top:12px}
 
@@ -107,29 +123,24 @@ a{color:var(--hueso)}
    (ver .hero-cuerpo): a 64px hacían falta 630px de medida y solo hay 592. */
 h1{font-weight:300;font-size:clamp(42px,5.2vw,58px);line-height:1.04;letter-spacing:-.015em;
   font-variation-settings:'opsz' 72}
+/* Sin usuarios propios: los seis h2 del documento llevan .eyebrow y la anulan. Se
+   conserva por si un h2 apareciera sin rótulo. */
 h2{font-weight:400;font-size:clamp(20px,2vw,24px);line-height:1.25;letter-spacing:.01em}
 
 p + p{margin-top:1.35em}
-em{font-style:italic;color:var(--hueso)}
+/* Sin color propio: MC v7.1 §4.7 compone once extranjerismos en cursiva, y llevarlos
+   todos a Hueso los convertiría en énfasis. La cursiva ya es la marca. */
+em{font-style:italic}
 strong{font-weight:500}
 
-/* h2 de sección: la afirmación del modelo, no un rótulo. Es la unidad citable
-   del documento, así que es encabezado real y va al paso Title; la regla h2
-   (24px, ls .01em) queda anulada por especificidad de clase. */
-h2.afirmacion{font-size:clamp(21px,2.3vw,29px);line-height:1.35;font-weight:300;color:var(--hueso);
-  max-width:34ch;margin-bottom:1.4em;letter-spacing:normal;font-variation-settings:'opsz' 40}
-/* El remate de capítulo: la frase que cierra el argumento se alza al texto primario.
-   Va con dos clases, no con una: el marcado es `class="cuerpo destacado"` y `.cuerpo`
-   (misma especificidad, declarada después) ganaba por orden de fuente, de modo que los
-   cuatro remates de la obra se pintaban idénticos al cuerpo y la regla no tenía efecto
-   alguno. Con 0-2-0 el resultado deja de depender del orden. Contraste 11.64 → 15.12:1. */
-.cuerpo.destacado{color:var(--hueso)}
-/* ilustración: el caso no demuestra la ley, la hace visible. Se aparta con filete
-   —como un ejemplo en un libro— sin escalón tipográfico propio: es lectura de
-   cuerpo, no una nota. Nunca precede a la afirmación que ilustra. */
-/* cuerpo narrativo: clase propia en lugar de exclusión por :not(),
-   que con especificidad 0-3-1 anulaba eyebrow, rol, transición, respondo y cierre */
-.cuerpo{color:var(--cuerpo)}
+/* N4 · enunciado en peso fuerte. Dos usuarios y solo dos, según MC v7.1 §4.1: la apertura
+   del capítulo 2 y la línea «Los cuatro momentos de una promesa.». No es encabezado, así
+   que no cambia de tamaño ni de familia: pertenece al párrafo y lo abre desde dentro. */
+.enunciado{font-weight:500;color:var(--hueso)}
+
+/* N6 · cuerpo. La medida se declara aquí, sobre el texto, y nunca sobre el contenedor:
+   un contenedor centrado que se angosta desplaza el borde izquierdo de la columna. */
+.cuerpo{color:var(--cuerpo);max-width:var(--medida)}
 
 /* ---------- estela: esqueleto y memoria ----------
    El SVG ya no es el fenómeno: es la trayectoria (invisible como objeto)
@@ -170,11 +181,11 @@ html.marco-a-la-vista #momentos{opacity:1}
 /* .42 daba 2.24:1 sobre el lienzo: texto real por debajo del mínimo AA (4.5:1)
    y punto por debajo del mínimo de componente (3:1). .78 = 4.80:1. El estado
    activo sigue distinguiéndose por color (oro, 7.09:1) y por el punto relleno. */
-.momento{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;
-  color:rgba(156,162,155,.78);text-align:right;position:relative;padding-right:16px;
+.momento{font-family:var(--mono);font-size:clamp(10px,0.09vw + 8.7px,11px);letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(156,162,155,.90);text-align:right;position:relative;padding-right:16px;
   transition:color .5s ease}
 .momento::after{content:"";position:absolute;right:0;top:50%;transform:translateY(-50%);
-  width:5px;height:5px;border-radius:50%;border:1px solid rgba(156,162,155,.78);transition:all .5s ease}
+  width:5px;height:5px;border-radius:50%;border:1px solid rgba(156,162,155,.90);transition:all .5s ease}
 .momento.activo{color:var(--hilo)}
 .momento.activo::after{background:var(--hilo);border-color:var(--hilo)}
 /* Por debajo de 1340px no hay margen libre para el índice: el retrato lo alcanza
@@ -241,22 +252,32 @@ html.marco-a-la-vista #momentos{opacity:1}
    artículo colgando y «promesa.» sola. 12ch cae en medio de la banda y parte
    donde debe —«La continuidad / de la promesa.»—, con las dos líneas parejas. */
 .hero h1{margin-bottom:.55em;max-width:12ch}
-/* Realce: prosa alzada sobre el cuerpo sin llegar a encabezado. Un solo paso para
-   los dos usos que lo necesitan —la línea de apertura y las situaciones citadas—,
-   que antes llevaban escalas propias a 1 px de distancia (18→22 y 18→21). */
-.posicionamiento{font-size:clamp(18px,1.75vw,22px);line-height:1.55;color:var(--niebla);max-width:38ch}
+/* N0 · barra de estado. Pertenece a la obra, no a la interfaz, pero su función es
+   orientar: nombra el marco antes de que el título nombre el fenómeno. De ahí el mono
+   y el tracking amplio, y de ahí que crezca un píxel y no cuatro. En minúscula porque
+   así se compone en el manuscrito; el punto medio es U+00B7 con el mismo espaciado que
+   la línea de firma. */
+.barra-estado{font-family:var(--mono);font-size:var(--voz-rotulo);letter-spacing:.22em;
+  color:var(--niebla);font-weight:400;line-height:1.72;margin-bottom:clamp(16px,2.5vh,28px)}
+
+/* N2 · subtítulo. Es la única voz del hero que conserva Niebla, y lo conserva porque
+   no es lectura sostenida: se lee una vez y tiene encima un titular en Hueso que
+   arrastra el ojo. Peso 300 porque la densidad solo es obligatoria donde hay fatiga
+   acumulada, y aquí no la hay. Crece atado a la voz de lectura, con tope propio. */
+.posicionamiento{font-size:min(calc(var(--voz-lectura) * 1.15),24px);line-height:1.5;
+  font-weight:300;color:var(--niebla);max-width:38ch}
 /* La entrada a la obra es una invitación, no una llamada a la acción: un ensayo
    no tiene botones. El subrayado a .62 es la única afordancia y da 3.4:1. */
 .hero-enlace{margin-top:clamp(28px,5vh,48px)}
-.hero-enlace a{font-family:var(--mono);font-size:12px;letter-spacing:.16em;
-  text-transform:uppercase;text-decoration:none;color:var(--hueso);
+/* Orienta, pero de una clase distinta al resto del mobiliario: es la única acción de la
+   obra. De ahí Hueso y no Niebla — lo que orienta informando se retira, lo que orienta
+   invitando tiene que encontrarse. */
+.hero-enlace a{font-family:var(--mono);font-size:clamp(12px,0.09vw + 10.7px,13px);
+  letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:var(--hueso);
   border-bottom:1px solid rgba(185,155,107,.62);padding-bottom:6px;
   transition:color .3s,border-color .3s}
 .hero-enlace a:hover{color:var(--hilo);border-color:var(--hilo)}
-/* La nota delimita el fenómeno antes de que empiece la exposición. Va al pie
-   del hero y en cuerpo pequeño: no compite con el titular, lo acota. */
-.hero-nota{margin-top:clamp(36px,6vh,72px);max-width:54ch;
-  font-size:clamp(15px,1.2vw,16px);line-height:1.6;color:var(--niebla)}
+/* .hero-nota se retiró: en MC v7.1 su texto abre la Introducción como párrafo de cuerpo. */
 
 /* ---------- retratos: la autoría ---------- */
 .retrato{position:relative;margin:0;background:#161917;border:1px solid var(--linea)}
@@ -288,21 +309,19 @@ html.marco-a-la-vista #momentos{opacity:1}
    es decir, un punto arbitrario sobre la imagen. */
 .retrato-contacto .anclaje{position:absolute;left:0;top:50%}
 
-/* ---------- EL AXIOMA ----------
-   Atraviesa la obra; no forma parte de ella. Sin número, sin título, sin
-   nodo en la estela y sin entrada en el índice: el trazo pasa sin detenerse.
-   El aire vertical es la única señal de que cambia de nivel. */
-.axioma{position:relative;z-index:2;padding:clamp(88px,20vh,200px) 0}
-/* 25ch y no 26: a 26 el enunciado caía en 532 · 430 · 490 px, con 102px de desnivel y una
-   mella visible en el centro del borde derecho —en un texto de tres líneas a 36px el ojo no
-   promedia el rag, así que cada desnivel se lee como decisión—. Barrido de 20 a 34ch: 23ch
-   y menos parten en cuatro líneas; 26 a 32 mantienen o empeoran el bache; 33 en adelante
-   dejan 101px en la última. La meseta buena es 24–25ch, con 489 · 473 · 490 y 17px de
-   desnivel. En ch porque la medida y el cuerpo escalan juntos y los cortes se conservan a
-   cualquier ancho. Escala, peso, aire y aislamiento no se tocan. */
-.axioma p{font-family:var(--serif);font-weight:300;
-  font-size:clamp(24px,3vw,36px);line-height:1.3;letter-spacing:-.012em;
-  color:var(--hueso);max-width:25ch;font-variation-settings:'opsz' 42}
+/* ---------- FILETE DEL UMBRAL ----------
+   El único filete del flujo del manuscrito, y su única marca de entrada (MC v7.1 §4.3).
+   El umbral no lleva título, ni numeración, ni rótulo, ni id: no es direccionable, no
+   genera ancla y no figura en el índice. No hay marca de salida: la cierra «1 · Idea».
+   56px de ancho —el centro de la banda 48–72—, 1px, centrado en la columna de lectura y
+   en el tono de línea del sistema, que es el bajo contraste que pide la especificación.
+   El aire a cada lado es superior al interlineado de párrafo (30px) e inferior al espacio
+   de sección (86px), como exige §4.3. */
+.filete-umbral{border:0;height:1px;width:56px;background:var(--linea);
+  max-width:var(--medida);margin:clamp(40px,5vh,64px) auto}
+/* El axioma dejó de ser un bloque independiente: en MC v7.1 es el último párrafo de la
+   Introducción, en nivel N6, inmediatamente antes del filete del umbral. La tabla 4.1 no
+   le asigna nivel propio, así que se compone como cuerpo y sus reglas se retiran. */
 
 /* ---------- EL MARCO: los cuatro momentos ----------
    Cada unidad afirma una condición del flujo. No nombra disciplinas ni servicios:
@@ -311,42 +330,18 @@ html.marco-a-la-vista #momentos{opacity:1}
 .momento-unidad{position:relative;padding:clamp(28px,4.5vh,44px) 0;
   border-top:1px solid var(--linea)}
 .momento-unidad:last-of-type{border-bottom:1px solid var(--linea)}
-.anclaje-mom{position:absolute;left:calc(-1 * clamp(24px,4vw,72px));top:2.2em}
-/* usa el paso Headline declarado, no una copia suya: clamp(19,1.9vw,23) estaba a
-   1 px de él en ambos extremos. El paso existía sin usuario porque todos los h2
-   llevan .afirmacion y lo anulan; este h3 es su usuario legítimo. */
-/* I-02 · El momento se compone en dos líneas, no en run-in, y a la medida de lectura.
-   Tras unificar el borde (I-01) el desequilibrio del marco cambió de signo: su cuerpo
-   quedó en 607px contra los 691 del resto —la excepción de 58ch ya no tiene razón— y el
-   encabezado llegaba a 782px, más ancho que cualquier columna de lectura de la obra.
-   Un encabezado más ancho que el texto que encabeza es defecto de oficio.
-   Dos excepciones desaparecen: el cuerpo pasa a --medida como todos, y la disposición en
-   bloque que estaba reservada a ≤360px pasa a ser la general. El nombre gana línea propia
-   y la condición se lee como subtítulo, que es la jerarquía que el contenido pide.
-   El guion sigue en el marcado: el textContent del h3 no cambia en ningún ancho. */
-.momento-unidad h3{font-family:var(--serif);font-weight:400;
-  font-size:clamp(20px,2vw,24px);line-height:1.3;letter-spacing:.005em;
-  max-width:var(--medida)}
-.momento-nombre{color:var(--hueso)}
-/* la condición es lo que el momento exige; subordinada al nombre, no decorativa */
-/* el guion va en el marcado, no en un ::before: el h3 es la unidad citable del
-   documento y su textContent debe leerse «Nace — que se prometa…», no «Naceque» */
-/* En bloque y a media línea de distancia: la condición es lo que el momento exige, y como
-   subtítulo se subordina al nombre sin competir con él. Conserva itálica y Niebla, que es lo
-   que ya la distinguía; el tamaño propio (20px) se retira porque nunca creaba intervalo real
-   —1px sobre el cuerpo en escritorio, 0 en móvil— y solo introducía un escalón sin declarar. */
-/* Al paso Body declarado, no al del h3: sin `font-size` heredaba los 24px del encabezado y
-   la condición quedaba del mismo tamaño que el nombre, sosteniéndose solo por itálica y
-   color. Como subtítulo tiene que subordinarse también por escala. No es un escalón nuevo:
-   es el paso Body —el mismo del cuerpo que sigue—, que es lo que la condición es: una
-   oración de lectura. El 20px anterior se retira porque nunca creaba intervalo real. */
-/* Con su propio tope: `--medida` en el h3 se resuelve contra la letra del h3 (24px) y vale
-   880px, de modo que la condición —que es de 19px— podía correr hasta 84 caracteres, por
-   encima del máximo de 66ch. Declarada aquí, 66ch valen los mismos 691px que el cuerpo y los
-   tres niveles de la unidad comparten exactamente una columna. */
-.momento-condicion{display:block;margin-top:.35em;color:var(--niebla);font-style:italic;
-  font-weight:300;font-size:clamp(17px,1.35vw,19px);line-height:1.5;max-width:var(--medida)}
-.momento-unidad .cuerpo{margin-top:.85em;max-width:var(--medida)}
+.anclaje-mom{position:absolute;left:calc(-1 * clamp(24px,4vw,72px));top:1.4em}
+
+/* N5 · párrafo mixto (MC v7.1 §4.1): rótulo en peso fuerte, glosa en cursiva, y no es
+   encabezado. Ya no hay h3 en el documento: el esquema queda en un h1 y seis h2.
+   El rótulo y la glosa comparten paso, línea y párrafo; se distinguen por peso, estilo y
+   color, no por escala — que es lo que pide un rótulo de glosario y no un titular.
+   El guion va en el marcado y no en un ::before: el texto extraído debe leerse
+   «1. Nace — la fecha se da contra un estándar…» idéntico en todos los anchos. */
+.momento-titular{max-width:var(--medida)}
+.momento-nombre{font-weight:500;color:var(--hueso)}
+.momento-condicion{color:var(--niebla);font-style:italic;font-weight:350}
+.momento-unidad .cuerpo{margin-top:.85em}
 
 /* ---------- CONTACTO: la entrega ---------- */
 .contacto{padding-bottom:clamp(100px,16vh,180px)}
@@ -364,16 +359,21 @@ html.marco-a-la-vista #momentos{opacity:1}
 .contacto-texto{max-width:62ch;min-width:0}
 /* La firma cierra la obra. El lector llega aquí conociendo ya el modelo, así
    que el nombre no presenta: acredita. Por eso va después y no antes. */
+/* No es encabezado ni es cuerpo: el lector llega conociendo el modelo, así que el nombre
+   no presenta, acredita. Peso 400 con tracking mínimo positivo, que es lo que da a un
+   nombre propio la cualidad de sello. Y crece atado a la voz de lectura por una razon que
+   no es estetica: si el cuerpo llega a 23px y la firma se queda en 22, el nombre del autor
+   queda por debajo de su propia prosa. */
 .firma{margin-top:clamp(28px,4vh,44px);padding-top:clamp(20px,3vh,32px);
   border-top:1px solid var(--linea);font-family:var(--serif);font-weight:400;
-  font-size:clamp(19px,1.7vw,22px);color:var(--hueso);letter-spacing:.01em}
+  font-size:min(calc(var(--voz-lectura) * 1.15),26px);color:var(--hueso);letter-spacing:.01em}
 /* Sin tope propio: el `max-width:34ch` heredado valía 245px a 12px de mono —no 34 caracteres
    de lectura, sino un tercio de la cadena— y era la restricción real que partía la
    acreditación en tres líneas, con un separador colgando al final de la primera y «Gestión
    comercial y operativa» seccionado entre la segunda y la tercera. La cadena pide 630px y
    .contacto-texto (62ch) ya los concede. En pantallas estrechas vuelve a partir, y ahí
    parte por separador, que es donde debe. La cadena literal no se toca. */
-.firma-oficio{margin-top:.5em;font-family:var(--mono);font-size:12px;
+.firma-oficio{margin-top:.5em;font-family:var(--mono);font-size:clamp(12px,0.09vw + 10.7px,13px);
   letter-spacing:.11em;text-transform:uppercase;color:var(--niebla);line-height:1.7;
   /* En una línea a 1440 no hace nada. Por debajo evita las dos faltas a la vez: sin `pretty`
      quedaba «operativa» sola; con `balance` el corte cae en separador a 900 pero a 375
@@ -383,7 +383,12 @@ html.marco-a-la-vista #momentos{opacity:1}
    línea era un solo bloque inline de 399 px. En móvil desbordaba el marco y
    «Currículum» quedaba recortado por overflow-x:hidden. El gap reproduce
    exactamente los 14 px que daba el margen del separador. */
-.contacto-vias{margin-top:1.8em;font-family:var(--mono);font-size:13px;letter-spacing:.06em;
+/* MC v7.1 la sitúa tras la acreditación: es prosa, no etiqueta, así que va en voz de
+   lectura y con su medida. */
+.linea-profesional{margin-top:1.5em}
+/* Van en Hueso y no en Niebla por la misma razón que el enlace de entrada: son acciones,
+   y lo que orienta invitando tiene que encontrarse. */
+.contacto-vias{margin-top:1.8em;font-family:var(--mono);font-size:clamp(13px,0.09vw + 11.7px,14px);letter-spacing:.06em;
   display:flex;flex-wrap:wrap;align-items:baseline;gap:.55em 14px}
 /* el enlace comparte color exacto con el texto vecino, así que el subrayado es
    lo único que lo identifica: necesita 3:1. --hilo-tenue (.55) daba 2.96. */
@@ -536,11 +541,8 @@ html.intro-activo .hero .revela{opacity:1;transform:none;transition:none}
      pantalla (55 px a 812, 73 a 844, 136 a 932) porque el contenido crece más
      despacio que el viewport. Solo una separación proporcional a la altura cierra
      el acto en toda la banda. No queda un vacío: la estela lo atraviesa. */
-  .hero-nota{margin-top:clamp(24px,6vh,56px)}
   .marco{padding-left:calc(var(--carril) + 24px)}
   .costura{height:clamp(96px,18vh,150px)}
-  /* La disposición en bloque del h3 y de la condición era una excepción de este ancho y
-     ahora es la regla general (ver .momento-unidad h3): se retira de aquí. */
   .anclaje-mom{top:1.2em}
 }
 

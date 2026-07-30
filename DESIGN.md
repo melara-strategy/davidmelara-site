@@ -125,6 +125,22 @@ components:
 
 # Design System: David Melara — Presencia Ejecutiva
 
+## Estado · MC v7.1
+
+**La fuente autorizada del contenido y de la arquitectura editorial es `MC v7.1 — Manuscrito Canónico`.** Este documento describe el sistema visual; ante cualquier diferencia sobre estructura, jerarquía o texto, prevalece MC v7.1.
+
+Tras la adopción de MC v7.1 quedan **superadas** las siguientes partes de este documento, que se conservan solo como registro de las mediciones que las justificaron:
+
+- **Toda la rampa tipográfica de la sección Typography.** El sistema ya no es una rampa uniforme: son cuatro voces con política propia de peso, color y crecimiento — declarar, leer, afirmar y orientar. Los tokens vivos son `--voz-lectura`, `--voz-rotulo` y `--medida`, declarados en `styles.css`.
+- **`--medida` ya no se expresa en `ch` sino en `em`** (27.5em ≈ 60–64 caracteres reales, constantes de 1024 a 2560px). `ch` es el avance de la cifra cero y hacía que la medida cambiara sola al cambiar la letra.
+- **El componente «Axioma»**: en MC v7.1 el enunciado es el último párrafo de la Introducción, en nivel de cuerpo. Ya no es un bloque independiente.
+- **El paso «Realce» y `h2.afirmacion`**: MC v7.1 no tiene nivel de afirmación. Las aperturas de capítulo son cuerpo, salvo dos que son N4, párrafo en peso fuerte.
+- **El paso «Nota» y `.hero-nota`**: su texto abre la Introducción como párrafo de cuerpo.
+- **El remate de capítulo (`.destacado`)**: MC v7.1 no le asigna nivel.
+- **El encabezado de los cuatro momentos**: son N5, párrafo mixto con rótulo en peso fuerte y glosa en cursiva. No son encabezados; el documento tiene un `h1` y seis `h2`, y ningún `h3`.
+
+Sigue vigente todo lo demás: lienzo, retícula, carril, colores, lámparas, rampa longitudinal de la estela, umbral de marca, retratos, formas y separadores estructurales.
+
 ## Overview
 
 **Creative North Star: "La Forma del Argumento"**
