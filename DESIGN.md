@@ -232,7 +232,18 @@ La curva no es decorativa: entra caliente, se enfría al delimitar, vuelve a cal
 - **Realce** (wght 300, clamp(18px,1.75vw,22px), lh 1.5–1.55): prosa alzada sobre el cuerpo sin llegar a encabezado. Un solo usuario desde que el cierre dejó de citar situaciones: el subtítulo del hero, que dice de qué trata el modelo. El paso se conserva —no se colapsa contra Body— porque ese subtítulo es lo primero que se lee después del titular y necesita separarse de la prosa.
 - **Body** (wght 300, clamp(17px,1.35vw,19px), lh 1.72): texto de párrafo. Medida máxima de 66 caracteres (`--medida`). Interlineado generoso para lectura editorial larga.
 - **Nota** (wght 300, clamp(15px,1.2vw,16px), lh 1.6, color Niebla): el registro de pie. Un manuscrito necesita una voz por debajo del cuerpo para lo que acompaña al argumento sin formar parte de él. Dos usuarios: la nota de apertura del hero —la que dice que el fenómeno ya se ha vivido sin nombrarse— y el oficio bajo la firma. Serif y fluida como el resto de la rampa de lectura; la mono es para etiquetas, no para prosa breve. La nota del hero llegó a escribir su propio `clamp(14px,1.15vw,16px)`, idéntico en el tope y a 1px en el suelo: exactamente la deriva que esta rampa existe para impedir.
-- **Label** (IBM Plex Mono, ls 0.14–0.24em, uppercase): todo lo que organiza sin narrar. Cuatro escalones discretos, no un rango continuo — **10px** navegación de momentos, **11px** eyebrows de sección y pie, **12px** enlace de entrada al modelo y enlace de salto, **13px** vías de contacto.
+- **Label** (IBM Plex Mono, ls 0.14–0.24em): todo lo que organiza sin narrar. **Desde MC v7.1 son escalones con techo, no valores fijos.** Su función es orientar, no leerse, así que crecen **un solo píxel** entre un portátil y un monitor de 27": una etiqueta que crece deja de ser mobiliario y empieza a parecer encabezado. Pendiente común `0.09vw`, cuatro escalones con su suelo y su techo:
+
+  | escalón | usuarios | suelo → techo |
+  |---|---|---|
+  | navegación de momentos | `.momento` | 10 → **11px** |
+  | eyebrows de sección, pie y barra de estado | `.eyebrow`, `.barra-estado` (`--voz-rotulo`) | 11 → **12px** |
+  | enlace de entrada y acreditación | `.hero-enlace a`, `.firma-oficio` | 12 → **13px** |
+  | vías de contacto | `.contacto-vias` | 13 → **14px** |
+
+  La barra de estado (N0) se compone en minúscula, como figura en el manuscrito; el resto en versales. Los techos de 11, 12, 13 y 14px son parte de la rampa declarada: no son literales fuera de sistema.
+
+  **`.skip` queda fuera de la política de crecimiento**: 12px fijos. Es un control de accesibilidad oculto hasta recibir el foco, no mobiliario de la página, así que no gana nada al escalar con el viewport.
 
 ### Valores fuera de la rampa
 
