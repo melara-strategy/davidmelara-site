@@ -28,41 +28,53 @@ Cambiar un término, añadir uno o alterar su grafía **exige una versión numer
 
 ## 2 · Las tres clases
 
-| Clase | Qué contiene | Dónde se declara | Dónde **nunca** aparece |
-|---|---|---|---|
-| **A** | Territorio profesional del autor | Identidad · `hasOccupation` · `Person.knowsAbout` | `about` · `DefinedTermSet` |
-| **B** | Conceptos propios de la obra | `CreativeWork.about` · `DefinedTermSet` | `knowsAbout` · `mentions` |
-| **C** | Conceptos del dominio usados como soporte argumental | `CreativeWork.mentions` | `knowsAbout` · `about` · `DefinedTermSet` |
+| Clase | Qué afirma | Sujeto | Dónde se declara | Dónde **nunca** aparece |
+|---|---|---|---|---|
+| **A** | el autor conoce este tema | la persona | Identidad · `hasOccupation` · `Person.knowsAbout` | `about` · `DefinedTermSet` |
+| **B** | la obra establece este concepto | la obra | `CreativeWork.about` · `DefinedTermSet` | `knowsAbout` · `mentions` |
+| **C** | la obra cita este concepto | la obra | `CreativeWork.mentions` | `about` · `DefinedTermSet` |
 
-**La razón de la clase C no es taxonómica, es de cumplimiento.** El manuscrito cita CRM, *marketing automation*, *Product Marketing*, *Service Design* y el PRD. Si esos conceptos entraran en `knowsAbout` dejarían de ser exposición y se convertirían en reclamo de competencia, que el expediente prohíbe sin respaldo documental. `mentions` es el único contenedor tipado que dice «la obra se refiere a esto» sin afirmar ni propiedad ni competencia.
+**Las clases se distinguen por sujeto, no por reparto de términos.** A afirma algo sobre la persona; B y C afirman cosas distintas sobre la obra. Por eso A y C pueden compartir un término sin contradicción: que la obra cite *customer journey* y que el autor lo conozca son dos hechos, no uno repetido.
 
-**Regla de exclusividad.** Un concepto aparece en **una sola** propiedad por tipo de nodo. `Go-to-Market` y `Customer Experience` pertenecen a la clase A: se declaran en `knowsAbout` y no se repiten en `mentions`.
+**Lo que `mentions` protege.** Sigue siendo el contenedor que permite a la obra referirse a un concepto sin que eso implique nada sobre el autor. Lo que cambió es el supuesto de que la pertenencia a C excluyera la pertenencia a A: no la excluye, porque son afirmaciones sobre sujetos distintos.
+
+**Regla de separación.** Que la obra cite un concepto y que el autor lo conozca son **dos afirmaciones distintas sobre sujetos distintos**, y ambas pueden ser ciertas: un mismo concepto puede figurar en `Person.knowsAbout` (clase A) y en `CreativeWork.mentions` (clase C). No es duplicación.
+
+Lo que nunca puede ocurrir es lo contrario: **un concepto de clase B en `knowsAbout`** —el autor no «sabe sobre» su propio modelo, es su autor— y **una función ejercida declarada como tema**. Ese segundo caso era el defecto real: «coordinación entre las áreas comerciales y las de producción», «diseño de flujos de trabajo entre áreas» y «protocolos de comunicación con el cliente» no son temas, son funciones, y por eso producían la inferencia de rol operativo. La identidad no se diluye por cardinalidad: se diluye por error de categoría.
 
 ---
 
 ## 3 · Clase A · Territorio profesional del autor
 
-Describe **desde dónde habla** el autor. No describe la materia de la obra ni todos los dominios que conoce. **No describe funciones operativas.**
+Dos cosas distintas que conviven sin mezclarse.
 
-| Concepto | Grafía canónica única |
+**La identidad** describe desde dónde habla. Cadena de tres disciplinas, y **no cambia**:
+
+> Marketing estratégico · Ventas consultivas · Estrategia comercial
+
+Queda definitivamente descartada `Marketing estratégico · Ventas consultivas · Gestión comercial y operativa`, que no debe reaparecer de forma directa ni indirecta en ninguna capa.
+
+**El territorio** describe sobre qué temas debe encontrarse al autor. No enumera todo lo que sabe: representa **el espacio profesional donde desea ser encontrado**, construido según cómo buscan reclutadores, direcciones generales y sistemas de IA a perfiles equivalentes — gerencia y dirección comercial, gerencia de marketing, *Head of Sales*, *Commercial Excellence*, *Business Development*, *Product Marketing Manager*, *Country Manager* en su componente comercial.
+
+Vive en `Person.knowsAbout`, que no es un campo de identidad: el vocabulario lo define como *un tema del que se sabe, que sugiere posible pericia sin afirmarla*. Su extensión no diluye una identidad que se afirma en `hasOccupation`, `description`, `name` y la firma visible.
+
+| Grupo | Términos, en español e inglés |
 |---|---|
-| 1 | `Marketing estratégico` |
-| 2 | `Ventas consultivas` |
-| 3 | `Estrategia comercial` |
-| 4 | `Go-to-Market` |
-| 5 | `Customer Experience` |
-| 6 | `Venta técnica` |
-| 7 | `Gestión de cuentas clave` |
-| 8 | `Investigación de mercados` |
-| 9 | `Formación de fuerza de ventas` |
-| 10 | `Industria farmacéutica` |
-| 11 | `Laboratorios dentales` |
+| **Estrategia** | `Marketing estratégico` / `Strategic Marketing` · `Estrategia comercial` / `Commercial Strategy` · `Go-to-Market` / `GTM` · `Posicionamiento` / `Positioning` · `Propuesta de valor` / `Value Proposition` · `Desarrollo de mercado` / `Market Development` · `Inteligencia de mercado` / `Market Intelligence` · `Investigación de mercados` / `Market Research` · `Segmentación` / `Market Segmentation` · `Planeación comercial` / `Commercial Planning` |
+| **Ventas** | `Venta consultiva` / `Consultative Selling` · `Gestión de cuentas clave` / `Key Account Management` · `Desarrollo de negocios` / `Business Development` · `Gestión de canales` / `Channel Management` · `Negociación` / `Commercial Negotiation` · `Dirección de ventas` / `Sales Leadership` · `Excelencia comercial` / `Commercial Excellence` · `Sales Enablement` · `Venta técnica` / `Technical Sales` · `Venta de soluciones complejas` / `Complex Sales` |
+| **Cliente** | `Customer Experience` / `Experiencia del cliente` · `Customer Journey` / `Recorrido del cliente` · `CRM` / `Gestión de relaciones con clientes` · `Fidelización` / `Customer Loyalty` · `Voice of Customer` |
+| **Marketing** | `Product Marketing` · `Marketing Automation` / `Automatización de marketing` · `Demand Generation` · `Service Design` / `Diseño de servicios` · `Lanzamiento de productos` / `Product Launch` |
+| **Liderazgo** | `Liderazgo comercial` · `Desarrollo de equipos comerciales` · `Formación de fuerza de ventas` · `Gestión del desempeño comercial` · `Gestión del cambio` · `Planificación estratégica` |
+| **Contexto de mercado** | `Mercados especializados` · `Decisiones de compra complejas` · `Ciclos comerciales largos` · `Relaciones comerciales de largo plazo` · `Organizaciones complejas` · `Comunicación de valor` |
+| **Contexto sectorial** | `Industria farmacéutica` · `Laboratorios dentales` · `Organizaciones industriales` |
 
-Los tres primeros forman la identidad profesional y se escriben siempre en ese orden, separados por punto medio U+00B7 con espacio normal a ambos lados.
+**El sector no es el eje.** El contexto se describe por **tipo de mercado** —especializado, decisión compleja, varios actores, ciclo largo, credibilidad sostenida, conocimiento técnico como condición de entrada—. Las industrias concretas permanecen únicamente como evidencia de trayectoria y contexto de observación.
 
-**Términos retirados y por qué.** `Gestión comercial y operativa`, `Coordinación entre las áreas comerciales y las de producción`, `Diseño de flujos de trabajo entre áreas` y `Protocolos de comunicación con el cliente` afirmaban competencia operativa que la obra no sostiene. `Dirección comercial`, `Desarrollo comercial` y `Venta de soluciones complejas` eran redundantes con 1–3. `Technical Sales`, `Commercial Management`, `Complex Sales`, `Key Account Management`, `Experiencia del cliente`, `Value Proposition`, `Posicionamiento`, `Propuesta de valor` y `Go-to-market` eran duplicados en dos idiomas o variantes de grafía. `Visita médica`, `Comunicación científica`, `Odontología` y `Educación superior` eran granularidad de contexto, no conocimiento.
+**Por qué bilingüe.** Un par español-inglés no es un duplicado ortográfico: son **dos superficies de consulta** que escriben usuarios distintos. Sí se excluyen las variantes de grafía dentro de un mismo idioma: `Go-to-market` frente a `Go-to-Market`.
 
----
+**Lo único que permanece fuera.** Toda expresión que describa función ejercida en Operaciones, gestión operativa, producción, logística, *supply chain*, coordinación entre áreas, diseño de flujos operativos o protocolos operativos. En concreto, las tres que producían la inferencia de rol operativo: coordinación entre áreas comerciales y de producción, diseño de flujos de trabajo entre áreas, protocolos de comunicación con el cliente. **La obra puede hablar de operación; la identidad no.**
+
+**No incorporados por falta de sustento.** `Dispositivos médicos` y `salud` no figuran: ni el manuscrito ni el currículum los sostienen. Un territorio solo puede contener lo que la obra o el expediente pueden respaldar.
 
 ## 4 · Clase B · Conceptos propios de la obra
 
@@ -142,10 +154,10 @@ La identidad describe **desde dónde habla** el autor; la práctica describe **s
 |---|---|---|
 | `CreativeWork.about` | los siete términos de la obra | **B** |
 | `DefinedTermSet` | los mismos siete, con definición literal del manuscrito | **B** |
-| `Person.knowsAbout` | los once del territorio | **A** |
+| `Person.knowsAbout` | el territorio completo, bilingüe | **A** |
 | `CreativeWork.mentions` · `WebPage.mentions` | los diez del dominio | **C** |
 | `hasOccupation.name` | la cadena de identidad | **A** (1–3) |
-| `llms.txt` § Conceptos principales | índice conceptual: B, luego A, luego C rotulada como citada | **B · A · C** |
+| `llms.txt` § Conceptos principales | índice conceptual: B con definición, A **en prosa junto al nombre y la geografía**, C rotulada como citada | **B · A · C** |
 | Metadatos | `title` y las tres `description` idénticas, derivadas del subtítulo de MC §3 | — |
 | `keywords` | **no se implementa** | — |
 

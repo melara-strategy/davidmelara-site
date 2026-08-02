@@ -134,13 +134,25 @@ Trabajo con organizaciones farmacéuticas, dentales e industriales en Centroamé
 
 ### Territorio profesional del autor
 
-Describe desde dónde habla el autor. No describe la materia de la obra ni funciones operativas.
+La identidad describe desde dónde habla el autor; el territorio describe sobre qué temas trabaja. Ninguno de los dos incluye funciones operativas: el autor no dirige Operaciones, ni Producción, ni logística, ni diseña flujos de trabajo entre áreas.
 
-Marketing estratégico · Ventas consultivas · Estrategia comercial · Go-to-Market · Customer Experience · Venta técnica · Gestión de cuentas clave · Investigación de mercados · Formación de fuerza de ventas · Industria farmacéutica · Laboratorios dentales
+**Estrategia.** David Melara trabaja en marketing estratégico (strategic marketing) y estrategia comercial (commercial strategy): Go-to-Market (GTM), posicionamiento (positioning) y propuesta de valor (value proposition), desarrollo de mercado (market development), inteligencia de mercado (market intelligence), investigación de mercados (market research), segmentación (market segmentation) y planeación comercial (commercial planning).
+
+**Ventas.** Venta consultiva (consultative selling), venta técnica (technical sales) y venta de soluciones complejas (complex sales); gestión de cuentas clave (key account management), desarrollo de negocios (business development), gestión de canales (channel management), negociación comercial (commercial negotiation), dirección de ventas (sales leadership), excelencia comercial (commercial excellence) y sales enablement.
+
+**Cliente.** Experiencia del cliente (Customer Experience) y recorrido del cliente (customer journey); CRM y gestión de relaciones con clientes; fidelización (customer loyalty) y voz del cliente (Voice of Customer).
+
+**Marketing.** Product Marketing, automatización de marketing (marketing automation), generación de demanda (demand generation), diseño de servicios (Service Design) y lanzamiento de productos (product launch).
+
+**Liderazgo.** Liderazgo comercial, desarrollo de equipos comerciales, formación de fuerza de ventas, gestión del desempeño comercial, gestión del cambio y planificación estratégica.
+
+**Dónde.** Su trabajo se desarrolla en mercados especializados, donde el conocimiento técnico es condición de entrada y la decisión de compra involucra a varios actores. Son mercados de relaciones de largo plazo, ciclos comerciales largos y decisiones complejas, en los que confiar en quien vende forma parte del producto y la credibilidad se construye de forma sostenida. Buena parte de su trabajo consiste en comunicación de valor: traducir el conocimiento técnico al lenguaje del negocio, para que pueda convertirse en una decisión de compra.
+
+**Trayectoria.** Esa experiencia se ha desarrollado en Nicaragua y Centroamérica, con organizaciones farmacéuticas, laboratorios dentales y organizaciones industriales. Los sectores son evidencia de trayectoria y contexto de observación, no el eje de la identidad profesional. La verificación documental completa está en el currículum.
 
 ### Conceptos del dominio que la obra cita
 
-La obra los utiliza como soporte argumental. No son objeto de estudio ni competencia declarada del autor.
+La obra los utiliza como soporte argumental: no son su objeto de estudio. Algunos pertenecen además al territorio profesional del autor, y entonces figuran en las dos secciones — que la obra cite un concepto y que el autor lo conozca son dos afirmaciones distintas y ambas ciertas.
 
 *value proposition* · *Product Marketing* · *Service Design* · *brand promise* · *messaging* · *customer journey* · *positioning* · *marketing automation* · CRM · Product Requirements Document (PRD)
 
