@@ -82,7 +82,7 @@ del modelo vive ahora en `llms.txt` y la acreditación del autor, en la firma de
 
 ---
 
-**Identidad profesional — una sola cadena, literal:** «Marketing estratégico · Ventas consultivas · Gestión comercial y operativa». Aparece en la firma
+**Identidad profesional — una sola cadena, literal:** «Marketing estratégico · Ventas consultivas · Estrategia comercial». Aparece en la firma
 del cierre, en `jobTitle` y `hasOccupation` del JSON-LD, en `llms.txt` y en la imagen social.
 El pie no la repite: lleva nombre y ámbito. Si cambia, cambia en los cinco sitios a la vez.
 

@@ -114,13 +114,39 @@ El resultado no es menos trabajo humano, sino mejor trabajo humano. Mientras una
 
 Si al leer estas páginas reconoció algo que ya había visto en su organización y todavía no sabía nombrar, conversemos.
 
-David Melara — Marketing estratégico · Ventas consultivas · Gestión comercial y operativa.
+David Melara — Marketing estratégico · Ventas consultivas · Estrategia comercial
 
-Trabajo con organizaciones farmacéuticas, dentales e industriales en Centroamérica: estrategia comercial, *Go-to-Market* y *customer experience*.
+Trabajo con organizaciones farmacéuticas, dentales e industriales en Centroamérica: *Go-to-Market*, *Customer Experience* y continuidad entre la promesa comercial y su ejecución.
+
+## Conceptos principales
+
+Índice conceptual de la obra. Deriva de `VOCABULARIO.md`, que es la fuente única de conceptos del proyecto. No es una lista de palabras clave: cada término se clasifica por su relación con la obra.
+
+### Conceptos propios de la obra
+
+- **La continuidad de una promesa** — la obra. El artículo indeterminado es deliberado: el título nombra un fenómeno antes de que exista ninguna promesa en el texto.
+- **La continuidad de la promesa** *(Promise Continuity)* — el concepto. Este modelo propone observar la organización desde la continuidad de la promesa hecha al mercado. El cliente la recibe como una sola continuidad; la empresa la ejecuta mediante múltiples decisiones.
+- **Los cuatro momentos de una promesa** — el marco. El *positioning* define qué se promete; este marco observa qué ocurre con esa promesa después.
+- **Nace** — la fecha se da contra un estándar, no contra la carga real.
+- **Se acuerda** — un acuerdo solo existe cuando puede verificarse.
+- **Se cumple** — la continuidad de una promesa depende de mucho más que ejecutar una tarea.
+- **Se recuerda** — la memoria de una organización no es la suma de las memorias de quienes la componen.
+
+### Territorio profesional del autor
+
+Describe desde dónde habla el autor. No describe la materia de la obra ni funciones operativas.
+
+Marketing estratégico · Ventas consultivas · Estrategia comercial · Go-to-Market · Customer Experience · Venta técnica · Gestión de cuentas clave · Investigación de mercados · Formación de fuerza de ventas · Industria farmacéutica · Laboratorios dentales
+
+### Conceptos del dominio que la obra cita
+
+La obra los utiliza como soporte argumental. No son objeto de estudio ni competencia declarada del autor.
+
+*value proposition* · *Product Marketing* · *Service Design* · *brand promise* · *messaging* · *customer journey* · *positioning* · *marketing automation* · CRM · Product Requirements Document (PRD)
 
 ## El autor
 
-David Melara — Marketing estratégico · Ventas consultivas · Gestión comercial y operativa. Nicaragua y Centroamérica. Idioma: español.
+David Melara — Marketing estratégico · Ventas consultivas · Estrategia comercial. Nicaragua y Centroamérica. Idioma: español.
 
 Los hechos que siguen no son el argumento: son la comprobación de que quien formula el modelo lo ha observado desde dentro. La trayectoria completa —fechas, instituciones, cargos— está en el currículum.
 
@@ -135,10 +161,6 @@ Los hechos que siguen no son el argumento: son la comprobación de que quien for
 Es una proposición sobre la continuidad de la promesa en cualquier organización que coordine múltiples funciones: qué la debilita, en qué cuatro momentos se decide y qué hace falta para que forme parte del diseño en lugar de depender de personas. Su alcance es el diseño del trabajo y su consecuencia en el mercado.
 
 La industria farmacéutica de línea ética y los sistemas dentales CAD/CAM, en Nicaragua y Centroamérica, son el contexto donde el modelo se observó: su terreno de prueba, no su definición ni su límite.
-
-## International keywords
-
-Synonyms for discovery (not a second narrative): Promise Continuity · Organizational Continuity · Promise Design · Division of Labour · Marketing and Operations Alignment · Customer Experience · Technical Sales · Commercial Management · Complex Sales · Trust-based Markets · AI for Process Continuity.
 
 ## Recursos oficiales
 
