@@ -132,9 +132,9 @@ Y la línea de práctica, que es **prosa y no declaración de término**:
 
 La identidad describe **desde dónde habla** el autor; la práctica describe **sobre qué trabaja**. Son dos registros distintos y no se mezclan. La obra puede seguir hablando de operación cuando corresponda: lo que no puede es que la representación del autor sugiera que ejerce funciones operativas.
 
-**Superficies donde vive la identidad, y que cambian todas a la vez:** la firma del cierre en `index.html`, `hasOccupation.name` en el JSON-LD de `index.html` y de `cv.html`, `llms.txt`, y la imagen social `assets/og-image.jpg`.
+**Superficies donde vive la identidad, y que cambian todas a la vez:** la firma del cierre en `index.html`, `hasOccupation.name` en el JSON-LD de `index.html` y de `cv.html`, `llms.txt`, y la imagen social `assets/og-image-v2.jpg`.
 
-**Pendiente visual, no inconsistencia de arquitectura.** `assets/og-image.jpg` conserva impresa la identidad anterior. Es un activo binario y su regeneración es trabajo de diseño, no de la capa semántica: las cinco superficies de texto están sincronizadas. Queda registrado aquí para que se regenere en el próximo ciclo de assets de marca.
+**Cerrado.** La imagen social se regeneró con la identidad definitiva y se publicó bajo nombre nuevo, `assets/og-image-v2.jpg`, para invalidar el caché de los rascadores sociales. El archivo anterior se retiró del repositorio y su ruta redirige (301) a la nueva. Ninguna superficie pública, de texto o visual, representa ya la identidad retirada.
 
 ---
 

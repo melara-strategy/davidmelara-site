@@ -12,3 +12,6 @@
 # Manuscrito canónico y vocabulario: se versionan en el repo, nunca se sirven.
 /MC-continuidad-de-una-promesa-v7-2-canonico.md  /index.html  404
 /VOCABULARIO.md             /index.html   404
+
+# Imagen social: la ruta anterior redirige a la vigente para invalidar el cache social
+/assets/og-image.jpg          /assets/og-image-v2.jpg   301
