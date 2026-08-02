@@ -83,7 +83,9 @@ del modelo vive ahora en `llms.txt` y la acreditación del autor, en la firma de
 ---
 
 **Identidad profesional — una sola cadena, literal:** «Marketing estratégico · Ventas consultivas · Estrategia comercial». Aparece en la firma
-del cierre, en `jobTitle` y `hasOccupation` del JSON-LD, en `llms.txt` y en la imagen social.
+del cierre, en `hasOccupation` del JSON-LD de `index.html` y de `cv.html`, en `llms.txt` y en la
+imagen social. `jobTitle` se retiró: Schema.org espera ahí un título de puesto y el proyecto
+declara disciplinas.
 El pie no la repite: lleva nombre y ámbito. Si cambia, cambia en los cinco sitios a la vez.
 
 **Observación editorial registrada, no bloqueante (2026-07-29).** El tercer momento —«se cumple»—

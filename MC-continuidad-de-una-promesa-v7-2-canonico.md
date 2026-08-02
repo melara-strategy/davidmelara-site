@@ -236,7 +236,7 @@ David Melara · Centroamérica
 
 ### 4.7 Tratamiento de extranjerismos
 
-- Extranjerismos crudos en cursiva: *value proposition*, *Product Marketing*, *Customer Experience*, *Service Design*, *Go-to-Market*, *brand promise*, *messaging*, *customer journey*, *positioning*, *marketing automation*, *customer experience*.
+- Extranjerismos crudos en cursiva: *value proposition*, *Product Marketing*, *Customer Experience*, *Service Design*, *Go-to-Market*, *brand promise*, *messaging*, *customer journey*, *positioning*, *marketing automation*.
 - Siglas en redonda: PRD, CRM.
 - «Product Requirements Document (PRD)» se compone en redonda, con la sigla entre paréntesis, y aparece una sola vez en todo el documento.
 
@@ -267,6 +267,8 @@ El manuscrito deja de ser objeto de revisión literaria y pasa a ser objeto de i
 ## 7. Historial de versiones
 
 **v7.2** — Sustituye a v7.1. Cambia **exclusivamente la representación del autor** en la sección 5 · Conversación: la identidad profesional pasa de «Gestión comercial y operativa» a «Estrategia comercial», y la línea de práctica se reformula. Motivo: «Gestión comercial y operativa» podía interpretarse como responsabilidad sobre Operaciones, y la obra no sostiene eso — la tesis afirma que el profesional comercial no puede desentenderse de la continuidad de la promesa, no que desempeñe funciones operativas. La identidad describe desde dónde habla el autor, no toda la materia que la obra trata.
+
+Corrección de especificación aplicada antes de publicar: §4.7 listaba además una variante en minúscula de Customer Experience, grafía que la reformulación de §5 dejó sin uso en §3. Se retira de la lista para que la especificación no autorice una forma que el texto no emplea; la grafía capitalizada en cursiva se conserva y es la única autorizada. No abre versión nueva porque v7.2 no había sido publicada.
 
 Tesis, estructura, argumentación y desarrollo intelectual quedan intactos. La obra sigue hablando de operación donde corresponde. El vocabulario conceptual del proyecto está en `VOCABULARIO.md`, que deriva de este documento.
 

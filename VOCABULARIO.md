@@ -1,7 +1,7 @@
 # VOCABULARIO CANÓNICO
 
 **Proyecto:** davidmelara.com · La continuidad de una promesa
-**Versión:** 1.0
+**Versión:** 1.2
 **Deriva de:** `MC v7.2 — Manuscrito Canónico`
 **Estado:** vigente
 
@@ -134,6 +134,8 @@ La identidad describe **desde dónde habla** el autor; la práctica describe **s
 
 **Superficies donde vive la identidad, y que cambian todas a la vez:** la firma del cierre en `index.html`, `hasOccupation.name` en el JSON-LD de `index.html` y de `cv.html`, `llms.txt`, y la imagen social `assets/og-image.jpg`.
 
+**Pendiente visual, no inconsistencia de arquitectura.** `assets/og-image.jpg` conserva impresa la identidad anterior. Es un activo binario y su regeneración es trabajo de diseño, no de la capa semántica: las cinco superficies de texto están sincronizadas. Queda registrado aquí para que se regenere en el próximo ciclo de assets de marca.
+
 ---
 
 ## 7 · Política para publicaciones futuras
@@ -164,3 +166,13 @@ La identidad describe **desde dónde habla** el autor; la práctica describe **s
 **Por qué no se implementa `keywords`.** No por inferioridad semántica —su rango admite `DefinedTerm`— sino porque `about`, `mentions` y el `DefinedTermSet` ya cargan el vocabulario, y añadirla crearía una cuarta superficie sin ningún consumidor identificado. Bajo la condición de consistencia, una superficie no sincronizada es un pasivo.
 
 **Condición de reversión:** si aparece un consumidor concreto que lee `keywords` y no lee `about`, se añade apuntando a los mismos nodos `DefinedTerm`, nunca como texto. Un vocabulario, dos vías de acceso.
+
+---
+
+## 9 · Historial de versiones
+
+**1.2** — Reconstrucción de la clase A como territorio profesional para descubrimiento: siete grupos, pares bilingües, contexto de mercado en lugar de sector como eje. `Person.knowsAbout` pasa a 71 términos. Se sustituye la regla de exclusividad por la **regla de separación**: un concepto puede figurar a la vez en clase A y en clase C, porque son afirmaciones sobre sujetos distintos. Identidad, clase B, clase C, `about`, `mentions` y el `DefinedTermSet` sin cambios.
+
+**1.1** — Primera ampliación del territorio y restitución de los pares bilingües, tras verificar que la identidad no se diluye por cardinalidad sino por error de categoría.
+
+**1.0** — Establecimiento del vocabulario: tres clases, identidad, clase B con definiciones literales del manuscrito, clase C, y la decisión de no implementar `keywords`.
