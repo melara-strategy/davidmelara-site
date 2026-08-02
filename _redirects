@@ -8,3 +8,7 @@
 
 # No versionado (excluido en .gitignore). La regla es una salvaguarda por si se comiteara.
 /ESTADO_CANONICO_PROYECTO_V1.md  /index.html  404
+
+# Manuscrito canónico y vocabulario: se versionan en el repo, nunca se sirven.
+/MC-continuidad-de-una-promesa-v7-2-canonico.md  /index.html  404
+/VOCABULARIO.md             /index.html   404
